@@ -55,6 +55,8 @@
 		1877B9681A5D04F8000A7131 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9641A5D04F8000A7131 /* image2.png */; };
 		1877B9691A5D04F8000A7131 /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9651A5D04F8000A7131 /* image3.png */; };
 		1877B96C1A5D1E63000A7131 /* widget.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877B96B1A5D1E63000A7131 /* widget.m */; };
+		18847BA01A81BBDA0051BE0E /* aps_development-4.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18847B9E1A81BBDA0051BE0E /* aps_development-4.cer */; };
+		18847BA11A81BBDA0051BE0E /* aps_production-5.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18847B9F1A81BBDA0051BE0E /* aps_production-5.cer */; };
 		18A5CAC11A5BC389008ED792 /* SubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A5CAC01A5BC389008ED792 /* SubView.m */; };
 		18A5CACB1A5BC4CE008ED792 /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A5CAC91A5BC4CE008ED792 /* UIView+Ext.m */; };
 		18A5CAD11A5BC9AD008ED792 /* FileOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A5CAD01A5BC9AD008ED792 /* FileOwner.m */; };
@@ -156,6 +158,8 @@
 		1877B9651A5D04F8000A7131 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
 		1877B96A1A5D1E63000A7131 /* widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widget.h; sourceTree = "<group>"; };
 		1877B96B1A5D1E63000A7131 /* widget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = widget.m; sourceTree = "<group>"; };
+		18847B9E1A81BBDA0051BE0E /* aps_development-4.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "aps_development-4.cer"; sourceTree = "<group>"; };
+		18847B9F1A81BBDA0051BE0E /* aps_production-5.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "aps_production-5.cer"; sourceTree = "<group>"; };
 		18A5CABF1A5BC389008ED792 /* SubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubView.h; sourceTree = "<group>"; };
 		18A5CAC01A5BC389008ED792 /* SubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubView.m; sourceTree = "<group>"; };
 		18A5CAC81A5BC4CE008ED792 /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ext.h"; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 		1871C35D1A0F498C00A9C265 /* 航贸网 */ = {
 			isa = PBXGroup;
 			children = (
+				18847B9D1A81BBDA0051BE0E /* APNs */,
 				1877B96E1A5E2313000A7131 /* Main */,
 				182CFC0D1A75D7F500999282 /* resource */,
 				1871C35E1A0F498C00A9C265 /* Supporting Files */,
@@ -434,6 +439,15 @@
 			name = Main;
 			path = ..;
 			sourceTree = "<group>";
+		};
+		18847B9D1A81BBDA0051BE0E /* APNs */ = {
+			isa = PBXGroup;
+			children = (
+				18847B9E1A81BBDA0051BE0E /* aps_development-4.cer */,
+				18847B9F1A81BBDA0051BE0E /* aps_production-5.cer */,
+			);
+			path = APNs;
+			sourceTree = SOURCE_ROOT;
 		};
 		18A5CAC21A5BC38D008ED792 /* Subview */ = {
 			isa = PBXGroup;
@@ -615,10 +629,12 @@
 				1877B95E1A5D04E6000A7131 /* AdDataPlist.plist in Resources */,
 				182CFC241A78764400999282 /* 设置.png in Resources */,
 				18A5F22D1A132A9900004A76 /* 航贸网logo58x58.png in Resources */,
+				18847BA11A81BBDA0051BE0E /* aps_production-5.cer in Resources */,
 				1869CFFB1A7B297A00766F67 /* 查询.png in Resources */,
 				1871C3901A10476900A9C265 /* 航贸网登录密码1.png in Resources */,
 				1871C3951A10480F00A9C265 /* 航贸网登录用户名(1).png in Resources */,
 				1876AD971A7084A70011750F /* whiteArrow@2x.png in Resources */,
+				18847BA01A81BBDA0051BE0E /* aps_development-4.cer in Resources */,
 				18BAE8CF1A72384100D9EF66 /* MessageCell.xib in Resources */,
 				18A5F2331A132A9900004A76 /* 航贸网logo180x180.png in Resources */,
 				1876AD931A7084A70011750F /* blueArrow@2x.png in Resources */,
