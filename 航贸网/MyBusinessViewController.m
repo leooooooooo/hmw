@@ -1,0 +1,66 @@
+//
+//  MyBusinessViewController.m
+//  iLygport
+//
+//  Created by leo on 15/1/22.
+//  Copyright (c) 2015年 leo. All rights reserved.
+//
+
+#import "MyBusinessViewController.h"
+#import "header.h"
+
+@interface MyBusinessViewController ()
+@end
+
+@implementation MyBusinessViewController
+
+- (void)viewDidLoad {
+    [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    self.navigationController.navigationBar.titleTextAttributes=dict;
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];//隐藏
+    status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
+    info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
+    userid = [info objectForKey:(id)kSecAttrAccount];
+    
+    }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    //NSString *autologin = [status objectForKey:(id)kSecValueData];
+    if([userid isEqualToString:@""])
+    {
+        //[self performSegueWithIdentifier:@"relogin" sender:self];
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+- (IBAction)returnlogin:(id)sender {
+    [status setObject:@"0" forKey:(id)kSecValueData];
+    [info setObject:@"" forKey:(id)kSecAttrAccount];
+
+    //[self performSegueWithIdentifier:@"relogin" sender:self];
+}
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+- (void)dealloc {
+    [info setObject:@"" forKey:(id)kSecAttrAccount];
+    [super dealloc];
+}
+@end

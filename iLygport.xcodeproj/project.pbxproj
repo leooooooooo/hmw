@@ -1,0 +1,869 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		182CFC1C1A7735B600999282 /* DeviceSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CFC1B1A7735B600999282 /* DeviceSender.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		182CFC231A78764400999282 /* 启动页1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC1D1A78764400999282 /* 启动页1.jpg */; };
+		182CFC241A78764400999282 /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC1E1A78764400999282 /* 设置.png */; };
+		182CFC251A78764400999282 /* 首页.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC1F1A78764400999282 /* 首页.png */; };
+		182CFC261A78764400999282 /* 消息.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC201A78764400999282 /* 消息.png */; };
+		182CFC271A78764400999282 /* 启动页2.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC211A78764400999282 /* 启动页2.png */; };
+		182CFC2B1A787B7200999282 /* DeviceBindingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CFC2A1A787B7200999282 /* DeviceBindingTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		186982611A134DE40095FAD4 /* 航贸网登录新x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 186982601A134DE40095FAD4 /* 航贸网登录新x.jpg */; };
+		1869CFF71A7A1B3F00766F67 /* updateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1869CFF61A7A1B3F00766F67 /* updateViewController.m */; };
+		1869CFF91A7B1A0400766F67 /* 启动页3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1869CFF81A7B1A0400766F67 /* 启动页3.png */; };
+		1869CFFB1A7B297A00766F67 /* 查询.png in Resources */ = {isa = PBXBuildFile; fileRef = 1869CFFA1A7B297A00766F67 /* 查询.png */; };
+		1871C3611A0F498C00A9C265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1871C3601A0F498C00A9C265 /* main.m */; };
+		1871C3641A0F498C00A9C265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1871C3631A0F498C00A9C265 /* AppDelegate.m */; };
+		1871C3671A0F498C00A9C265 /* ___.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1871C3651A0F498C00A9C265 /* ___.xcdatamodeld */; };
+		1871C36D1A0F498C00A9C265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1871C36B1A0F498C00A9C265 /* Main.storyboard */; };
+		1871C36F1A0F498C00A9C265 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1871C36E1A0F498C00A9C265 /* Images.xcassets */; };
+		1871C3721A0F498C00A9C265 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1871C3701A0F498C00A9C265 /* LaunchScreen.xib */; };
+		1871C3881A0F63A200A9C265 /* 航贸网登录背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1871C3871A0F63A200A9C265 /* 航贸网登录背景.jpg */; };
+		1871C38D1A10476900A9C265 /* 航贸网登录密码.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C3891A10476900A9C265 /* 航贸网登录密码.png */; };
+		1871C38E1A10476900A9C265 /* 航贸网登录用户名.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C38A1A10476900A9C265 /* 航贸网登录用户名.png */; };
+		1871C38F1A10476900A9C265 /* 航贸网登录用户名1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C38B1A10476900A9C265 /* 航贸网登录用户名1.png */; };
+		1871C3901A10476900A9C265 /* 航贸网登录密码1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C38C1A10476900A9C265 /* 航贸网登录密码1.png */; };
+		1871C3941A10480F00A9C265 /* 航贸网登录密码(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C3921A10480F00A9C265 /* 航贸网登录密码(1).png */; };
+		1871C3951A10480F00A9C265 /* 航贸网登录用户名(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C3931A10480F00A9C265 /* 航贸网登录用户名(1).png */; };
+		1871C3971A104AF900A9C265 /* 记住密码.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C3961A104AF900A9C265 /* 记住密码.png */; };
+		1871C3991A104AFF00A9C265 /* 航贸网登录.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C3981A104AFF00A9C265 /* 航贸网登录.png */; };
+		1871C39B1A104DF600A9C265 /* 航贸网登录1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C39A1A104DF600A9C265 /* 航贸网登录1.png */; };
+		1871C39D1A1053D400A9C265 /* 航贸网登录x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871C39C1A1053D400A9C265 /* 航贸网登录x.png */; };
+		1876AD901A7084A70011750F /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD861A7084A70011750F /* blackArrow.png */; };
+		1876AD911A7084A70011750F /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD871A7084A70011750F /* blackArrow@2x.png */; };
+		1876AD921A7084A70011750F /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD881A7084A70011750F /* blueArrow.png */; };
+		1876AD931A7084A70011750F /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD891A7084A70011750F /* blueArrow@2x.png */; };
+		1876AD941A7084A70011750F /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD8A1A7084A70011750F /* grayArrow.png */; };
+		1876AD951A7084A70011750F /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD8B1A7084A70011750F /* grayArrow@2x.png */; };
+		1876AD961A7084A70011750F /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD8C1A7084A70011750F /* whiteArrow.png */; };
+		1876AD971A7084A70011750F /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1876AD8D1A7084A70011750F /* whiteArrow@2x.png */; };
+		1876AD981A7084A70011750F /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1876AD8F1A7084A70011750F /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1876AD9C1A70B0630011750F /* MyBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1876AD9B1A70B0630011750F /* MyBusinessViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1877B9511A5CF7E3000A7131 /* NavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877B94F1A5CF7E3000A7131 /* NavBar.m */; };
+		1877B9521A5CF7E3000A7131 /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9501A5CF7E3000A7131 /* NavBar.xib */; };
+		1877B95E1A5D04E6000A7131 /* AdDataPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9591A5D04E6000A7131 /* AdDataPlist.plist */; };
+		1877B95F1A5D04E6000A7131 /* AdDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877B95B1A5D04E6000A7131 /* AdDataModel.m */; };
+		1877B9601A5D04E6000A7131 /* AdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877B95D1A5D04E6000A7131 /* AdScrollView.m */; };
+		1877B9661A5D04F8000A7131 /* image0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9621A5D04F8000A7131 /* image0.png */; };
+		1877B9671A5D04F8000A7131 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9631A5D04F8000A7131 /* image1.png */; };
+		1877B9681A5D04F8000A7131 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9641A5D04F8000A7131 /* image2.png */; };
+		1877B9691A5D04F8000A7131 /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1877B9651A5D04F8000A7131 /* image3.png */; };
+		1877B96C1A5D1E63000A7131 /* widget.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877B96B1A5D1E63000A7131 /* widget.m */; };
+		18A5CAC11A5BC389008ED792 /* SubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A5CAC01A5BC389008ED792 /* SubView.m */; };
+		18A5CACB1A5BC4CE008ED792 /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A5CAC91A5BC4CE008ED792 /* UIView+Ext.m */; };
+		18A5CAD11A5BC9AD008ED792 /* FileOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A5CAD01A5BC9AD008ED792 /* FileOwner.m */; };
+		18A5F22B1A132A9900004A76 /* 航贸网logo29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2221A132A9900004A76 /* 航贸网logo29x29.png */; };
+		18A5F22C1A132A9900004A76 /* 航贸网logo40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2231A132A9900004A76 /* 航贸网logo40x40.png */; };
+		18A5F22D1A132A9900004A76 /* 航贸网logo58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2241A132A9900004A76 /* 航贸网logo58x58.png */; };
+		18A5F22E1A132A9900004A76 /* 航贸网logo76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2251A132A9900004A76 /* 航贸网logo76x76.png */; };
+		18A5F22F1A132A9900004A76 /* 航贸网logo80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2261A132A9900004A76 /* 航贸网logo80x80.png */; };
+		18A5F2301A132A9900004A76 /* 航贸网logo87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2271A132A9900004A76 /* 航贸网logo87x87.png */; };
+		18A5F2311A132A9900004A76 /* 航贸网logo120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2281A132A9900004A76 /* 航贸网logo120x120.png */; };
+		18A5F2321A132A9900004A76 /* 航贸网logo152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2291A132A9900004A76 /* 航贸网logo152x152.png */; };
+		18A5F2331A132A9900004A76 /* 航贸网logo180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F22A1A132A9900004A76 /* 航贸网logo180x180.png */; };
+		18BAE8B21A70CAAA00D9EF66 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8B01A70CAAA00D9EF66 /* SettingsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18BAE8BD1A70E49500D9EF66 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8BC1A70E49500D9EF66 /* CustomCell.xib */; };
+		18BAE8C01A70ECFD00D9EF66 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8BE1A70ECFD00D9EF66 /* 1.jpg */; };
+		18BAE8C11A70ECFD00D9EF66 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8BF1A70ECFD00D9EF66 /* 2.jpg */; };
+		18BAE8CF1A72384100D9EF66 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8CE1A72384100D9EF66 /* MessageCell.xib */; };
+		18BAE8D91A73398700D9EF66 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D31A73398700D9EF66 /* MBProgressHUD.m */; };
+		18BAE8DA1A73398700D9EF66 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D51A73398700D9EF66 /* Util.m */; };
+		18BAE8DB1A73398700D9EF66 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D71A73398700D9EF66 /* Reachability.m */; };
+		18BAE8DC1A73398700D9EF66 /* CustomURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D81A73398700D9EF66 /* CustomURLCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18BAE9011A73518300D9EF66 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE9001A73518300D9EF66 /* SecondViewController.m */; };
+		18BAE9041A7356BA00D9EF66 /* CygnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE9031A7356BA00D9EF66 /* CygnViewController.m */; };
+		18F321FC1A7F1386002E7ACB /* CLLRefreshCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F321F41A7F1386002E7ACB /* CLLRefreshCircleView.m */; };
+		18F321FD1A7F1386002E7ACB /* CLLRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F321F61A7F1386002E7ACB /* CLLRefreshFooterView.m */; };
+		18F321FE1A7F1386002E7ACB /* CLLRefreshHeadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F321F81A7F1386002E7ACB /* CLLRefreshHeadController.m */; };
+		18F321FF1A7F1386002E7ACB /* CLLRefreshHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F321FA1A7F1386002E7ACB /* CLLRefreshHeadView.m */; };
+		18F322001A7F1386002E7ACB /* ReadMe.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18F321FB1A7F1386002E7ACB /* ReadMe.strings */; };
+		18F322021A7F15CC002E7ACB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F322011A7F15CC002E7ACB /* Foundation.framework */; };
+		18F322081A7F3CD4002E7ACB /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F322071A7F3CD4002E7ACB /* MessageViewController.m */; };
+		18F460481A5A2C4500C78274 /* parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F460451A5A2C4500C78274 /* parser.m */; };
+		18F460491A5A2C4500C78274 /* soap.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F460471A5A2C4500C78274 /* soap.m */; };
+		18F4604C1A5A2EB600C78274 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F4604B1A5A2EB600C78274 /* LoginViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F460511A5A2EE100C78274 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F4604F1A5A2EE100C78274 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F460521A5A2EE100C78274 /* 用法.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 18F460501A5A2EE100C78274 /* 用法.rtf */; };
+		18F460591A5A576400C78274 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F460581A5A576400C78274 /* IndexViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		182CFC1A1A7735B600999282 /* DeviceSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSender.h; sourceTree = "<group>"; };
+		182CFC1B1A7735B600999282 /* DeviceSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSender.m; sourceTree = "<group>"; };
+		182CFC1D1A78764400999282 /* 启动页1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1.jpg"; sourceTree = "<group>"; };
+		182CFC1E1A78764400999282 /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置.png"; sourceTree = "<group>"; };
+		182CFC1F1A78764400999282 /* 首页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页.png"; sourceTree = "<group>"; };
+		182CFC201A78764400999282 /* 消息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息.png"; sourceTree = "<group>"; };
+		182CFC211A78764400999282 /* 启动页2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页2.png"; sourceTree = "<group>"; };
+		182CFC291A787B7200999282 /* DeviceBindingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceBindingTableViewController.h; sourceTree = "<group>"; };
+		182CFC2A1A787B7200999282 /* DeviceBindingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceBindingTableViewController.m; sourceTree = "<group>"; };
+		186982601A134DE40095FAD4 /* 航贸网登录新x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "航贸网登录新x.jpg"; sourceTree = "<group>"; };
+		1869CFF51A7A1B3F00766F67 /* updateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updateViewController.h; sourceTree = "<group>"; };
+		1869CFF61A7A1B3F00766F67 /* updateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = updateViewController.m; sourceTree = "<group>"; };
+		1869CFF81A7B1A0400766F67 /* 启动页3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页3.png"; sourceTree = "<group>"; };
+		1869CFFA1A7B297A00766F67 /* 查询.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "查询.png"; sourceTree = "<group>"; };
+		1871C35B1A0F498C00A9C265 /* 航贸网.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "航贸网.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1871C35F1A0F498C00A9C265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1871C3601A0F498C00A9C265 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1871C3621A0F498C00A9C265 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1871C3631A0F498C00A9C265 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1871C3661A0F498C00A9C265 /* ___.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "___.xcdatamodel"; sourceTree = "<group>"; };
+		1871C36C1A0F498C00A9C265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1871C36E1A0F498C00A9C265 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1871C3711A0F498C00A9C265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1871C37C1A0F498C00A9C265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1871C37D1A0F498C00A9C265 /* ___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___Tests.m"; sourceTree = "<group>"; };
+		1871C3871A0F63A200A9C265 /* 航贸网登录背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "航贸网登录背景.jpg"; sourceTree = "<group>"; };
+		1871C3891A10476900A9C265 /* 航贸网登录密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录密码.png"; sourceTree = "<group>"; };
+		1871C38A1A10476900A9C265 /* 航贸网登录用户名.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录用户名.png"; sourceTree = "<group>"; };
+		1871C38B1A10476900A9C265 /* 航贸网登录用户名1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录用户名1.png"; sourceTree = "<group>"; };
+		1871C38C1A10476900A9C265 /* 航贸网登录密码1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录密码1.png"; sourceTree = "<group>"; };
+		1871C3921A10480F00A9C265 /* 航贸网登录密码(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录密码(1).png"; sourceTree = "<group>"; };
+		1871C3931A10480F00A9C265 /* 航贸网登录用户名(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录用户名(1).png"; sourceTree = "<group>"; };
+		1871C3961A104AF900A9C265 /* 记住密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "记住密码.png"; sourceTree = "<group>"; };
+		1871C3981A104AFF00A9C265 /* 航贸网登录.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录.png"; sourceTree = "<group>"; };
+		1871C39A1A104DF600A9C265 /* 航贸网登录1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录1.png"; sourceTree = "<group>"; };
+		1871C39C1A1053D400A9C265 /* 航贸网登录x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网登录x.png"; sourceTree = "<group>"; };
+		1876AD861A7084A70011750F /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		1876AD871A7084A70011750F /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		1876AD881A7084A70011750F /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		1876AD891A7084A70011750F /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		1876AD8A1A7084A70011750F /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		1876AD8B1A7084A70011750F /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		1876AD8C1A7084A70011750F /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
+		1876AD8D1A7084A70011750F /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
+		1876AD8E1A7084A70011750F /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		1876AD8F1A7084A70011750F /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		1876AD9A1A70B0630011750F /* MyBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBusinessViewController.h; path = "航贸网/MyBusinessViewController.h"; sourceTree = "<group>"; };
+		1876AD9B1A70B0630011750F /* MyBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBusinessViewController.m; path = "航贸网/MyBusinessViewController.m"; sourceTree = "<group>"; };
+		1877B94E1A5CF7E3000A7131 /* NavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBar.h; sourceTree = "<group>"; };
+		1877B94F1A5CF7E3000A7131 /* NavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavBar.m; sourceTree = "<group>"; };
+		1877B9501A5CF7E3000A7131 /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
+		1877B9591A5D04E6000A7131 /* AdDataPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdDataPlist.plist; sourceTree = "<group>"; };
+		1877B95A1A5D04E6000A7131 /* AdDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdDataModel.h; sourceTree = "<group>"; };
+		1877B95B1A5D04E6000A7131 /* AdDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdDataModel.m; sourceTree = "<group>"; };
+		1877B95C1A5D04E6000A7131 /* AdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdScrollView.h; sourceTree = "<group>"; };
+		1877B95D1A5D04E6000A7131 /* AdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdScrollView.m; sourceTree = "<group>"; };
+		1877B9621A5D04F8000A7131 /* image0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image0.png; sourceTree = "<group>"; };
+		1877B9631A5D04F8000A7131 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		1877B9641A5D04F8000A7131 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		1877B9651A5D04F8000A7131 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
+		1877B96A1A5D1E63000A7131 /* widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widget.h; sourceTree = "<group>"; };
+		1877B96B1A5D1E63000A7131 /* widget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = widget.m; sourceTree = "<group>"; };
+		18A5CABF1A5BC389008ED792 /* SubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubView.h; sourceTree = "<group>"; };
+		18A5CAC01A5BC389008ED792 /* SubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubView.m; sourceTree = "<group>"; };
+		18A5CAC81A5BC4CE008ED792 /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ext.h"; sourceTree = "<group>"; };
+		18A5CAC91A5BC4CE008ED792 /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ext.m"; sourceTree = "<group>"; };
+		18A5CACF1A5BC9AD008ED792 /* FileOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileOwner.h; sourceTree = "<group>"; };
+		18A5CAD01A5BC9AD008ED792 /* FileOwner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileOwner.m; sourceTree = "<group>"; };
+		18A5F2221A132A9900004A76 /* 航贸网logo29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo29x29.png"; sourceTree = "<group>"; };
+		18A5F2231A132A9900004A76 /* 航贸网logo40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo40x40.png"; sourceTree = "<group>"; };
+		18A5F2241A132A9900004A76 /* 航贸网logo58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo58x58.png"; sourceTree = "<group>"; };
+		18A5F2251A132A9900004A76 /* 航贸网logo76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo76x76.png"; sourceTree = "<group>"; };
+		18A5F2261A132A9900004A76 /* 航贸网logo80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo80x80.png"; sourceTree = "<group>"; };
+		18A5F2271A132A9900004A76 /* 航贸网logo87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo87x87.png"; sourceTree = "<group>"; };
+		18A5F2281A132A9900004A76 /* 航贸网logo120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo120x120.png"; sourceTree = "<group>"; };
+		18A5F2291A132A9900004A76 /* 航贸网logo152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo152x152.png"; sourceTree = "<group>"; };
+		18A5F22A1A132A9900004A76 /* 航贸网logo180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo180x180.png"; sourceTree = "<group>"; };
+		18BAE8B01A70CAAA00D9EF66 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		18BAE8B11A70CAAA00D9EF66 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		18BAE8BC1A70E49500D9EF66 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		18BAE8BE1A70ECFD00D9EF66 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../1.jpg; sourceTree = "<group>"; };
+		18BAE8BF1A70ECFD00D9EF66 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = ../2.jpg; sourceTree = "<group>"; };
+		18BAE8CE1A72384100D9EF66 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		18BAE8D11A73398700D9EF66 /* CustomURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomURLCache.h; sourceTree = "<group>"; };
+		18BAE8D21A73398700D9EF66 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		18BAE8D31A73398700D9EF66 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		18BAE8D41A73398700D9EF66 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		18BAE8D51A73398700D9EF66 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		18BAE8D61A73398700D9EF66 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		18BAE8D71A73398700D9EF66 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		18BAE8D81A73398700D9EF66 /* CustomURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomURLCache.m; sourceTree = "<group>"; };
+		18BAE8FF1A73518300D9EF66 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		18BAE9001A73518300D9EF66 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		18BAE9021A7356BA00D9EF66 /* CygnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CygnViewController.h; sourceTree = "<group>"; };
+		18BAE9031A7356BA00D9EF66 /* CygnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CygnViewController.m; sourceTree = "<group>"; };
+		18F321F31A7F1386002E7ACB /* CLLRefreshCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshCircleView.h; sourceTree = "<group>"; };
+		18F321F41A7F1386002E7ACB /* CLLRefreshCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLRefreshCircleView.m; sourceTree = "<group>"; };
+		18F321F51A7F1386002E7ACB /* CLLRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshFooterView.h; sourceTree = "<group>"; };
+		18F321F61A7F1386002E7ACB /* CLLRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLRefreshFooterView.m; sourceTree = "<group>"; };
+		18F321F71A7F1386002E7ACB /* CLLRefreshHeadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshHeadController.h; sourceTree = "<group>"; };
+		18F321F81A7F1386002E7ACB /* CLLRefreshHeadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLRefreshHeadController.m; sourceTree = "<group>"; };
+		18F321F91A7F1386002E7ACB /* CLLRefreshHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshHeadView.h; sourceTree = "<group>"; };
+		18F321FA1A7F1386002E7ACB /* CLLRefreshHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLRefreshHeadView.m; sourceTree = "<group>"; };
+		18F321FB1A7F1386002E7ACB /* ReadMe.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ReadMe.strings; sourceTree = "<group>"; };
+		18F322011A7F15CC002E7ACB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		18F322061A7F3CD4002E7ACB /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		18F322071A7F3CD4002E7ACB /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		18F460441A5A2C4500C78274 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		18F460451A5A2C4500C78274 /* parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parser.m; sourceTree = "<group>"; };
+		18F460461A5A2C4500C78274 /* soap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soap.h; sourceTree = "<group>"; };
+		18F460471A5A2C4500C78274 /* soap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soap.m; sourceTree = "<group>"; };
+		18F4604A1A5A2EB600C78274 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "航贸网/LoginViewController.h"; sourceTree = "<group>"; };
+		18F4604B1A5A2EB600C78274 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "航贸网/LoginViewController.m"; sourceTree = "<group>"; };
+		18F4604E1A5A2EE100C78274 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		18F4604F1A5A2EE100C78274 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		18F460501A5A2EE100C78274 /* 用法.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "用法.rtf"; sourceTree = "<group>"; };
+		18F460531A5A2F1200C78274 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		18F460571A5A576400C78274 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexViewController.h; path = "航贸网/IndexViewController.h"; sourceTree = "<group>"; };
+		18F460581A5A576400C78274 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexViewController.m; path = "航贸网/IndexViewController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1871C3581A0F498C00A9C265 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18F322021A7F15CC002E7ACB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		182CFC0D1A75D7F500999282 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				18F321F21A7F1386002E7ACB /* RefreshHeadView */,
+				18F4604D1A5A2EE100C78274 /* KeyChainItemWrapper */,
+				1871C3A41A109E6000A9C265 /* Soap */,
+				18301D941A5A7D56001B4024 /* widget */,
+				18A5CAC21A5BC38D008ED792 /* Subview */,
+				18BAE8D01A73396D00D9EF66 /* cache */,
+				1876AD991A7084C60011750F /* Refresh */,
+			);
+			name = resource;
+			sourceTree = "<group>";
+		};
+		18301D941A5A7D56001B4024 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				1877B9581A5D048C000A7131 /* ScrollAdd */,
+				1877B96D1A5E2282000A7131 /* NavBar */,
+				1877B96A1A5D1E63000A7131 /* widget.h */,
+				1877B96B1A5D1E63000A7131 /* widget.m */,
+			);
+			name = widget;
+			sourceTree = "<group>";
+		};
+		1871C3521A0F498C00A9C265 = {
+			isa = PBXGroup;
+			children = (
+				18F322011A7F15CC002E7ACB /* Foundation.framework */,
+				1871C35D1A0F498C00A9C265 /* 航贸网 */,
+				1871C37A1A0F498C00A9C265 /* 航贸网Tests */,
+				1871C35C1A0F498C00A9C265 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1871C35C1A0F498C00A9C265 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1871C35B1A0F498C00A9C265 /* 航贸网.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1871C35D1A0F498C00A9C265 /* 航贸网 */ = {
+			isa = PBXGroup;
+			children = (
+				1877B96E1A5E2313000A7131 /* Main */,
+				182CFC0D1A75D7F500999282 /* resource */,
+				1871C35E1A0F498C00A9C265 /* Supporting Files */,
+				1871C3911A10476B00A9C265 /* img */,
+			);
+			path = "航贸网";
+			sourceTree = "<group>";
+		};
+		1871C35E1A0F498C00A9C265 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				182CFC1A1A7735B600999282 /* DeviceSender.h */,
+				182CFC1B1A7735B600999282 /* DeviceSender.m */,
+				1871C3621A0F498C00A9C265 /* AppDelegate.h */,
+				1871C3631A0F498C00A9C265 /* AppDelegate.m */,
+				1871C36E1A0F498C00A9C265 /* Images.xcassets */,
+				1871C3651A0F498C00A9C265 /* ___.xcdatamodeld */,
+				1871C35F1A0F498C00A9C265 /* Info.plist */,
+				1871C3601A0F498C00A9C265 /* main.m */,
+				18F460531A5A2F1200C78274 /* Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1871C37A1A0F498C00A9C265 /* 航贸网Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1871C37D1A0F498C00A9C265 /* ___Tests.m */,
+				1871C37B1A0F498C00A9C265 /* Supporting Files */,
+			);
+			path = "航贸网Tests";
+			sourceTree = "<group>";
+		};
+		1871C37B1A0F498C00A9C265 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1871C37C1A0F498C00A9C265 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1871C3911A10476B00A9C265 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				1869CFFA1A7B297A00766F67 /* 查询.png */,
+				1869CFF81A7B1A0400766F67 /* 启动页3.png */,
+				182CFC1D1A78764400999282 /* 启动页1.jpg */,
+				182CFC1E1A78764400999282 /* 设置.png */,
+				182CFC1F1A78764400999282 /* 首页.png */,
+				182CFC201A78764400999282 /* 消息.png */,
+				182CFC211A78764400999282 /* 启动页2.png */,
+				18BAE8BE1A70ECFD00D9EF66 /* 1.jpg */,
+				18BAE8BF1A70ECFD00D9EF66 /* 2.jpg */,
+				186982601A134DE40095FAD4 /* 航贸网登录新x.jpg */,
+				18A5F2221A132A9900004A76 /* 航贸网logo29x29.png */,
+				18A5F2231A132A9900004A76 /* 航贸网logo40x40.png */,
+				18A5F2241A132A9900004A76 /* 航贸网logo58x58.png */,
+				18A5F2251A132A9900004A76 /* 航贸网logo76x76.png */,
+				18A5F2261A132A9900004A76 /* 航贸网logo80x80.png */,
+				18A5F2271A132A9900004A76 /* 航贸网logo87x87.png */,
+				18A5F2281A132A9900004A76 /* 航贸网logo120x120.png */,
+				18A5F2291A132A9900004A76 /* 航贸网logo152x152.png */,
+				18A5F22A1A132A9900004A76 /* 航贸网logo180x180.png */,
+				1871C3921A10480F00A9C265 /* 航贸网登录密码(1).png */,
+				1871C39C1A1053D400A9C265 /* 航贸网登录x.png */,
+				1871C3961A104AF900A9C265 /* 记住密码.png */,
+				1871C39A1A104DF600A9C265 /* 航贸网登录1.png */,
+				1871C3931A10480F00A9C265 /* 航贸网登录用户名(1).png */,
+				1871C3981A104AFF00A9C265 /* 航贸网登录.png */,
+				1871C3871A0F63A200A9C265 /* 航贸网登录背景.jpg */,
+				1871C3891A10476900A9C265 /* 航贸网登录密码.png */,
+				1871C38A1A10476900A9C265 /* 航贸网登录用户名.png */,
+				1871C38B1A10476900A9C265 /* 航贸网登录用户名1.png */,
+				1871C38C1A10476900A9C265 /* 航贸网登录密码1.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		1871C3A41A109E6000A9C265 /* Soap */ = {
+			isa = PBXGroup;
+			children = (
+				18F460441A5A2C4500C78274 /* parser.h */,
+				18F460451A5A2C4500C78274 /* parser.m */,
+				18F460461A5A2C4500C78274 /* soap.h */,
+				18F460471A5A2C4500C78274 /* soap.m */,
+			);
+			name = Soap;
+			sourceTree = "<group>";
+		};
+		1876AD851A7084A70011750F /* EGORefreshImages */ = {
+			isa = PBXGroup;
+			children = (
+				1876AD861A7084A70011750F /* blackArrow.png */,
+				1876AD871A7084A70011750F /* blackArrow@2x.png */,
+				1876AD881A7084A70011750F /* blueArrow.png */,
+				1876AD891A7084A70011750F /* blueArrow@2x.png */,
+				1876AD8A1A7084A70011750F /* grayArrow.png */,
+				1876AD8B1A7084A70011750F /* grayArrow@2x.png */,
+				1876AD8C1A7084A70011750F /* whiteArrow.png */,
+				1876AD8D1A7084A70011750F /* whiteArrow@2x.png */,
+			);
+			path = EGORefreshImages;
+			sourceTree = "<group>";
+		};
+		1876AD991A7084C60011750F /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				1876AD851A7084A70011750F /* EGORefreshImages */,
+				1876AD8E1A7084A70011750F /* EGORefreshTableHeaderView.h */,
+				1876AD8F1A7084A70011750F /* EGORefreshTableHeaderView.m */,
+			);
+			name = Refresh;
+			sourceTree = "<group>";
+		};
+		1877B9581A5D048C000A7131 /* ScrollAdd */ = {
+			isa = PBXGroup;
+			children = (
+				1877B9611A5D04F8000A7131 /* ImagesCell */,
+				1877B9591A5D04E6000A7131 /* AdDataPlist.plist */,
+				1877B95A1A5D04E6000A7131 /* AdDataModel.h */,
+				1877B95B1A5D04E6000A7131 /* AdDataModel.m */,
+				1877B95C1A5D04E6000A7131 /* AdScrollView.h */,
+				1877B95D1A5D04E6000A7131 /* AdScrollView.m */,
+			);
+			name = ScrollAdd;
+			sourceTree = "<group>";
+		};
+		1877B9611A5D04F8000A7131 /* ImagesCell */ = {
+			isa = PBXGroup;
+			children = (
+				1877B9621A5D04F8000A7131 /* image0.png */,
+				1877B9631A5D04F8000A7131 /* image1.png */,
+				1877B9641A5D04F8000A7131 /* image2.png */,
+				1877B9651A5D04F8000A7131 /* image3.png */,
+			);
+			path = ImagesCell;
+			sourceTree = "<group>";
+		};
+		1877B96D1A5E2282000A7131 /* NavBar */ = {
+			isa = PBXGroup;
+			children = (
+				1877B94E1A5CF7E3000A7131 /* NavBar.h */,
+				1877B94F1A5CF7E3000A7131 /* NavBar.m */,
+				1877B9501A5CF7E3000A7131 /* NavBar.xib */,
+			);
+			name = NavBar;
+			sourceTree = "<group>";
+		};
+		1877B96E1A5E2313000A7131 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				18BAE8CA1A7237D800D9EF66 /* Message */,
+				18BAE8C91A7237C500D9EF66 /* Mybusiness */,
+				18BAE8C81A7237A100D9EF66 /* settings */,
+				18BAE8C71A72378800D9EF66 /* index */,
+				1871C36B1A0F498C00A9C265 /* Main.storyboard */,
+				1871C3701A0F498C00A9C265 /* LaunchScreen.xib */,
+			);
+			name = Main;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		18A5CAC21A5BC38D008ED792 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				18A5CACF1A5BC9AD008ED792 /* FileOwner.h */,
+				18A5CAD01A5BC9AD008ED792 /* FileOwner.m */,
+				18A5CAC81A5BC4CE008ED792 /* UIView+Ext.h */,
+				18A5CAC91A5BC4CE008ED792 /* UIView+Ext.m */,
+				18A5CAC01A5BC389008ED792 /* SubView.m */,
+				18A5CABF1A5BC389008ED792 /* SubView.h */,
+			);
+			name = Subview;
+			sourceTree = "<group>";
+		};
+		18BAE8C71A72378800D9EF66 /* index */ = {
+			isa = PBXGroup;
+			children = (
+				18F460571A5A576400C78274 /* IndexViewController.h */,
+				18F460581A5A576400C78274 /* IndexViewController.m */,
+				18BAE8FF1A73518300D9EF66 /* SecondViewController.h */,
+				18BAE9001A73518300D9EF66 /* SecondViewController.m */,
+				18BAE9021A7356BA00D9EF66 /* CygnViewController.h */,
+				18BAE9031A7356BA00D9EF66 /* CygnViewController.m */,
+			);
+			name = index;
+			sourceTree = "<group>";
+		};
+		18BAE8C81A7237A100D9EF66 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				18BAE8B11A70CAAA00D9EF66 /* SettingsViewController.h */,
+				18BAE8B01A70CAAA00D9EF66 /* SettingsViewController.m */,
+				18F4604A1A5A2EB600C78274 /* LoginViewController.h */,
+				18F4604B1A5A2EB600C78274 /* LoginViewController.m */,
+				18BAE8BC1A70E49500D9EF66 /* CustomCell.xib */,
+				182CFC291A787B7200999282 /* DeviceBindingTableViewController.h */,
+				182CFC2A1A787B7200999282 /* DeviceBindingTableViewController.m */,
+				1869CFF51A7A1B3F00766F67 /* updateViewController.h */,
+				1869CFF61A7A1B3F00766F67 /* updateViewController.m */,
+			);
+			name = settings;
+			sourceTree = "<group>";
+		};
+		18BAE8C91A7237C500D9EF66 /* Mybusiness */ = {
+			isa = PBXGroup;
+			children = (
+				1876AD9A1A70B0630011750F /* MyBusinessViewController.h */,
+				1876AD9B1A70B0630011750F /* MyBusinessViewController.m */,
+			);
+			name = Mybusiness;
+			sourceTree = "<group>";
+		};
+		18BAE8CA1A7237D800D9EF66 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				18BAE8CE1A72384100D9EF66 /* MessageCell.xib */,
+				18F322061A7F3CD4002E7ACB /* MessageViewController.h */,
+				18F322071A7F3CD4002E7ACB /* MessageViewController.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		18BAE8D01A73396D00D9EF66 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				18BAE8D11A73398700D9EF66 /* CustomURLCache.h */,
+				18BAE8D21A73398700D9EF66 /* MBProgressHUD.h */,
+				18BAE8D31A73398700D9EF66 /* MBProgressHUD.m */,
+				18BAE8D41A73398700D9EF66 /* Util.h */,
+				18BAE8D51A73398700D9EF66 /* Util.m */,
+				18BAE8D61A73398700D9EF66 /* Reachability.h */,
+				18BAE8D71A73398700D9EF66 /* Reachability.m */,
+				18BAE8D81A73398700D9EF66 /* CustomURLCache.m */,
+			);
+			name = cache;
+			sourceTree = "<group>";
+		};
+		18F321F21A7F1386002E7ACB /* RefreshHeadView */ = {
+			isa = PBXGroup;
+			children = (
+				18F321F31A7F1386002E7ACB /* CLLRefreshCircleView.h */,
+				18F321F41A7F1386002E7ACB /* CLLRefreshCircleView.m */,
+				18F321F51A7F1386002E7ACB /* CLLRefreshFooterView.h */,
+				18F321F61A7F1386002E7ACB /* CLLRefreshFooterView.m */,
+				18F321F71A7F1386002E7ACB /* CLLRefreshHeadController.h */,
+				18F321F81A7F1386002E7ACB /* CLLRefreshHeadController.m */,
+				18F321F91A7F1386002E7ACB /* CLLRefreshHeadView.h */,
+				18F321FA1A7F1386002E7ACB /* CLLRefreshHeadView.m */,
+				18F321FB1A7F1386002E7ACB /* ReadMe.strings */,
+			);
+			path = RefreshHeadView;
+			sourceTree = "<group>";
+		};
+		18F4604D1A5A2EE100C78274 /* KeyChainItemWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				18F4604E1A5A2EE100C78274 /* KeychainItemWrapper.h */,
+				18F4604F1A5A2EE100C78274 /* KeychainItemWrapper.m */,
+				18F460501A5A2EE100C78274 /* 用法.rtf */,
+			);
+			path = KeyChainItemWrapper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1871C35A1A0F498C00A9C265 /* iLygport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1871C3811A0F498C00A9C265 /* Build configuration list for PBXNativeTarget "iLygport" */;
+			buildPhases = (
+				1871C3571A0F498C00A9C265 /* Sources */,
+				1871C3581A0F498C00A9C265 /* Frameworks */,
+				1871C3591A0F498C00A9C265 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iLygport;
+			productName = "航贸网";
+			productReference = 1871C35B1A0F498C00A9C265 /* 航贸网.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1871C3531A0F498C00A9C265 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = leo;
+				TargetAttributes = {
+					1871C35A1A0F498C00A9C265 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 29TSL4289R;
+					};
+				};
+			};
+			buildConfigurationList = 1871C3561A0F498C00A9C265 /* Build configuration list for PBXProject "iLygport" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1871C3521A0F498C00A9C265;
+			productRefGroup = 1871C35C1A0F498C00A9C265 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1871C35A1A0F498C00A9C265 /* iLygport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1871C3591A0F498C00A9C265 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1877B9681A5D04F8000A7131 /* image2.png in Resources */,
+				1869CFF91A7B1A0400766F67 /* 启动页3.png in Resources */,
+				18A5F22B1A132A9900004A76 /* 航贸网logo29x29.png in Resources */,
+				182CFC261A78764400999282 /* 消息.png in Resources */,
+				18A5F2321A132A9900004A76 /* 航贸网logo152x152.png in Resources */,
+				1877B9661A5D04F8000A7131 /* image0.png in Resources */,
+				1877B9521A5CF7E3000A7131 /* NavBar.xib in Resources */,
+				18A5F2301A132A9900004A76 /* 航贸网logo87x87.png in Resources */,
+				1871C38F1A10476900A9C265 /* 航贸网登录用户名1.png in Resources */,
+				18A5F2311A132A9900004A76 /* 航贸网logo120x120.png in Resources */,
+				1871C3881A0F63A200A9C265 /* 航贸网登录背景.jpg in Resources */,
+				182CFC271A78764400999282 /* 启动页2.png in Resources */,
+				1876AD901A7084A70011750F /* blackArrow.png in Resources */,
+				18BAE8C01A70ECFD00D9EF66 /* 1.jpg in Resources */,
+				18BAE8BD1A70E49500D9EF66 /* CustomCell.xib in Resources */,
+				1871C39D1A1053D400A9C265 /* 航贸网登录x.png in Resources */,
+				1871C39B1A104DF600A9C265 /* 航贸网登录1.png in Resources */,
+				1877B95E1A5D04E6000A7131 /* AdDataPlist.plist in Resources */,
+				182CFC241A78764400999282 /* 设置.png in Resources */,
+				18A5F22D1A132A9900004A76 /* 航贸网logo58x58.png in Resources */,
+				1869CFFB1A7B297A00766F67 /* 查询.png in Resources */,
+				1871C3901A10476900A9C265 /* 航贸网登录密码1.png in Resources */,
+				1871C3951A10480F00A9C265 /* 航贸网登录用户名(1).png in Resources */,
+				1876AD971A7084A70011750F /* whiteArrow@2x.png in Resources */,
+				18BAE8CF1A72384100D9EF66 /* MessageCell.xib in Resources */,
+				18A5F2331A132A9900004A76 /* 航贸网logo180x180.png in Resources */,
+				1876AD931A7084A70011750F /* blueArrow@2x.png in Resources */,
+				1876AD941A7084A70011750F /* grayArrow.png in Resources */,
+				18A5F22C1A132A9900004A76 /* 航贸网logo40x40.png in Resources */,
+				186982611A134DE40095FAD4 /* 航贸网登录新x.jpg in Resources */,
+				1876AD961A7084A70011750F /* whiteArrow.png in Resources */,
+				1877B9691A5D04F8000A7131 /* image3.png in Resources */,
+				18A5F22F1A132A9900004A76 /* 航贸网logo80x80.png in Resources */,
+				18F460521A5A2EE100C78274 /* 用法.rtf in Resources */,
+				1871C36D1A0F498C00A9C265 /* Main.storyboard in Resources */,
+				1876AD921A7084A70011750F /* blueArrow.png in Resources */,
+				18BAE8C11A70ECFD00D9EF66 /* 2.jpg in Resources */,
+				1877B9671A5D04F8000A7131 /* image1.png in Resources */,
+				1871C38E1A10476900A9C265 /* 航贸网登录用户名.png in Resources */,
+				1871C3941A10480F00A9C265 /* 航贸网登录密码(1).png in Resources */,
+				1871C3971A104AF900A9C265 /* 记住密码.png in Resources */,
+				1871C3721A0F498C00A9C265 /* LaunchScreen.xib in Resources */,
+				1871C36F1A0F498C00A9C265 /* Images.xcassets in Resources */,
+				1876AD951A7084A70011750F /* grayArrow@2x.png in Resources */,
+				18A5F22E1A132A9900004A76 /* 航贸网logo76x76.png in Resources */,
+				18F322001A7F1386002E7ACB /* ReadMe.strings in Resources */,
+				1871C38D1A10476900A9C265 /* 航贸网登录密码.png in Resources */,
+				182CFC231A78764400999282 /* 启动页1.jpg in Resources */,
+				1871C3991A104AFF00A9C265 /* 航贸网登录.png in Resources */,
+				182CFC251A78764400999282 /* 首页.png in Resources */,
+				1876AD911A7084A70011750F /* blackArrow@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1871C3571A0F498C00A9C265 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18BAE9011A73518300D9EF66 /* SecondViewController.m in Sources */,
+				18BAE9041A7356BA00D9EF66 /* CygnViewController.m in Sources */,
+				1876AD9C1A70B0630011750F /* MyBusinessViewController.m in Sources */,
+				18A5CACB1A5BC4CE008ED792 /* UIView+Ext.m in Sources */,
+				18A5CAC11A5BC389008ED792 /* SubView.m in Sources */,
+				18F4604C1A5A2EB600C78274 /* LoginViewController.m in Sources */,
+				18F321FF1A7F1386002E7ACB /* CLLRefreshHeadView.m in Sources */,
+				1877B9511A5CF7E3000A7131 /* NavBar.m in Sources */,
+				1877B96C1A5D1E63000A7131 /* widget.m in Sources */,
+				18A5CAD11A5BC9AD008ED792 /* FileOwner.m in Sources */,
+				1877B9601A5D04E6000A7131 /* AdScrollView.m in Sources */,
+				18BAE8B21A70CAAA00D9EF66 /* SettingsViewController.m in Sources */,
+				18F321FD1A7F1386002E7ACB /* CLLRefreshFooterView.m in Sources */,
+				1876AD981A7084A70011750F /* EGORefreshTableHeaderView.m in Sources */,
+				18F460481A5A2C4500C78274 /* parser.m in Sources */,
+				1871C3641A0F498C00A9C265 /* AppDelegate.m in Sources */,
+				18BAE8DC1A73398700D9EF66 /* CustomURLCache.m in Sources */,
+				18BAE8D91A73398700D9EF66 /* MBProgressHUD.m in Sources */,
+				18F321FE1A7F1386002E7ACB /* CLLRefreshHeadController.m in Sources */,
+				1877B95F1A5D04E6000A7131 /* AdDataModel.m in Sources */,
+				1871C3611A0F498C00A9C265 /* main.m in Sources */,
+				18F321FC1A7F1386002E7ACB /* CLLRefreshCircleView.m in Sources */,
+				18F322081A7F3CD4002E7ACB /* MessageViewController.m in Sources */,
+				182CFC2B1A787B7200999282 /* DeviceBindingTableViewController.m in Sources */,
+				18BAE8DB1A73398700D9EF66 /* Reachability.m in Sources */,
+				18F460491A5A2C4500C78274 /* soap.m in Sources */,
+				1871C3671A0F498C00A9C265 /* ___.xcdatamodeld in Sources */,
+				1869CFF71A7A1B3F00766F67 /* updateViewController.m in Sources */,
+				18BAE8DA1A73398700D9EF66 /* Util.m in Sources */,
+				18F460511A5A2EE100C78274 /* KeychainItemWrapper.m in Sources */,
+				182CFC1C1A7735B600999282 /* DeviceSender.m in Sources */,
+				18F460591A5A576400C78274 /* IndexViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1871C36B1A0F498C00A9C265 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1871C36C1A0F498C00A9C265 /* Base */,
+			);
+			name = Main.storyboard;
+			path = "航贸网";
+			sourceTree = "<group>";
+		};
+		1871C3701A0F498C00A9C265 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1871C3711A0F498C00A9C265 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = "航贸网";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1871C37F1A0F498C00A9C265 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: chao zhang (QRCCUSMX3M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chao zhang (QRCCUSMX3M)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = iLygport;
+				PROVISIONING_PROFILE = "a8704887-b128-4ef3-b6a2-8c8117983672";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1871C3801A0F498C00A9C265 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: chao zhang (QRCCUSMX3M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chao zhang (QRCCUSMX3M)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = iLygport;
+				PROVISIONING_PROFILE = "a8704887-b128-4ef3-b6a2-8c8117983672";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1871C3821A0F498C00A9C265 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				INFOPLIST_FILE = "航贸网/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "航贸网";
+				PROVISIONING_PROFILE = "81e9fe06-bdcf-4043-9bfa-828223aa01c2";
+			};
+			name = Debug;
+		};
+		1871C3831A0F498C00A9C265 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				INFOPLIST_FILE = "航贸网/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "航贸网";
+				PROVISIONING_PROFILE = "81e9fe06-bdcf-4043-9bfa-828223aa01c2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1871C3561A0F498C00A9C265 /* Build configuration list for PBXProject "iLygport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1871C37F1A0F498C00A9C265 /* Debug */,
+				1871C3801A0F498C00A9C265 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1871C3811A0F498C00A9C265 /* Build configuration list for PBXNativeTarget "iLygport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1871C3821A0F498C00A9C265 /* Debug */,
+				1871C3831A0F498C00A9C265 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1871C3651A0F498C00A9C265 /* ___.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1871C3661A0F498C00A9C265 /* ___.xcdatamodel */,
+			);
+			currentVersion = 1871C3661A0F498C00A9C265 /* ___.xcdatamodel */;
+			path = "___.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1871C3531A0F498C00A9C265 /* Project object */;
+}
