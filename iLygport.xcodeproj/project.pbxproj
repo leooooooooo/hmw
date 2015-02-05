@@ -93,6 +93,7 @@
 		18F460511A5A2EE100C78274 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F4604F1A5A2EE100C78274 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18F460521A5A2EE100C78274 /* 用法.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 18F460501A5A2EE100C78274 /* 用法.rtf */; };
 		18F460591A5A576400C78274 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F460581A5A576400C78274 /* IndexViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F700201A83089A00068FE3 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F7001F1A83089A00068FE3 /* MessageDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +218,8 @@
 		18F460531A5A2F1200C78274 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		18F460571A5A576400C78274 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexViewController.h; path = "航贸网/IndexViewController.h"; sourceTree = "<group>"; };
 		18F460581A5A576400C78274 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexViewController.m; path = "航贸网/IndexViewController.m"; sourceTree = "<group>"; };
+		18F7001E1A83089A00068FE3 /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
+		18F7001F1A83089A00068FE3 /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +509,8 @@
 				18BAE8CE1A72384100D9EF66 /* MessageCell.xib */,
 				18F322061A7F3CD4002E7ACB /* MessageViewController.h */,
 				18F322071A7F3CD4002E7ACB /* MessageViewController.m */,
+				18F7001E1A83089A00068FE3 /* MessageDetailViewController.h */,
+				18F7001F1A83089A00068FE3 /* MessageDetailViewController.m */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -696,6 +701,7 @@
 				18F321FC1A7F1386002E7ACB /* CLLRefreshCircleView.m in Sources */,
 				18F322081A7F3CD4002E7ACB /* MessageViewController.m in Sources */,
 				182CFC2B1A787B7200999282 /* DeviceBindingTableViewController.m in Sources */,
+				18F700201A83089A00068FE3 /* MessageDetailViewController.m in Sources */,
 				18BAE8DB1A73398700D9EF66 /* Reachability.m in Sources */,
 				18F460491A5A2C4500C78274 /* soap.m in Sources */,
 				1871C3671A0F498C00A9C265 /* ___.xcdatamodeld in Sources */,

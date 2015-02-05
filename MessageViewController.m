@@ -8,6 +8,7 @@
 
 #import "MessageViewController.h"
 #import "AppDelegate.h"
+#import "MessageDetailViewController.h"
 
 
 #define WebService @"http://218.92.115.55/M_hmw/SERVICEHMW.ASMX"
@@ -17,8 +18,8 @@
 #define Token @"MV4FGbDeCY/c0E5Xh9k8Mg=="
 
 #define key1 @"<UserId>%@</UserId>",da.userid
-#define key2 @"<minRow>%d</minRow>",1
-#define key3 @"<maxRow>%d</maxRow>",5
+#define key2 @""
+#define key3 @""
 #define key4 @""
 #define key5 @""
 #define key6 @""
@@ -26,10 +27,11 @@
 #define key8 @""
 
 
-const int Max_Count = 5;
+
 @interface MessageViewController ()
 {
     int loadCount;
+    int Max_Count;
 }
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll;
 @property (nonatomic)BOOL *isRecevied;
@@ -59,6 +61,10 @@ const int Max_Count = 5;
 }
 
 - (void)beginPullDownRefreshing {
+    Max_Count = 100;
+    loadCount = 0;
+    self.arr = [[NSMutableArray alloc]init];
+    //self.msgArray = [[NSMutableArray alloc]init];
     soap *SendName=[[soap alloc]init];
     SendName.sendDelegate=self;
     // 设置我们之后解析XML时用的关键字，与响应报文中Body标签之间的getMobileCodeInfoResult标签对应
@@ -75,8 +81,8 @@ const int Max_Count = 5;
     [soapmsg appendFormat:@"<%@ xmlns=\"http://tempuri.org/\">",soapname];
     [soapmsg appendFormat:@"<token>%@</token>",token];
     [soapmsg appendFormat:key1];
-    [soapmsg appendFormat:key2];
-    [soapmsg appendFormat:key3];
+    [soapmsg appendFormat:@"<minRow>%d</minRow>",1];
+    [soapmsg appendFormat:@"<maxRow>%d</maxRow>",10];
     [soapmsg appendFormat:key4];
     [soapmsg appendFormat:key5];
     [soapmsg appendFormat:key6];
@@ -91,7 +97,37 @@ const int Max_Count = 5;
 }
 - (void)beginPullUpLoading
 {
-    [self performSelector:@selector(endLoadMore) withObject:nil afterDelay:3];
+    NSLog(@"%d",loadCount);
+    soap *SendName=[[soap alloc]init];
+    SendName.sendDelegate=self;
+    // 设置我们之后解析XML时用的关键字，与响应报文中Body标签之间的getMobileCodeInfoResult标签对应
+    [SendName matchingElement:Result];
+    // 创建SOAP消息，内容格式就是网站上提示的请求报文的实体主体部分
+    
+    AppDelegate *da=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    soapmsg= nil;
+    soapmsg = [[NSMutableString alloc]init];
+    [soapmsg appendFormat:soapmsg1];
+    NSString *soapname = SoapName;
+    NSString *token =Token;
+    [soapmsg appendFormat:@"<%@ xmlns=\"http://tempuri.org/\">",soapname];
+    [soapmsg appendFormat:@"<token>%@</token>",token];
+    [soapmsg appendFormat:key1];
+    [soapmsg appendFormat:@"<minRow>%d</minRow>",loadCount*10+0];
+    [soapmsg appendFormat:@"<maxRow>%d</maxRow>",loadCount*10+9];
+    [soapmsg appendFormat:key4];
+    [soapmsg appendFormat:key5];
+    [soapmsg appendFormat:key6];
+    [soapmsg appendFormat:key7];
+    [soapmsg appendFormat:key8];
+    [soapmsg appendFormat:@"</%@>",soapname];
+    [soapmsg appendFormat:soapmsg2];
+    [SendName soapMsg:soapmsg];
+    [SendName url:ServiceMobileApplication];
+    [SendName send];
+    self.isRecevied = NO;
+    
 }
 
 -(void)returnxml:(NSString *)xml{
@@ -102,15 +138,30 @@ const int Max_Count = 5;
 }
 
 -(void)returnparser:(NSMutableArray *)parser{
+    if(loadCount==0)
+    {
+        self.msgArray = nil;
+        self.msgArray = [[NSMutableArray alloc]init];
+    }
+    
     if ([[[parser objectAtIndex:0]objectAtIndex:0]isEqualToString:@"True"])
     {
-        
-        
+        [parser removeObjectAtIndex:0];
+        if(parser.count<10)
+        {
+            Max_Count = loadCount;
+        }
+        for (int i = 0; i<parser.count; i++) {
+            //[self.msgArray addObject:[[NSMutableArray alloc]init]];
+            [self.msgArray addObject:[parser objectAtIndex:i]];
+        }
+
     }
-    if ([[[parser objectAtIndex:0]objectAtIndex:0]isEqualToString:@"False"]) {
-        UIAlertView *alert;
-        alert = [[UIAlertView alloc]initWithTitle:@"登录失败" message:[[parser objectAtIndex:0]objectAtIndex:1] delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
-        [alert show];
+    else{
+        //UIAlertView *alert;
+        //alert = [[UIAlertView alloc]initWithTitle:@"登录失败" message:[[parser objectAtIndex:0]objectAtIndex:1] delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+        //[alert show];
+        Max_Count = loadCount;
     }
     //NSLog([[parser objectAtIndex:0]objectAtIndex:0]);
     if (self.isRecevied) {
@@ -118,7 +169,7 @@ const int Max_Count = 5;
     }
     else
     {
-        
+        [self performSelector:@selector(endLoadMore) withObject:nil];
     }
 }
 
@@ -142,11 +193,11 @@ const int Max_Count = 5;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    loadCount = 0;
+    
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
-    self.navigationItem.title = @"设置";
+    self.navigationItem.title = @"消息";
     self.arr= [NSMutableArray array];
     
     ServiceMobileApplication =WebService;
@@ -159,20 +210,14 @@ const int Max_Count = 5;
     soapmsg2 = @"</soap12:Body>"
     "</soap12:Envelope>";
     soapmsg = [[NSMutableString alloc]init];
+    
+    self.msgArray = [[NSMutableArray alloc]init];
 }
 
 - (void)endRefresh {
-    loadCount = 0;
+    loadCount =1;
     
-    NSDictionary *tDic11 = [[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护（未完成）",@"name",@"1.jpg",@"type",nil];
-    NSDictionary *tDic21 = [[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码（未完成）",@"name",@"1.jpg",@"type",nil];
-    NSDictionary *tDic31 = [[NSDictionary alloc]initWithObjectsAndKeys:@"设备绑定",@"name",@"1.jpg",@"type",nil];
-    NSDictionary *tDic41 = [[NSDictionary alloc]initWithObjectsAndKeys:@"检查更新",@"name",@"1.jpg",@"type",nil];
-    NSDictionary *tDic51 = [[NSDictionary alloc]initWithObjectsAndKeys:@"史1强",@"name",@"1.jpg",@"type", @"C406", @"office",nil];
-    NSDictionary *tDic61 = [[NSDictionary alloc]initWithObjectsAndKeys:@"李1",@"name",@"2.jpg",@"type", @"D011", @"office",nil];
-
-    _stuArray = [[NSMutableArray alloc]initWithObjects:tDic11,tDic21,tDic31,tDic41,tDic51,tDic61, nil];
-    self.arr = _stuArray;
+    self.arr = self.msgArray;
     [self.tableView reloadData];
     
     [self.refreshControll endPullDownRefreshing];
@@ -180,7 +225,7 @@ const int Max_Count = 5;
 - (void)endLoadMore {
     loadCount ++;
     //NSMutableArray *_stuArray = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"第%d次就加载更多,共%d次",loadCount,Max_Count ],@"更多1",@"更多2",@"更多3", nil];
-    [self.arr addObjectsFromArray:_stuArray];
+    //[self.arr addObjectsFromArray:_stuArray];
     [self.tableView reloadData];
     
     [self.refreshControll endPullUpLoading];
@@ -206,8 +251,8 @@ const int Max_Count = 5;
     cell.textLabel.text = [NSString stringWithFormat:@"cell %ld -- %@",(long)indexPath.row,strText];
     return cell;
      */
-    UITableViewCell *cell =[[UITableViewCell alloc]init];
-    cell = [self customCellByXib0:tableView withIndexPath:indexPath];
+    //UITableViewCell *cell =[UITableViewCell alloc];
+    UITableViewCell *cell = [self customCellByXib0:tableView withIndexPath:indexPath];
     return cell;
 }
 
@@ -216,21 +261,84 @@ const int Max_Count = 5;
     static NSString *customXibCellIdentifier = @"MessageXibCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
-        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"MessageCell" owner:self options:nil];//加载nib文件
-        if([nib count]>0){
-            cell = _MessageCell;
-        }
-        else{
-            assert(NO);//读取文件失败
-        }
+        //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+        
+        //头像
+        CGRect imageRect = CGRectMake(5, 5, 55, 55);
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+        imageView.tag = 4;
+        
+        //为图片添加边框
+        CALayer *layer = [imageView layer];
+        layer.cornerRadius = 8;
+        layer.borderColor = [[UIColor whiteColor]CGColor];
+        layer.borderWidth = 1;
+        layer.masksToBounds = YES;
+        [cell.contentView addSubview:imageView];
+        
+        //发送者
+        CGPoint i =imageRect.origin;
+        CGSize j = imageRect.size;
+        CGRect nameRect = CGRectMake(i.x+j.width+10, i.y+7, self.view.bounds.size.width/2, 10);
+        UILabel *nameLabel = [[UILabel alloc]initWithFrame:nameRect];
+        nameLabel.font = [UIFont boldSystemFontOfSize:15];
+        nameLabel.tag = 1;
+        nameLabel.textColor = [UIColor brownColor];
+        [cell.contentView addSubview:nameLabel];
+        
+        //内容
+        i =imageRect.origin;
+        j = imageRect.size;
+        CGRect messageRect = CGRectMake(i.x+j.width+10, i.y+23, self.view.bounds.size.width-j.width-25, 29);
+        UILabel *messageLabel = [[UILabel alloc]initWithFrame:messageRect];
+        messageLabel.font = [UIFont boldSystemFontOfSize:12];
+        messageLabel.tag = 2;
+        messageLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        messageLabel.numberOfLines =2;
+        messageLabel.textColor = [UIColor grayColor];
+        [cell.contentView addSubview:messageLabel];
+        
+        //时间
+        CGRect timeRect = CGRectMake(self.view.bounds.size.width-j.width-25, i.y+7, 75, 10);
+        UILabel *timeLabel = [[UILabel alloc]initWithFrame:timeRect];
+        timeLabel.font = [UIFont boldSystemFontOfSize:11];
+        timeLabel.tag = 3;
+        timeLabel.textColor = [UIColor grayColor];
+        [cell.contentView addSubview:timeLabel];
+        
+        //msgID
+        UILabel *msgIDLabel = [[UILabel alloc]initWithFrame:timeRect];
+        msgIDLabel.tag = 5;
+        msgIDLabel.hidden = YES;
+        [cell.contentView addSubview:msgIDLabel];
+
     }
+
     NSUInteger row = [indexPath row];
-    NSDictionary *dic  = [_stuArray objectAtIndex:row];
-    //姓名
-    ((UILabel *)[cell.contentView viewWithTag:1]).text = [dic objectForKey:@"name"];
-    
-    //类型
-    ((UIImageView *)[cell.contentView viewWithTag:4]).image = [UIImage imageNamed:[dic objectForKey:@"type"]];
+    NSMutableArray *dic  = [self.msgArray objectAtIndex:row];
+    //NSString *a = [dic objectAtIndex:0];
+    //msgID
+    ((UILabel *)[cell.contentView viewWithTag:5]).text = [dic objectAtIndex:0];
+    //发送人
+    NSString *sender = [dic objectAtIndex:3];
+    if([sender isEqualToString:@"0"])
+    {
+        sender = @"系统消息";
+    }
+    ((UILabel *)[cell.contentView viewWithTag:1]).text = sender;
+    //内容
+    int i = 4;// message atindex in array
+    NSMutableString *message = [[NSMutableString alloc]init];
+     [message appendString:[dic objectAtIndex:i]];
+    if (dic.count==i+2) {
+        [message appendString:[dic objectAtIndex:i+1]];
+    }
+    ((UILabel *)[cell.contentView viewWithTag:2]).text = message;
+    //时间
+    ((UILabel *)[cell.contentView viewWithTag:3]).text = [dic objectAtIndex:2];
+    //头像
+    ((UIImageView *)[cell.contentView viewWithTag:4]).image = [UIImage imageNamed:@"1.jpg"];
     
     //办公室
     //((UILabel *)[cell.contentView viewWithTag:teaOfficeTag]).text = [dic objectForKey:@"office"];
@@ -239,34 +347,18 @@ const int Max_Count = 5;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UILabel *msgidlb = [cell viewWithTag:5];
+    NSString *msgid = msgidlb.text;
     
-    switch (indexPath.section) {
-        case 0:
-        {
-            switch (indexPath.row) {
-                    
-                    
-                default:
-                    break;
-            }
-        }
-            break;
-            
-        case 1:
-        {
-            switch (indexPath.row) {
-                case 0:[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"signin"]animated:YES];
-                    break;
-                    
-                    
-                default:
-                    break;
-            }
-        }
-            break;
-        default:
-            break;
-    }
+    MessageDetailViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"msgwebview"];
+    asd.msgid  = msgid;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButton];
+    [asd.navigationItem setBackBarButtonItem:backButton];
+    //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"webview"]animated:YES];
+    [self.navigationController pushViewController:asd animated:YES];
+    
 }
 
 //修改行高度的位置

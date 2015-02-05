@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *arr;
 @property (strong, nonatomic) IBOutlet UITableViewCell *MessageCell;
-@property (retain,nonatomic) NSMutableArray *stuArray;//学生资料
+
+@property (retain,nonatomic) NSMutableArray *msgArray;//学生资料
 @end
