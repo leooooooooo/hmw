@@ -32,5 +32,5 @@
 
 @property (retain,nonatomic) NSArray *stuArray;//学生资料
 @property (retain,nonatomic) NSArray *teaArray;//老师资料
-@property (retain, nonatomic) IBOutlet UITableViewCell *teaCell;
+//@property (retain, nonatomic) IBOutlet UITableViewCell *teaCell;
 @end

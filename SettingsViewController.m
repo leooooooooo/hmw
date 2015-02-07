@@ -11,6 +11,7 @@
 #import "DeviceBindingTableViewController.h"
 #import "Header.h"
 #import "updateViewController.h"
+#import "changePasswordViewController.h"
 
 
 @interface SettingsViewController ()
@@ -18,9 +19,7 @@
 @end
 
 @implementation SettingsViewController
-@synthesize stuArray = _stuArray;
-@synthesize teaArray = _teaArray;
-@synthesize teaCell = _teaCell;
+
 
 - (void)viewDidLoad
 {
@@ -29,22 +28,22 @@
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
     NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护（未完成）",@"name",@"1.jpg",@"type",nil]autorelease];
-    NSDictionary *tDic21 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码（未完成）",@"name",@"1.jpg",@"type",nil]autorelease];
+    NSDictionary *tDic21 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic31 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"设备绑定",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic41 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"检查更新",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic51 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"史1强",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic61 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"李1",@"name",@"2.jpg",@"type", @"D011", @"office",nil]autorelease];
-    _stuArray= [[[NSArray alloc]initWithObjects:tDic11,tDic21,tDic31,tDic41,tDic51,tDic61, nil]autorelease];
+    self.stuArray= [[[NSArray alloc]initWithObjects:tDic11,tDic21,tDic31,tDic41,tDic51,tDic61, nil]autorelease];
     
     //初始化老师数据
-    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"重新登录",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"登录",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"注销",@"name",@"2.jpg",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"史小强",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"李永乐",@"name",@"2.jpg",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"史小强",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"李永乐",@"name",@"2.jpg",@"type", @"D011", @"office",nil]autorelease];
     
-    _teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6, nil]autorelease];
+    self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6, nil]autorelease];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"设置";
@@ -63,6 +62,10 @@
         case 0:
         {
             switch (indexPath.row) {
+                case 1:
+                    [self changePassword];
+                    break;
+
                 case 2:
                     [self devicebinding];
                     break;
@@ -154,21 +157,41 @@
     static NSString *customXibCellIdentifier = @"CustomXibCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
-        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"CustomCell" owner:self options:nil];//加载nib文件
-        if([nib count]>0){
-            cell = _teaCell;
-        }
-        else{
-            assert(NO);//读取文件失败
-        }
+        //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+        
+        //头像
+        CGRect imageRect = CGRectMake(8, 5, 35, 35);
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+        imageView.tag = 2;
+        
+        //为图片添加边框
+        CALayer *layer = [imageView layer];
+        layer.cornerRadius = 8;
+        layer.borderColor = [[UIColor whiteColor]CGColor];
+        layer.borderWidth = 1;
+        layer.masksToBounds = YES;
+        [cell.contentView addSubview:imageView];
+        
+        //发送者
+        CGPoint i =imageRect.origin;
+        CGSize j = imageRect.size;
+        CGRect nameRect = CGRectMake(i.x+j.width+10, i.y+13, self.view.bounds.size.width/2, 10);
+        UILabel *nameLabel = [[UILabel alloc]initWithFrame:nameRect];
+        nameLabel.font = [UIFont systemFontOfSize:16];
+        nameLabel.tag = 1;
+        //nameLabel.textColor = [UIColor brownColor];
+        [cell.contentView addSubview:nameLabel];
+        
     }
+
     NSUInteger row = [indexPath row];
-    NSDictionary *dic  = [_stuArray objectAtIndex:row];
+    NSDictionary *dic  = [self.stuArray objectAtIndex:row];
     //姓名
-    ((UILabel *)[cell.contentView viewWithTag:teaNameTag]).text = [dic objectForKey:@"name"];
+    ((UILabel *)[cell.contentView viewWithTag:1]).text = [dic objectForKey:@"name"];
     
-    //类型
-    ((UIImageView *)[cell.contentView viewWithTag:teaTypeTag]).image = [UIImage imageNamed:[dic objectForKey:@"type"]];
+    //图标
+    ((UIImageView *)[cell.contentView viewWithTag:2]).image = [UIImage imageNamed:[dic objectForKey:@"type"]];
     
     //办公室
     //((UILabel *)[cell.contentView viewWithTag:teaOfficeTag]).text = [dic objectForKey:@"office"];
@@ -180,21 +203,40 @@
     static NSString *customXibCellIdentifier = @"CustomXibCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
-        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"CustomCell" owner:self options:nil];//加载nib文件
-        if([nib count]>0){
-            cell = _teaCell;
-        }
-        else{
-            assert(NO);//读取文件失败
-        }
+        //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+        
+        //头像
+        CGRect imageRect = CGRectMake(8, 5, 35, 35);
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+        imageView.tag = 2;
+        
+        //为图片添加边框
+        CALayer *layer = [imageView layer];
+        layer.cornerRadius = 8;
+        layer.borderColor = [[UIColor whiteColor]CGColor];
+        layer.borderWidth = 1;
+        layer.masksToBounds = YES;
+        [cell.contentView addSubview:imageView];
+        
+        //发送者
+        CGPoint i =imageRect.origin;
+        CGSize j = imageRect.size;
+        CGRect nameRect = CGRectMake(i.x+j.width+10, i.y+13, self.view.bounds.size.width/2, 10);
+        UILabel *nameLabel = [[UILabel alloc]initWithFrame:nameRect];
+        nameLabel.font = [UIFont systemFontOfSize:16];
+        nameLabel.tag = 1;
+        //nameLabel.textColor = [UIColor brownColor];
+        [cell.contentView addSubview:nameLabel];
+        
     }
     NSUInteger row = [indexPath row];
-    NSDictionary *dic  = [_teaArray objectAtIndex:row];
+    NSDictionary *dic  = [self.teaArray objectAtIndex:row];
     //姓名
-    ((UILabel *)[cell.contentView viewWithTag:teaNameTag]).text = [dic objectForKey:@"name"];
+    ((UILabel *)[cell.contentView viewWithTag:1]).text = [dic objectForKey:@"name"];
     
-    //类型
-    ((UIImageView *)[cell.contentView viewWithTag:teaTypeTag]).image = [UIImage imageNamed:[dic objectForKey:@"type"]];
+    //图标
+    ((UIImageView *)[cell.contentView viewWithTag:2]).image = [UIImage imageNamed:[dic objectForKey:@"type"]];
     
     //办公室
     //((UILabel *)[cell.contentView viewWithTag:teaOfficeTag]).text = [dic objectForKey:@"office"];
@@ -203,14 +245,15 @@
 
 -(void)login
 {
-    status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
+    //status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
     [status setObject:@"0" forKey:(id)kSecValueData];
     [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"signin"]animated:YES];
 }
 
+
 -(void)logout
 {
-    status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
+    //status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
     info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     userid = [info objectForKey:(id)kSecAttrAccount];
     [status setObject:@"0" forKey:(id)kSecValueData];
@@ -220,12 +263,32 @@
     [self performSegueWithIdentifier:@"logout" sender:self];
 }
 
+-(void)changePassword
+{
+    info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"修改密码" message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
+        changePasswordViewController *devicebinding =  [self.storyboard instantiateViewControllerWithIdentifier:@"changepassword"];
+        
+        devicebinding.navigationItem.title = @"修改密码";
+        [devicebinding.navigationController.navigationBar setBarTintColor:NavigationBarColor];
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+        devicebinding.navigationController.navigationBar.titleTextAttributes=dict;
+        [self.navigationController pushViewController:devicebinding animated:YES];
+    }
+}
+
 -(void)devicebinding
 {
     info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
-    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"])
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请先登录" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"设备绑定" message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
     else
@@ -259,21 +322,19 @@
         pb = [NSString stringWithFormat:@"检测到最新版本%@，请更新",rcc];
         alert = [[UIAlertView alloc]initWithTitle:@"版本更新" message:pb delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
-        [self update];
+        NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/wlkgbsgsapp/install/install.html"];
+        updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
+        asd.url = url;
+        
+        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
+        [self.navigationItem setBackBarButtonItem:backButton];
+        [asd.navigationItem setBackBarButtonItem:backButton];
+        [self.navigationController pushViewController:asd animated:YES];
+
     }
     
 }
--(void)update{
 
-    NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/wlkgbsgsapp/install/install.html"];
-            updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
-    asd.url = url;
-    
-    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
-    [self.navigationItem setBackBarButtonItem:backButton];
-    [asd.navigationItem setBackBarButtonItem:backButton];
-    [self.navigationController pushViewController:asd animated:YES];
-}
 
 -(void)dealloc
 {

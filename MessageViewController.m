@@ -256,7 +256,7 @@
     return cell;
 }
 
-//通过nib文件自定义cell
+//通过代码自定义cell
 -(UITableViewCell *)customCellByXib0:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath{
     static NSString *customXibCellIdentifier = @"MessageXibCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];

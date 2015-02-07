@@ -59,7 +59,7 @@
     [self loadPage];
     info=[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     NSString *userid  = [info objectForKey:(id)kSecAttrAccount];
-    if ([userid isEqualToString:@"0"]) {
+    if ([userid isEqualToString:@"0"]|[userid isEqualToString:@""]) {
     }
     else
     {
@@ -98,11 +98,6 @@
     }
 }
 
-//-(CGFloat)getLastHeight
-//{
-//    UIView *a =  self.indexScrollView.subviews.lastObject;
-//    return a.frame.size.height;
-//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -207,7 +202,7 @@
     NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/HMWUPDATE.ASPX?deviceType=iOS&version=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     NSURL *get=[NSURL URLWithString:url];
     NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-    NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+    NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
     NSString *rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];;
     NSString *pb;
     UIAlertView *alert;
@@ -222,20 +217,16 @@
         pb = [NSString stringWithFormat:@"检测到最新版本%@，请更新",rcc];
         alert = [[[UIAlertView alloc]initWithTitle:@"版本更新" message:pb delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil]autorelease];
         [alert show];
-        [self update];
+        NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/m_hmw/install/install.html"];
+        updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
+        asd.url = url;
+        
+        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];;
+        [self.navigationItem setBackBarButtonItem:backButton];
+        [asd.navigationItem setBackBarButtonItem:backButton];
+        [self.navigationController pushViewController:asd animated:YES];
     }
     
-}
--(void)update{
-    
-    NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/m_hmw/install/install.html"];
-    updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
-    asd.url = url;
-    
-    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];;
-    [self.navigationItem setBackBarButtonItem:backButton];
-    [asd.navigationItem setBackBarButtonItem:backButton];
-    [self.navigationController pushViewController:asd animated:YES];
 }
 
 

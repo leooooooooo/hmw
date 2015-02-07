@@ -70,16 +70,15 @@
 		18A5F2321A132A9900004A76 /* 航贸网logo152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2291A132A9900004A76 /* 航贸网logo152x152.png */; };
 		18A5F2331A132A9900004A76 /* 航贸网logo180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F22A1A132A9900004A76 /* 航贸网logo180x180.png */; };
 		18BAE8B21A70CAAA00D9EF66 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8B01A70CAAA00D9EF66 /* SettingsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		18BAE8BD1A70E49500D9EF66 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8BC1A70E49500D9EF66 /* CustomCell.xib */; };
 		18BAE8C01A70ECFD00D9EF66 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8BE1A70ECFD00D9EF66 /* 1.jpg */; };
 		18BAE8C11A70ECFD00D9EF66 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8BF1A70ECFD00D9EF66 /* 2.jpg */; };
-		18BAE8CF1A72384100D9EF66 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BAE8CE1A72384100D9EF66 /* MessageCell.xib */; };
 		18BAE8D91A73398700D9EF66 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D31A73398700D9EF66 /* MBProgressHUD.m */; };
 		18BAE8DA1A73398700D9EF66 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D51A73398700D9EF66 /* Util.m */; };
 		18BAE8DB1A73398700D9EF66 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D71A73398700D9EF66 /* Reachability.m */; };
 		18BAE8DC1A73398700D9EF66 /* CustomURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE8D81A73398700D9EF66 /* CustomURLCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18BAE9011A73518300D9EF66 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE9001A73518300D9EF66 /* SecondViewController.m */; };
 		18BAE9041A7356BA00D9EF66 /* CygnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BAE9031A7356BA00D9EF66 /* CygnViewController.m */; };
+		18D1F3BF1A8628BA00B6C05F /* changePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1F3BE1A8628BA00B6C05F /* changePasswordViewController.m */; };
 		18F321FC1A7F1386002E7ACB /* CLLRefreshCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F321F41A7F1386002E7ACB /* CLLRefreshCircleView.m */; };
 		18F321FD1A7F1386002E7ACB /* CLLRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F321F61A7F1386002E7ACB /* CLLRefreshFooterView.m */; };
 		18F321FE1A7F1386002E7ACB /* CLLRefreshHeadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F321F81A7F1386002E7ACB /* CLLRefreshHeadController.m */; };
@@ -178,10 +177,8 @@
 		18A5F22A1A132A9900004A76 /* 航贸网logo180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo180x180.png"; sourceTree = "<group>"; };
 		18BAE8B01A70CAAA00D9EF66 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		18BAE8B11A70CAAA00D9EF66 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		18BAE8BC1A70E49500D9EF66 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		18BAE8BE1A70ECFD00D9EF66 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../1.jpg; sourceTree = "<group>"; };
 		18BAE8BF1A70ECFD00D9EF66 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = ../2.jpg; sourceTree = "<group>"; };
-		18BAE8CE1A72384100D9EF66 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		18BAE8D11A73398700D9EF66 /* CustomURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomURLCache.h; sourceTree = "<group>"; };
 		18BAE8D21A73398700D9EF66 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		18BAE8D31A73398700D9EF66 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -194,6 +191,8 @@
 		18BAE9001A73518300D9EF66 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		18BAE9021A7356BA00D9EF66 /* CygnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CygnViewController.h; sourceTree = "<group>"; };
 		18BAE9031A7356BA00D9EF66 /* CygnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CygnViewController.m; sourceTree = "<group>"; };
+		18D1F3BD1A8628BA00B6C05F /* changePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changePasswordViewController.h; sourceTree = "<group>"; };
+		18D1F3BE1A8628BA00B6C05F /* changePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changePasswordViewController.m; sourceTree = "<group>"; };
 		18F321F31A7F1386002E7ACB /* CLLRefreshCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshCircleView.h; sourceTree = "<group>"; };
 		18F321F41A7F1386002E7ACB /* CLLRefreshCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLRefreshCircleView.m; sourceTree = "<group>"; };
 		18F321F51A7F1386002E7ACB /* CLLRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLRefreshFooterView.h; sourceTree = "<group>"; };
@@ -485,11 +484,12 @@
 				18BAE8B01A70CAAA00D9EF66 /* SettingsViewController.m */,
 				18F4604A1A5A2EB600C78274 /* LoginViewController.h */,
 				18F4604B1A5A2EB600C78274 /* LoginViewController.m */,
-				18BAE8BC1A70E49500D9EF66 /* CustomCell.xib */,
 				182CFC291A787B7200999282 /* DeviceBindingTableViewController.h */,
 				182CFC2A1A787B7200999282 /* DeviceBindingTableViewController.m */,
 				1869CFF51A7A1B3F00766F67 /* updateViewController.h */,
 				1869CFF61A7A1B3F00766F67 /* updateViewController.m */,
+				18D1F3BD1A8628BA00B6C05F /* changePasswordViewController.h */,
+				18D1F3BE1A8628BA00B6C05F /* changePasswordViewController.m */,
 			);
 			name = settings;
 			sourceTree = "<group>";
@@ -506,7 +506,6 @@
 		18BAE8CA1A7237D800D9EF66 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				18BAE8CE1A72384100D9EF66 /* MessageCell.xib */,
 				18F322061A7F3CD4002E7ACB /* MessageViewController.h */,
 				18F322071A7F3CD4002E7ACB /* MessageViewController.m */,
 				18F7001E1A83089A00068FE3 /* MessageDetailViewController.h */,
@@ -628,7 +627,6 @@
 				182CFC271A78764400999282 /* 启动页2.png in Resources */,
 				1876AD901A7084A70011750F /* blackArrow.png in Resources */,
 				18BAE8C01A70ECFD00D9EF66 /* 1.jpg in Resources */,
-				18BAE8BD1A70E49500D9EF66 /* CustomCell.xib in Resources */,
 				1871C39D1A1053D400A9C265 /* 航贸网登录x.png in Resources */,
 				1871C39B1A104DF600A9C265 /* 航贸网登录1.png in Resources */,
 				1877B95E1A5D04E6000A7131 /* AdDataPlist.plist in Resources */,
@@ -640,7 +638,6 @@
 				1871C3951A10480F00A9C265 /* 航贸网登录用户名(1).png in Resources */,
 				1876AD971A7084A70011750F /* whiteArrow@2x.png in Resources */,
 				18847BA01A81BBDA0051BE0E /* aps_development-4.cer in Resources */,
-				18BAE8CF1A72384100D9EF66 /* MessageCell.xib in Resources */,
 				18A5F2331A132A9900004A76 /* 航贸网logo180x180.png in Resources */,
 				1876AD931A7084A70011750F /* blueArrow@2x.png in Resources */,
 				1876AD941A7084A70011750F /* grayArrow.png in Resources */,
@@ -686,6 +683,7 @@
 				18F321FF1A7F1386002E7ACB /* CLLRefreshHeadView.m in Sources */,
 				1877B9511A5CF7E3000A7131 /* NavBar.m in Sources */,
 				1877B96C1A5D1E63000A7131 /* widget.m in Sources */,
+				18D1F3BF1A8628BA00B6C05F /* changePasswordViewController.m in Sources */,
 				18A5CAD11A5BC9AD008ED792 /* FileOwner.m in Sources */,
 				1877B9601A5D04E6000A7131 /* AdScrollView.m in Sources */,
 				18BAE8B21A70CAAA00D9EF66 /* SettingsViewController.m in Sources */,
