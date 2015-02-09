@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180588661A885DC6001BB46B /* redbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 180588651A885DC6001BB46B /* redbutton.png */; };
 		182CFC1C1A7735B600999282 /* DeviceSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CFC1B1A7735B600999282 /* DeviceSender.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		182CFC231A78764400999282 /* 启动页1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC1D1A78764400999282 /* 启动页1.jpg */; };
 		182CFC241A78764400999282 /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC1E1A78764400999282 /* 设置.png */; };
@@ -96,6 +97,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180588651A885DC6001BB46B /* redbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbutton.png; sourceTree = "<group>"; };
 		182CFC1A1A7735B600999282 /* DeviceSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSender.h; sourceTree = "<group>"; };
 		182CFC1B1A7735B600999282 /* DeviceSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSender.m; sourceTree = "<group>"; };
 		182CFC1D1A78764400999282 /* 启动页1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1.jpg"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		1871C3911A10476B00A9C265 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				180588651A885DC6001BB46B /* redbutton.png */,
 				1869CFFA1A7B297A00766F67 /* 查询.png */,
 				1869CFF81A7B1A0400766F67 /* 启动页3.png */,
 				182CFC1D1A78764400999282 /* 启动页1.jpg */,
@@ -622,6 +625,7 @@
 				1877B9521A5CF7E3000A7131 /* NavBar.xib in Resources */,
 				18A5F2301A132A9900004A76 /* 航贸网logo87x87.png in Resources */,
 				1871C38F1A10476900A9C265 /* 航贸网登录用户名1.png in Resources */,
+				180588661A885DC6001BB46B /* redbutton.png in Resources */,
 				18A5F2311A132A9900004A76 /* 航贸网logo120x120.png in Resources */,
 				1871C3881A0F63A200A9C265 /* 航贸网登录背景.jpg in Resources */,
 				182CFC271A78764400999282 /* 启动页2.png in Resources */,

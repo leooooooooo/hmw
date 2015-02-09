@@ -30,7 +30,7 @@
 @implementation IndexViewController
 
 - (void)viewDidLoad{
-    
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.77 green:0.00 blue:0.05 alpha:1]];
     [self checkupdate];
     /*
     CustomURLCache *urlCache = [[CustomURLCache alloc] initWithMemoryCapacity:0.1 * 1024 * 1024
@@ -87,7 +87,7 @@
         SecondViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"secondwebview"];
         asd.qqq = request;
         
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
         [self.navigationItem setBackBarButtonItem:backButton];
         [asd.navigationItem setBackBarButtonItem:backButton];
         [backButton release];
@@ -188,7 +188,7 @@
     CygnViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"cygnwebview"];
     info=[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     asd.userid  = [info objectForKey:(id)kSecAttrAccount];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
     [asd.navigationItem setBackBarButtonItem:backButton];
     [backButton release];
@@ -221,7 +221,7 @@
         updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
         asd.url = url;
         
-        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];;
+        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];;
         [self.navigationItem setBackBarButtonItem:backButton];
         [asd.navigationItem setBackBarButtonItem:backButton];
         [self.navigationController pushViewController:asd animated:YES];

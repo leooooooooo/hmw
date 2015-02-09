@@ -26,7 +26,7 @@
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
-    
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.77 green:0.00 blue:0.05 alpha:1]];
     NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护（未完成）",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic21 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic31 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"设备绑定",@"name",@"1.jpg",@"type",nil]autorelease];
@@ -245,6 +245,10 @@
 
 -(void)login
 {
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButton];
+    
+    [backButton release];
     //status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
     [status setObject:@"0" forKey:(id)kSecValueData];
     [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"signin"]animated:YES];
@@ -326,7 +330,7 @@
         updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
         asd.url = url;
         
-        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
+        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
         [self.navigationItem setBackBarButtonItem:backButton];
         [asd.navigationItem setBackBarButtonItem:backButton];
         [self.navigationController pushViewController:asd animated:YES];
