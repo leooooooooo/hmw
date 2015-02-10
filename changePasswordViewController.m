@@ -7,6 +7,7 @@
 //
 
 #import "changePasswordViewController.h"
+#import "AppDelegate.h"
 
 @interface changePasswordViewController ()
 
@@ -16,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        self.passwordNew.secureTextEntry= YES;
+    self.passwordNew.secureTextEntry= YES;
     self.passwordOld.secureTextEntry= YES;
     self.passwordConfirmed.secureTextEntry= YES;
     // Do any additional setup after loading the view.
@@ -52,9 +53,16 @@
     }
     else
     {
-        if([self.passwordNew isEqual:self.passwordConfirmed])
+        if([self.passwordNew.text isEqual:self.passwordConfirmed.text])
         {
-            
+            AppDelegate *delegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+            NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/changepassword.aspx?userid=%@&oldpassword=%@&newpassword=%@",delegate.userid,self.passwordOld.text,self.passwordNew.text];
+            NSURL *get=[NSURL URLWithString:url];
+            NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
+            NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+            NSString *rcc=[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:rcc message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
         }
         else{
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确认修改" message:@"请保持两次密码输入一致" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];

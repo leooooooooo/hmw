@@ -221,7 +221,7 @@
         updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
         asd.url = url;
         
-        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];;
+        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
         [self.navigationItem setBackBarButtonItem:backButton];
         [asd.navigationItem setBackBarButtonItem:backButton];
         [self.navigationController pushViewController:asd animated:YES];

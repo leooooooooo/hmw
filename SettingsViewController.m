@@ -12,6 +12,7 @@
 #import "Header.h"
 #import "updateViewController.h"
 #import "changePasswordViewController.h"
+#import "changeInfoViewController.h"
 
 
 @interface SettingsViewController ()
@@ -23,11 +24,13 @@
 
 - (void)viewDidLoad
 {
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
+    [self.navigationItem setBackBarButtonItem:backButton];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.77 green:0.00 blue:0.05 alpha:1]];
-    NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护（未完成）",@"name",@"1.jpg",@"type",nil]autorelease];
+    NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic21 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic31 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"设备绑定",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic41 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"检查更新",@"name",@"1.jpg",@"type",nil]autorelease];
@@ -62,6 +65,9 @@
         case 0:
         {
             switch (indexPath.row) {
+                case 0:
+                    [self changeinfo];
+                    break;
                 case 1:
                     [self changePassword];
                     break;
@@ -265,6 +271,27 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"注销成功！" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
     [self performSegueWithIdentifier:@"logout" sender:self];
+}
+
+-(void)changeinfo
+{
+    info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"个人信息维护" message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
+        changeInfoViewController *devicebinding =  [self.storyboard instantiateViewControllerWithIdentifier:@"changeinfo"];
+        
+        devicebinding.navigationItem.title = @"个人信息维护";
+        [devicebinding.navigationController.navigationBar setBarTintColor:NavigationBarColor];
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+        devicebinding.navigationController.navigationBar.titleTextAttributes=dict;
+        [self.navigationController pushViewController:devicebinding animated:YES];
+    }
+
 }
 
 -(void)changePassword
