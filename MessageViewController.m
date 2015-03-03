@@ -194,9 +194,13 @@
 {
     [super viewDidLoad];
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButton];
+    [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
+    [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     self.navigationItem.title = @"消息";
     self.arr= [NSMutableArray array];
     

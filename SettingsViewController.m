@@ -26,10 +26,11 @@
 {
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
     [self.navigationItem setBackBarButtonItem:backButton];
+    [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.77 green:0.00 blue:0.05 alpha:1]];
+    
     NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic21 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码",@"name",@"1.jpg",@"type",nil]autorelease];
     NSDictionary *tDic31 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"设备绑定",@"name",@"1.jpg",@"type",nil]autorelease];

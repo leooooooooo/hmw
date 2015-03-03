@@ -30,7 +30,17 @@
 @implementation IndexViewController
 
 - (void)viewDidLoad{
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.77 green:0.00 blue:0.05 alpha:1]];
+    
+
+    NSURL *urljson=[NSURL URLWithString:@"http://gw.api.taobao.com/router/rest?sign=DB7B5CE419527C0ABD5C626D36C4426A&timestamp=2013-07-02+13:52:53&v=2.0&app_key=21553302&method=taobao.itemprops.get&partner_id=top-apitools&format=json&cid=50012379&fields=pid,name,must,multi,prop_values"];
+                    NSURLRequest *request=[NSURLRequest  requestWithURL:urljson];
+                    //发送同步请求
+                    NSData *data=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                    NSError *error;
+                    NSDictionary *dicdata=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+    
+    
+    [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self checkupdate];
     /*
     CustomURLCache *urlCache = [[CustomURLCache alloc] initWithMemoryCapacity:0.1 * 1024 * 1024

@@ -10,18 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KeychainItemWrapper.h"
 
-//学生
-#define nameTag          1
-#define classTag         2
-#define stuNumberTag     3
-#define imageTag         4
-#define nameFontSize    15
-#define fontSize        12
 
-//老师
-#define teaNameTag       1
-#define teaTypeTag       2
-#define teaOfficeTag     3
 
 @interface SettingsViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
 {

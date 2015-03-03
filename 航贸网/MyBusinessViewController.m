@@ -15,9 +15,15 @@
 @implementation MyBusinessViewController
 
 - (void)viewDidLoad {
+    
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
+    [self.navigationItem setBackBarButtonItem:backButton];
+    [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
+    
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];//隐藏
