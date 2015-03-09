@@ -15,6 +15,6 @@
     KeychainItemWrapper *info;
     NSString *userid;
 }
-@property (retain, nonatomic) IBOutlet UIButton *returnlogin;
+
 
 @end

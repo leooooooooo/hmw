@@ -19,8 +19,8 @@
 #define key1 @"<logogram>%@</logogram>",self.ID.text
 #define key2 @"<password>%@</password>",self.PW.text
 #define key3 @"<deviceID>%@</deviceID>",devicetoken
-#define key4 @"<snsToken>%@</snsToken>",nil
-#define key5 @""
+#define key4 @"<DeviceType>iOS</DeviceType>"
+#define key5 @"<snsToken>%@</snsToken>",nil
 #define key6 @""
 #define key7 @""
 #define key8 @""

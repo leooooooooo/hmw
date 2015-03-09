@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KeychainItemWrapper.h"
 
 @interface HDTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 @property (retain,nonatomic) NSArray *teaArray;//老师资料

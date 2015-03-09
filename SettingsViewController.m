@@ -256,7 +256,7 @@
     [self.navigationItem setBackBarButtonItem:backButton];
     
     [backButton release];
-    //status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
+    status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
     [status setObject:@"0" forKey:(id)kSecValueData];
     [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"signin"]animated:YES];
 }
@@ -264,7 +264,15 @@
 
 -(void)logout
 {
-    //status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
+    info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"个人信息维护" message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
+    status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
     info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     userid = [info objectForKey:(id)kSecAttrAccount];
     [status setObject:@"0" forKey:(id)kSecValueData];
@@ -272,6 +280,7 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"注销成功！" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
     [self performSegueWithIdentifier:@"logout" sender:self];
+    }
 }
 
 -(void)changeinfo

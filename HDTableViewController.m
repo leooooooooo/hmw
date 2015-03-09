@@ -8,9 +8,11 @@
 
 #import "HDTableViewController.h"
 #import "Header.h"
-#import "phcxViewController.h"
+#import "CompanySwitchViewController.h"
+#import "SwitchOnlyViewController.h"
 
 @interface HDTableViewController ()
+{NSString *userID;}
 
 @end
 
@@ -18,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    KeychainItemWrapper *info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
+    userID =[info objectForKey:(id)kSecAttrAccount];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
@@ -34,7 +39,7 @@
     NSDictionary *tDic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
     NSDictionary *tDic7 = [[NSDictionary alloc]initWithObjectsAndKeys:@"货物进港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
     NSDictionary *tDic8 = [[NSDictionary alloc]initWithObjectsAndKeys:@"货物出港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic9 = [[NSDictionary alloc]initWithObjectsAndKeys:@"港内存节查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
+    NSDictionary *tDic9 = [[NSDictionary alloc]initWithObjectsAndKeys:@"货物港内结存查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
     
     self.teaArray = [[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7,tDic8,tDic9, nil];
     [super viewDidLoad];
@@ -142,6 +147,30 @@
                 case 0:
                     [self phcx];
                     break;
+                case 1:
+                    [self ywdwtyczy];
+                    break;
+                case 2:
+                    [self ywdwtwczy];
+                    break;
+                case 3:
+                    [self zywtcx];
+                    break;
+                case 4:
+                    [self clyscx];
+                    break;
+                case 5:
+                    [self qchlmdcx];
+                    break;
+                case 6:
+                    [self hwjgcx];
+                    break;
+                case 7:
+                    [self hwcgcx];
+                    break;
+                case 8:
+                    [self hwgnjccx];
+                    break;
                 default:
                     break;
             }
@@ -150,8 +179,124 @@
 
 -(void)phcx
 {
-    [self performSegueWithIdentifier:@"phcx" sender:self];
+    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanySwitch"];
+    asd.userID = userID;
+    asd.title = @"票货查询";
+    asd.url =@"http://218.92.115.55/m_hmw/business/hdyy/goodsbill.html";
+    [self.navigationController pushViewController:asd animated:YES];
 }
+
+-(void)ywdwtyczy
+{
+    SwitchOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"SwitchOnly"];
+    asd.userID = userID;
+    asd.title = @"业务大委托有船作业查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/ShipBusinessConsign.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)ywdwtwczy
+{
+    SwitchOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"SwitchOnly"];
+    asd.userID = userID;
+    asd.title = @"业务大委托无船作业查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/NoShipBusinessConsign.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)zywtcx
+{
+    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanySwitch"];
+    asd.userID = userID;
+    asd.title = @"作业委托查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/JobConsign.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)clyscx
+{
+    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = userID;
+    asd.title = @"车辆运输查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleTransport.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)qchlmdcx
+{
+    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = userID;
+    asd.title = @"汽车衡量码单查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleBalance.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)hwjgcx
+{
+    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = userID;
+    asd.title = @"货物进港查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoIn.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)hwcgcx
+{
+    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = userID;
+    asd.title = @"货物出港查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoOut.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)hwgnjccx
+{
+    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = userID;
+    asd.title = @"货物港内结存查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoStock.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self hideTabBar];
+    //[self showTabBar];
+}
+
+- (void)hideTabBar {
+    if (self.tabBarController.tabBar.hidden == YES) {
+        return;
+    }
+    UIView *contentView;
+    if ( [[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] )
+        contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+    else
+        contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+    contentView.frame = CGRectMake(contentView.bounds.origin.x,  contentView.bounds.origin.y,  contentView.bounds.size.width, contentView.bounds.size.height + self.tabBarController.tabBar.frame.size.height);
+    self.tabBarController.tabBar.hidden = YES;
+    
+}
+
+- (void)showTabBar
+
+{
+    if (self.tabBarController.tabBar.hidden == NO)
+    {
+        return;
+    }
+    UIView *contentView;
+    if ([[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]])
+        
+        contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+    
+    else
+        
+        contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+    contentView.frame = CGRectMake(contentView.bounds.origin.x, contentView.bounds.origin.y,  contentView.bounds.size.width, contentView.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
+
 
 
 /*

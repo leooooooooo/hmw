@@ -596,9 +596,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Kgn-NR-XhN"/>
-                    <connections>
-                        <segue destination="asc-W4-lAO" kind="modal" identifier="phcx" id="J7e-4W-bT1"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lA-Ra-vMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -831,53 +828,50 @@
             </objects>
             <point key="canvasLocation" x="733" y="1580"/>
         </scene>
-        <!--Phcx View Controller-->
+        <!--Company Switch View Controller-->
         <scene sceneID="kfX-Zq-DbT">
             <objects>
-                <viewController storyboardIdentifier="phcx" useStoryboardIdentifierAsRestorationIdentifier="YES" id="asc-W4-lAO" customClass="phcxViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompanySwitch" useStoryboardIdentifierAsRestorationIdentifier="YES" id="asc-W4-lAO" customClass="CompanySwitchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IAI-yR-Djk">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qs6-5U-Tsu">
-                                <rect key="frame" x="159" y="122" width="10" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17P-2l-dIZ">
-                                <rect key="frame" x="415" y="122" width="10" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" id="pgf-sZ-dJm">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="XWN-M5-6eL">
-                                        <barButtonItem key="leftBarButtonItem" title="返回" id="leQ-hn-coD">
-                                            <connections>
-                                                <action selector="backButton:" destination="asc-W4-lAO" id="Hcl-iG-F6H"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="IAI-yR-Djk" id="ooT-qc-mnX"/>
-                                </connections>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ez0-rd-arY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5462" y="-1133"/>
+        </scene>
+        <!--Switch Only View Controller-->
+        <scene sceneID="mB8-zG-OwO">
+            <objects>
+                <viewController storyboardIdentifier="SwitchOnly" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JvX-fO-FUy" customClass="SwitchOnlyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DYh-ZL-nrX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5lj-zH-kEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5462" y="-394"/>
+        </scene>
+        <!--Company Only View Controller-->
+        <scene sceneID="3FZ-HJ-nSc">
+            <objects>
+                <viewController storyboardIdentifier="CompanyOnly" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ogi-DK-bAC" customClass="CompanyOnlyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nt2-Yz-LBH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mn3-U3-kOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5462" y="267"/>
         </scene>
         <!--设置-->
         <scene sceneID="wtx-Te-rbR">
@@ -930,7 +924,7 @@
         <image name="cx_09.png" width="237" height="236"/>
         <image name="cx_10.png" width="237" height="236"/>
         <image name="cx_13.png" width="515" height="236"/>
-        <image name="redbutton.png" width="85" height="41"/>
+        <image name="redbutton.png" width="30" height="30"/>
         <image name="查询.png" width="30" height="30"/>
         <image name="消息.png" width="30" height="30"/>
         <image name="航贸网登录1.png" width="586" height="82"/>
