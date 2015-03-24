@@ -17,7 +17,7 @@
 #import "Header.h"
 #import "updateViewController.h"
 #import "AppDelegate.h"
-
+#import "SVProgressHUD.h"
 
 @interface IndexViewController ()
 @property(retain,nonatomic)NSURLRequest *qqq;
@@ -31,14 +31,16 @@
 
 - (void)viewDidLoad{
     
-
+    
+    
+/*   JSON TEST
     NSURL *urljson=[NSURL URLWithString:@"http://gw.api.taobao.com/router/rest?sign=DB7B5CE419527C0ABD5C626D36C4426A&timestamp=2013-07-02+13:52:53&v=2.0&app_key=21553302&method=taobao.itemprops.get&partner_id=top-apitools&format=json&cid=50012379&fields=pid,name,must,multi,prop_values"];
                     NSURLRequest *request=[NSURLRequest  requestWithURL:urljson];
                     //发送同步请求
                     NSData *data=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
                     NSError *error;
                     NSDictionary *dicdata=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-    
+    */
     
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self checkupdate];
@@ -77,6 +79,17 @@
     }
     AppDelegate *da=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     da.userid = userid;
+    
+    
+    //nav button
+    UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(Cygn:)];
+    
+    //UIImage *redbutton =[UIImage imageNamed:@"redbutton.png"];
+    
+    //[select setBackgroundImage:redbutton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    select.tintColor = [UIColor whiteColor];
+    [self.navigationItem setRightBarButtonItem:select];
 
 }
 
@@ -135,6 +148,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     _reloading = YES;
+    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -146,6 +160,7 @@
     self.navigationController.navigationBar.titleTextAttributes=dict;
     //self.navigationItem.titleView.backgroundColor=[UIColor whiteColor];
     _qqq=nil;
+    [SVProgressHUD dismiss];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"load page error:%@", [error description]);
@@ -154,6 +169,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = @"Loading...";
+    
 }
 
 

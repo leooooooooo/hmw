@@ -59,7 +59,7 @@
             NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/changepassword.aspx?userid=%@&oldpassword=%@&newpassword=%@",delegate.userid,self.passwordOld.text,self.passwordNew.text];
             NSURL *get=[NSURL URLWithString:url];
             NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-            NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+            NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
             NSString *rcc=[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding];
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:rcc message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];

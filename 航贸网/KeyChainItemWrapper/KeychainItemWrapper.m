@@ -149,6 +149,7 @@ See the header file Security/SecItem.h for more details.
         NSMutableDictionary *tempDictionary = [self dictionaryToSecItemFormat:keychainItemData];
 		junk = SecItemDelete((CFDictionaryRef)tempDictionary);
         NSAssert( junk == noErr || junk == errSecItemNotFound, @"Problem deleting current dictionary." );
+        junk = junk;
     }
     
     // Default attributes for keychain item.
@@ -250,12 +251,14 @@ See the header file Security/SecItem.h for more details.
 		
         result = SecItemUpdate((CFDictionaryRef)updateItem, (CFDictionaryRef)tempCheck);
 		NSAssert( result == noErr, @"Couldn't update the Keychain Item." );
+        result = result;
     }
     else
     {
         // No previous item found; add the new one.
         result = SecItemAdd((CFDictionaryRef)[self dictionaryToSecItemFormat:keychainItemData], NULL);
 		NSAssert( result == noErr, @"Couldn't add the Keychain Item." );
+        result = result;
     }
 }
 

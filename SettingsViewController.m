@@ -31,17 +31,17 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
-    NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护",@"name",@"1.jpg",@"type",nil]autorelease];
-    NSDictionary *tDic21 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码",@"name",@"1.jpg",@"type",nil]autorelease];
-    NSDictionary *tDic31 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"设备绑定",@"name",@"1.jpg",@"type",nil]autorelease];
-    NSDictionary *tDic41 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"检查更新",@"name",@"1.jpg",@"type",nil]autorelease];
+    NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护",@"name",@"设置_03.png",@"type",nil]autorelease];
+    NSDictionary *tDic21 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"修改密码",@"name",@"设置_06.png",@"type",nil]autorelease];
+    NSDictionary *tDic31 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"设备绑定",@"name",@"设置_08.png",@"type",nil]autorelease];
+    NSDictionary *tDic41 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"检查更新",@"name",@"设置_10.png",@"type",nil]autorelease];
     NSDictionary *tDic51 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"史1强",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic61 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"李1",@"name",@"2.jpg",@"type", @"D011", @"office",nil]autorelease];
     self.stuArray= [[[NSArray alloc]initWithObjects:tDic11,tDic21,tDic31,tDic41,tDic51,tDic61, nil]autorelease];
     
     //初始化老师数据
-    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"登录",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"注销",@"name",@"2.jpg",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"登录",@"name",@"设置_12.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"注销",@"name",@"设置_14.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"史小强",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"李永乐",@"name",@"2.jpg",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"史小强",@"name",@"1.jpg",@"type", @"C406", @"office",nil]autorelease];
@@ -151,6 +151,7 @@
     
 
     return cell;
+    
 }
 
 //修改行高度的位置
@@ -165,11 +166,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
         //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier]autorelease];
         
         //头像
         CGRect imageRect = CGRectMake(8, 5, 35, 35);
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+        UIImageView *imageView = [[[UIImageView alloc]initWithFrame:imageRect]autorelease];
         imageView.tag = 2;
         
         //为图片添加边框
@@ -184,7 +185,7 @@
         CGPoint i =imageRect.origin;
         CGSize j = imageRect.size;
         CGRect nameRect = CGRectMake(i.x+j.width+10, i.y+13, self.view.bounds.size.width/2, 10);
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:nameRect];
+        UILabel *nameLabel = [[[UILabel alloc]initWithFrame:nameRect]autorelease];
         nameLabel.font = [UIFont systemFontOfSize:16];
         nameLabel.tag = 1;
         //nameLabel.textColor = [UIColor brownColor];
@@ -211,11 +212,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
         //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier]autorelease];
         
         //头像
         CGRect imageRect = CGRectMake(8, 5, 35, 35);
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+        UIImageView *imageView = [[[UIImageView alloc]initWithFrame:imageRect]autorelease];
         imageView.tag = 2;
         
         //为图片添加边框
@@ -230,7 +231,7 @@
         CGPoint i =imageRect.origin;
         CGSize j = imageRect.size;
         CGRect nameRect = CGRectMake(i.x+j.width+10, i.y+13, self.view.bounds.size.width/2, 10);
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:nameRect];
+        UILabel *nameLabel = [[[UILabel alloc]initWithFrame:nameRect]autorelease];
         nameLabel.font = [UIFont systemFontOfSize:16];
         nameLabel.tag = 1;
         //nameLabel.textColor = [UIColor brownColor];
@@ -267,7 +268,7 @@
     info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"个人信息维护" message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"注销" message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
     else
@@ -348,7 +349,7 @@
     NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/HMWUPDATE.ASPX?deviceType=iOS&version=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     NSURL *get=[NSURL URLWithString:url];
     NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-    NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+    NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
     NSString *rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];
     NSString *pb;
     UIAlertView *alert;

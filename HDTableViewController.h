@@ -11,4 +11,5 @@
 
 @interface HDTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 @property (retain,nonatomic) NSArray *teaArray;//老师资料
+@property(retain,nonatomic) NSString *userID;
 @end

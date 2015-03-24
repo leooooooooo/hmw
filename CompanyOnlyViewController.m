@@ -8,6 +8,7 @@
 
 #import "CompanyOnlyViewController.h"
 #import "DropDownListView.h"
+#import "SVProgressHUD.h"
 
 @interface CompanyOnlyViewController (){
     NSMutableArray *chooseArray ;
@@ -36,12 +37,13 @@
     [self.view addSubview:dropDownView];
     
     //查询按钮
-    UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithTitle:@"查询" style:UIBarButtonSystemItemSearch target:self action:@selector(select:)];
+    //UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithTitle:@"查询" style:UIBarButtonItemStyleDone target:self action:@selector(select:)];
+    UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(select:)];
+
     
+    //UIImage *redbutton =[UIImage imageNamed:@"redbutton.png"];
     
-    UIImage *redbutton =[UIImage imageNamed:@"redbutton.png"];
-    
-    [select setBackgroundImage:redbutton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    //[select setBackgroundImage:redbutton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     select.tintColor = [UIColor whiteColor];
     [self.navigationItem setRightBarButtonItem:select];
@@ -59,14 +61,14 @@
     webView.tag = 1;
     
     
-    
+    [self select:self];
     // Do any additional setup after loading the view.
 }
 
 -(void)select:(id)sender
 {
-    
-    NSMutableString *urlString = [[NSMutableString alloc]initWithFormat:self.url];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSMutableString *urlString = [[NSMutableString alloc]initWithFormat:self.url,nil];
     [urlString appendFormat:@"?info=%@+%@",companyID,self.userID];
     NSURL *url =[NSURL URLWithString:urlString];
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
@@ -135,6 +137,13 @@
 -(NSInteger)defaultShowSection:(NSInteger)section
 {
     return 0;
+}
+#pragma mark - webview delegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [SVProgressHUD dismiss];
 }
 
 /*

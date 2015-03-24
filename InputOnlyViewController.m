@@ -1,35 +1,42 @@
 //
-//  SwitchOnlyViewController.m
+//  InputOnlyViewController.m
 //  iLygport
 //
-//  Created by leo on 15/3/5.
+//  Created by leo on 15/3/12.
 //  Copyright (c) 2015年 leo. All rights reserved.
 //
 
-#import "SwitchOnlyViewController.h"
+#import "InputOnlyViewController.h"
 #import "SVProgressHUD.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface SwitchOnlyViewController ()
+@interface InputOnlyViewController ()
 
 @end
 
-@implementation SwitchOnlyViewController
+@implementation InputOnlyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //审核状态
+    //输入名称
     UILabel *shenhelabel = [[UILabel alloc]initWithFrame:CGRectMake(0,60, self.view.frame.size.width, 40)];
-    shenhelabel.text = @"                        已审核";
+    shenhelabel.text = [NSString stringWithFormat:@"                        %@",self.inputLabelName];
     shenhelabel.font = [UIFont systemFontOfSize:15];
     shenhelabel.backgroundColor = [UIColor grayColor];
     shenhelabel.userInteractionEnabled = YES;
     [self.view addSubview:shenhelabel];
     
     
-    //审核按钮
-    UISwitch *shenheSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*2/3,67,60,40)];
-    shenheSwitch.tag = 2;
-    [self.view addSubview:shenheSwitch];
+    //输入框
+    UITextField *lb = [[UITextField alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2,67,120,30)];
+    lb.backgroundColor=[UIColor whiteColor];
+    lb.layer.cornerRadius = 5.0 ;
+    lb.borderStyle = UITextBorderStyleRoundedRect;
+    lb.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    [lb addTarget:self action:@selector(textFieldDidEndEditing) forControlEvents:UIControlEventEditingDidEnd];
+    [lb setAutocorrectionType:UITextAutocorrectionTypeNo];
+    lb.tag = 2;
+    [self.view addSubview:lb];
     //查询按钮
     //UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithTitle:@"查询" style:UIBarButtonItemStyleDone target:self action:@selector(select:)];
     UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(select:)];
@@ -59,31 +66,29 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)textFieldDidEndEditing
+{
+    [((UITextField *)[self.view viewWithTag:2]) resignFirstResponder];
+}
+
 -(void)select:(id)sender
 {
-    NSString *adt = @"";
-    if([((UISwitch *)[self.view viewWithTag:2]) isOn])
-    {
-        adt = @"1";
-    }
-    else
-    {
-        adt = @"0";
-    }
+
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     NSMutableString *urlString = [[NSMutableString alloc]initWithFormat:self.url,nil];
-    [urlString appendFormat:@"?info=%@+%@",self.userID,adt];
+    [urlString appendFormat:@"?info=%@+%@",self.userID, [((UITextField *)[self.view viewWithTag:2]).text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURL *url =[NSURL URLWithString:urlString];
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     [((UIWebView *)[self.view viewWithTag:1]) loadRequest:request];
     //NSLog(urlString);
 }
 
-- (void)didReceiveMemoryWarning
-{
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark - webview delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];

@@ -36,7 +36,7 @@
 
 - (IBAction)push:(id)sender {
     NSString *a = [sender currentTitle];
-        NSLog(a);
+        NSLog(a,nil);
     [superViewController performSegueWithIdentifier:@"news" sender:self];
     
 }

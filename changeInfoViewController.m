@@ -22,7 +22,7 @@
     NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/getpersondetaildata.aspx?userid=%@",delegate.userid];
     NSURL *get=[NSURL URLWithString:url];
     NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-    NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+    NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
     NSString *rcc=[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding];
     NSArray *info = [rcc componentsSeparatedByString:@","];
     if (info.count==0) {
@@ -66,7 +66,7 @@
     NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/updatepersondetaildata.aspx?userid=%@&email=%@&mobile=%@&phone=%@",delegate.userid,self.email.text,self.tel.text,self.phone.text];
     NSURL *get=[NSURL URLWithString:url];
     NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-    NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+    NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
     NSString *rcc=[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding];
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:rcc message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];

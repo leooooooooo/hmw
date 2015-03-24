@@ -9,6 +9,7 @@
 #import "soap.h"
 
 @implementation soap
+@synthesize conn = _conn;
 
 
 -(NSString *)matchingElement:(NSString *)matching{
@@ -16,7 +17,7 @@
     return matchingElement;
 }
 -(NSString *)soapMsg:(NSString *)soapMessage{
-    soapMsg = [NSString stringWithFormat:soapMessage];
+    soapMsg = [NSString stringWithFormat:soapMessage,nil];
     return soapMsg;
 }
 -(NSURL *)url:(NSString *)serviceUrl{
@@ -25,7 +26,7 @@
 }
 -(void)send{
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
-    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMsg length]];
+    NSString *msgLength = [NSString stringWithFormat:@"%lu",(unsigned long)soapMsg.length];
     // 添加请求的详细信息，与请求报文前半部分的各字段对应
     [req addValue:@"application/soap+xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     [req addValue:msgLength forHTTPHeaderField:@"Content-Length"];
@@ -74,7 +75,7 @@
     
     // 使用NSXMLParser解析出我们想要的结果
     xmlParser = [[NSXMLParser alloc] initWithData: self.webData];
-    [xmlParser setDelegate: self];
+    [xmlParser setDelegate:self];
     [xmlParser setShouldResolveExternalEntities: NO];
     [xmlParser parse];
     [self.sendDelegate returnxml:soapResults];

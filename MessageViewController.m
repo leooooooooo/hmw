@@ -34,7 +34,7 @@
     int Max_Count;
 }
 @property (nonatomic,strong)CLLRefreshHeadController *refreshControll;
-@property (nonatomic)BOOL *isRecevied;
+@property (nonatomic)BOOL isRecevied;
 @end
 
 @implementation MessageViewController
@@ -75,7 +75,7 @@
     
     soapmsg= nil;
     soapmsg = [[NSMutableString alloc]init];
-    [soapmsg appendFormat:soapmsg1];
+    [soapmsg appendFormat:soapmsg1,nil];
     NSString *soapname = SoapName;
     NSString *token =Token;
     [soapmsg appendFormat:@"<%@ xmlns=\"http://tempuri.org/\">",soapname];
@@ -89,7 +89,7 @@
     [soapmsg appendFormat:key7];
     [soapmsg appendFormat:key8];
     [soapmsg appendFormat:@"</%@>",soapname];
-    [soapmsg appendFormat:soapmsg2];
+    [soapmsg appendFormat:soapmsg2,nil];
     [SendName soapMsg:soapmsg];
     [SendName url:ServiceMobileApplication];
     [SendName send];
@@ -108,7 +108,7 @@
     
     soapmsg= nil;
     soapmsg = [[NSMutableString alloc]init];
-    [soapmsg appendFormat:soapmsg1];
+    [soapmsg appendFormat:soapmsg1,nil];
     NSString *soapname = SoapName;
     NSString *token =Token;
     [soapmsg appendFormat:@"<%@ xmlns=\"http://tempuri.org/\">",soapname];
@@ -122,7 +122,7 @@
     [soapmsg appendFormat:key7];
     [soapmsg appendFormat:key8];
     [soapmsg appendFormat:@"</%@>",soapname];
-    [soapmsg appendFormat:soapmsg2];
+    [soapmsg appendFormat:soapmsg2,nil];
     [SendName soapMsg:soapmsg];
     [SendName url:ServiceMobileApplication];
     [SendName send];
@@ -317,6 +317,11 @@
         msgIDLabel.hidden = YES;
         [cell.contentView addSubview:msgIDLabel];
 
+        //cut
+        UILabel *cut = [[UILabel alloc]initWithFrame:CGRectMake(0,64,self.view.bounds.size.width,1)];
+        cut.backgroundColor = [UIColor grayColor];
+        cut.text = @"";
+        [cell.contentView addSubview:cut];
     }
 
     NSUInteger row = [indexPath row];
@@ -342,7 +347,7 @@
     //时间
     ((UILabel *)[cell.contentView viewWithTag:3]).text = [dic objectAtIndex:2];
     //头像
-    ((UIImageView *)[cell.contentView viewWithTag:4]).image = [UIImage imageNamed:@"1.jpg"];
+    ((UIImageView *)[cell.contentView viewWithTag:4]).image = [UIImage imageNamed:@"Email.png"];
     
     //办公室
     //((UILabel *)[cell.contentView viewWithTag:teaOfficeTag]).text = [dic objectForKey:@"office"];
@@ -352,8 +357,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    UILabel *msgidlb = [cell viewWithTag:5];
-    NSString *msgid = msgidlb.text;
+    NSString *msgid = ((UILabel *)[cell viewWithTag:5]).text;
     
     MessageDetailViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"msgwebview"];
     asd.msgid  = msgid;

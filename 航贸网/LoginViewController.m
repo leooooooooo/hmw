@@ -137,7 +137,7 @@
     
     soapmsg= nil;
     soapmsg = [[NSMutableString alloc]init];
-    [soapmsg appendFormat:soapmsg1];
+    [soapmsg appendFormat:soapmsg1,nil];
     NSString *soapname = SoapName;
     NSString *token =Token;
     [soapmsg appendFormat:@"<%@ xmlns=\"http://tempuri.org/\">",soapname];
@@ -151,7 +151,7 @@
     [soapmsg appendFormat:key7];
     [soapmsg appendFormat:key8];
     [soapmsg appendFormat:@"</%@>",soapname];
-    [soapmsg appendFormat:soapmsg2];
+    [soapmsg appendFormat:soapmsg2,nil];
     [SendName soapMsg:soapmsg];
     [SendName url:ServiceMobileApplication];
     [SendName send];

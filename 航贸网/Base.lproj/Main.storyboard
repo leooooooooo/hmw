@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ss1-vz-m35">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ss1-vz-m35">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -392,25 +392,12 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QBy-TD-Scu">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="登录" backgroundImage="redbutton.png">
+                                <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="sQH-G8-1Sp" kind="push" id="AyS-Ve-K2p"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="qzT-Ck-uG4">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hFH-5Q-14s">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="常用功能" backgroundImage="redbutton.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Cygn:" destination="TG3-TT-5v1" eventType="touchUpInside" id="ou3-XP-cW0"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -499,7 +486,7 @@
             </objects>
             <point key="canvasLocation" x="187" y="-402"/>
         </scene>
-        <!--业务查询（开发中）-->
+        <!--业务查询-->
         <scene sceneID="zOt-bh-enM">
             <objects>
                 <viewController id="bxq-OZ-uMD" customClass="MyBusinessViewController" sceneMemberID="viewController">
@@ -565,7 +552,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="业务查询（开发中）" id="kAn-ye-aqK"/>
+                    <navigationItem key="navigationItem" title="业务查询" id="kAn-ye-aqK"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
@@ -682,6 +669,21 @@
             </objects>
             <point key="canvasLocation" x="4820" y="938"/>
         </scene>
+        <!--Empty View Controller-->
+        <scene sceneID="IaC-nd-GoR">
+            <objects>
+                <viewController storyboardIdentifier="Empty" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vcH-1N-ulm" customClass="EmptyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dY1-gx-NE6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnM-Dl-dzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5462" y="934"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="9ma-sl-sqT">
             <objects>
@@ -708,6 +710,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZm-OW-x0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4830" y="1580"/>
+        </scene>
+        <!--Input Only View Controller-->
+        <scene sceneID="cHG-sq-Z9Z">
+            <objects>
+                <viewController storyboardIdentifier="InputOnly" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jOx-Jp-mU5" customClass="InputOnlyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kNf-1G-NLR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ltf-vv-E5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5462" y="1580"/>
         </scene>
         <!--消息-->
         <scene sceneID="Xgv-yS-PiJ">
@@ -868,6 +884,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mn3-U3-kOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -924,7 +941,6 @@
         <image name="cx_09.png" width="237" height="236"/>
         <image name="cx_10.png" width="237" height="236"/>
         <image name="cx_13.png" width="515" height="236"/>
-        <image name="redbutton.png" width="30" height="30"/>
         <image name="查询.png" width="30" height="30"/>
         <image name="消息.png" width="30" height="30"/>
         <image name="航贸网登录1.png" width="586" height="82"/>

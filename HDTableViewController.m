@@ -10,38 +10,40 @@
 #import "Header.h"
 #import "CompanySwitchViewController.h"
 #import "SwitchOnlyViewController.h"
+#import "CompanyOnlyViewController.h"
+#import "EmptyViewController.h"
 
 @interface HDTableViewController ()
-{NSString *userID;}
 
 @end
 
 @implementation HDTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    KeychainItemWrapper *info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
-    userID =[info objectForKey:(id)kSecAttrAccount];
+    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
+    self.userID =[info objectForKey:(id)kSecAttrAccount];
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
     [self.navigationItem setBackBarButtonItem:backButton];
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
-    NSDictionary *tDic1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"票货查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil];
-    NSDictionary *tDic2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托有船作业查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托无船作业查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil];
-    NSDictionary *tDic4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"作业委托查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic5 = [[NSDictionary alloc]initWithObjectsAndKeys:@"车辆运输查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil];
-    NSDictionary *tDic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic7 = [[NSDictionary alloc]initWithObjectsAndKeys:@"货物进港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic8 = [[NSDictionary alloc]initWithObjectsAndKeys:@"货物出港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic9 = [[NSDictionary alloc]initWithObjectsAndKeys:@"货物港内结存查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil];
+    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"票货查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托有船作业查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托无船作业查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"作业委托查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"车辆运输查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物进港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物出港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic9 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物港内结存查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
     
-    self.teaArray = [[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7,tDic8,tDic9, nil];
+    self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7,tDic8,tDic9, nil]autorelease];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"货代应用";
@@ -62,22 +64,22 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 9;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell =[[UITableViewCell alloc]init];
+    UITableViewCell *cell =[self customCellByXib:tableView withIndexPath:indexPath];
 
             //通过nib自定义cell
-            cell = [self customCellByXib:tableView withIndexPath:indexPath];
+
 
             
             //default:assert(cell !=nil);
@@ -101,11 +103,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
         //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier]autorelease];
         
         //头像
         CGRect imageRect = CGRectMake(8, 5, 35, 35);
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+        UIImageView *imageView = [[[UIImageView alloc]initWithFrame:imageRect]autorelease];
         imageView.tag = 2;
         
         //为图片添加边框
@@ -120,7 +122,7 @@
         CGPoint i =imageRect.origin;
         CGSize j = imageRect.size;
         CGRect nameRect = CGRectMake(i.x+j.width+10, i.y+13, self.view.bounds.size.width/1.5, 10);
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:nameRect];
+        UILabel *nameLabel = [[[UILabel alloc]initWithFrame:nameRect]autorelease];
         nameLabel.font = [UIFont systemFontOfSize:16];
         nameLabel.tag = 1;
         //nameLabel.textColor = [UIColor brownColor];
@@ -180,7 +182,7 @@
 -(void)phcx
 {
     CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanySwitch"];
-    asd.userID = userID;
+    asd.userID = self.userID;
     asd.title = @"票货查询";
     asd.url =@"http://218.92.115.55/m_hmw/business/hdyy/goodsbill.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -189,7 +191,7 @@
 -(void)ywdwtyczy
 {
     SwitchOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"SwitchOnly"];
-    asd.userID = userID;
+    asd.userID = self.userID;
     asd.title = @"业务大委托有船作业查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/ShipBusinessConsign.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -198,7 +200,7 @@
 -(void)ywdwtwczy
 {
     SwitchOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"SwitchOnly"];
-    asd.userID = userID;
+    asd.userID = self.userID;
     asd.title = @"业务大委托无船作业查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/NoShipBusinessConsign.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -207,7 +209,7 @@
 -(void)zywtcx
 {
     CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanySwitch"];
-    asd.userID = userID;
+    asd.userID = self.userID;
     asd.title = @"作业委托查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/JobConsign.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -215,8 +217,8 @@
 
 -(void)clyscx
 {
-    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
-    asd.userID = userID;
+    CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = self.userID;
     asd.title = @"车辆运输查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleTransport.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -224,8 +226,8 @@
 
 -(void)qchlmdcx
 {
-    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
-    asd.userID = userID;
+    CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = self.userID;
     asd.title = @"汽车衡量码单查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleBalance.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -233,8 +235,8 @@
 
 -(void)hwjgcx
 {
-    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
-    asd.userID = userID;
+    CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = self.userID;
     asd.title = @"货物进港查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoIn.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -242,8 +244,8 @@
 
 -(void)hwcgcx
 {
-    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
-    asd.userID = userID;
+    CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = self.userID;
     asd.title = @"货物出港查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoOut.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -251,8 +253,8 @@
 
 -(void)hwgnjccx
 {
-    CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
-    asd.userID = userID;
+    CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
+    asd.userID = self.userID;
     asd.title = @"货物港内结存查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoStock.html";
     [self.navigationController pushViewController:asd animated:YES];
@@ -260,6 +262,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [self hideTabBar];
+    [super viewDidAppear:animated];
     //[self showTabBar];
 }
 

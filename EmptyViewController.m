@@ -1,35 +1,22 @@
 //
-//  SwitchOnlyViewController.m
+//  EmptyViewController.m
 //  iLygport
 //
-//  Created by leo on 15/3/5.
+//  Created by leo on 15/3/10.
 //  Copyright (c) 2015年 leo. All rights reserved.
 //
 
-#import "SwitchOnlyViewController.h"
+#import "EmptyViewController.h"
 #import "SVProgressHUD.h"
 
-@interface SwitchOnlyViewController ()
+@interface EmptyViewController ()
 
 @end
 
-@implementation SwitchOnlyViewController
+@implementation EmptyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //审核状态
-    UILabel *shenhelabel = [[UILabel alloc]initWithFrame:CGRectMake(0,60, self.view.frame.size.width, 40)];
-    shenhelabel.text = @"                        已审核";
-    shenhelabel.font = [UIFont systemFontOfSize:15];
-    shenhelabel.backgroundColor = [UIColor grayColor];
-    shenhelabel.userInteractionEnabled = YES;
-    [self.view addSubview:shenhelabel];
-    
-    
-    //审核按钮
-    UISwitch *shenheSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*2/3,67,60,40)];
-    shenheSwitch.tag = 2;
-    [self.view addSubview:shenheSwitch];
     //查询按钮
     //UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithTitle:@"查询" style:UIBarButtonItemStyleDone target:self action:@selector(select:)];
     UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(select:)];
@@ -41,13 +28,9 @@
     
     select.tintColor = [UIColor whiteColor];
     [self.navigationItem setRightBarButtonItem:select];
-    //分割线
-    UILabel *fenge = [[UILabel alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 2)];
-    fenge.backgroundColor = [UIColor redColor];
-    fenge.text = @"";
-    [self.view addSubview:fenge];
+
     //web
-    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 102, self.view.frame.size.width,self.view.frame.size.height-102)];
+    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height+60)];
     
     webView.delegate =self;
     webView.scalesPageToFit =YES;
@@ -61,29 +44,22 @@
 
 -(void)select:(id)sender
 {
-    NSString *adt = @"";
-    if([((UISwitch *)[self.view viewWithTag:2]) isOn])
-    {
-        adt = @"1";
-    }
-    else
-    {
-        adt = @"0";
-    }
+
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     NSMutableString *urlString = [[NSMutableString alloc]initWithFormat:self.url,nil];
-    [urlString appendFormat:@"?info=%@+%@",self.userID,adt];
+    [urlString appendFormat:@"?info=%@",self.userID];
     NSURL *url =[NSURL URLWithString:urlString];
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     [((UIWebView *)[self.view viewWithTag:1]) loadRequest:request];
     //NSLog(urlString);
 }
 
-- (void)didReceiveMemoryWarning
-{
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark - webview delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];

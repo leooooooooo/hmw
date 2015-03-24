@@ -12,7 +12,7 @@
 @interface DeviceBindingTableViewController : UITableViewController
 {
     KeychainItemWrapper *info;
-    KeychainItemWrapper *isbinding;
+    KeychainItemWrapper *isbindingstatus;
 }
 
 @end

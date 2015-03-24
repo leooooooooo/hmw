@@ -8,6 +8,11 @@
 
 #import "CZTableViewController.h"
 #import "Header.h"
+#import "CompanySwitchViewController.h"
+#import "SwitchOnlyViewController.h"
+#import "CompanyOnlyViewController.h"
+#import "EmptyViewController.h"
+#import "InputOnlyViewController.h"
 
 @interface CZTableViewController ()
 
@@ -18,23 +23,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
+    self.userID =[info objectForKey:(id)kSecAttrAccount];
+    
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
     [self.navigationItem setBackBarButtonItem:backButton];
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
-    NSDictionary *tDic1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"网上申报未导入车队车辆",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil];
-    NSDictionary *tDic2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"已导入车队车辆",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶查询",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil];
-    NSDictionary *tDic4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶查询",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic5 = [[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶查询",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil];
-    NSDictionary *tDic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil];
-    NSDictionary *tDic7 = [[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil];
+    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"网上申报未导入车队车辆",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已导入车队车辆",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶查询",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶查询",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶查询",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
     
     
-    self.teaArray = [[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7, nil];
+    self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7, nil]autorelease];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"货运应用";
@@ -55,22 +63,22 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 6;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell =[[UITableViewCell alloc]init];
+    UITableViewCell *cell =[self customCellByXib:tableView withIndexPath:indexPath];
     
     //通过nib自定义cell
-    cell = [self customCellByXib:tableView withIndexPath:indexPath];
+    //cell = [self customCellByXib:tableView withIndexPath:indexPath];
     
     
     //default:assert(cell !=nil);
@@ -94,11 +102,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
         //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier]autorelease];
         
         //头像
         CGRect imageRect = CGRectMake(8, 5, 35, 35);
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+        UIImageView *imageView = [[[UIImageView alloc]initWithFrame:imageRect]autorelease];
         imageView.tag = 2;
         
         //为图片添加边框
@@ -113,7 +121,7 @@
         CGPoint i =imageRect.origin;
         CGSize j = imageRect.size;
         CGRect nameRect = CGRectMake(i.x+j.width+10, i.y+13, self.view.bounds.size.width/1.5, 10);
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:nameRect];
+        UILabel *nameLabel = [[[UILabel alloc]initWithFrame:nameRect]autorelease];
         nameLabel.font = [UIFont systemFontOfSize:16];
         nameLabel.tag = 1;
         //nameLabel.textColor = [UIColor brownColor];
@@ -138,7 +146,25 @@
     
     switch (indexPath.row) {
         case 0:
-            [self phcx];
+            [self VehicleDeclaration];
+            break;
+        case 1:
+            [self VehicleRegistration];
+            break;
+        case 2:
+            [self IndeedShip];
+            break;
+        case 3:
+            [self AnchorShip];
+            break;
+        case 4:
+            [self BerthShip];
+            break;
+        case 5:
+            [self PlanedShip];
+            break;
+        case 6:
+            [self MoveShip];
             break;
         default:
             break;
@@ -146,13 +172,79 @@
     
 }
 
--(void)phcx
+
+-(void)VehicleDeclaration
 {
-    //[self performSegueWithIdentifier:@"phcx" sender:self];
+    InputOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"InputOnly"];
+    asd.userID = self.userID;
+    asd.inputLabelName=@"车牌号";
+    asd.title = @"网上申报未导入车队车辆";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hyyy/VehicleDeclaration.html";
+    [self.navigationController pushViewController:asd animated:YES];
 }
+
+-(void)VehicleRegistration
+{
+    InputOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"InputOnly"];
+    asd.userID = self.userID;
+    asd.inputLabelName=@"车牌号";
+    asd.title = @"已导入车队车辆";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hyyy/VehicleRegistration.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)IndeedShip
+{
+    EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
+    asd.userID = self.userID;
+    asd.title = @"确报船舶查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/IndeedShip.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)AnchorShip
+{
+    EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
+    asd.userID = self.userID;
+    asd.title = @"锚地船舶查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/AnchorShip.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)BerthShip
+{
+    EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
+    asd.userID = self.userID;
+    asd.title = @"泊位船舶查询";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/BerthShip.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)PlanedShip
+{
+    EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
+    asd.userID = self.userID;
+    asd.title = @"已做计划船舶信息列表";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/PlanedShip.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)MoveShip
+{
+    EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
+    asd.userID = self.userID;
+    asd.title = @"需要移泊船舶信息列表";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/MoveShip.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+
+
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [self hideTabBar];
+    [super viewDidAppear:animated];
     //[self showTabBar];
 }
 

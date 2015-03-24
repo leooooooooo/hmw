@@ -20,8 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     AppDelegate *delegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
-    isbinding=[[KeychainItemWrapper alloc] initWithIdentifier:@"isbinding" accessGroup:Bundle];
-    delegate.isbinding = [isbinding objectForKey:(id)kSecValueData];
+    isbindingstatus=[[KeychainItemWrapper alloc] initWithIdentifier:@"isbinding" accessGroup:Bundle];
+    delegate.isbinding = [isbindingstatus objectForKey:(id)kSecValueData];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -39,13 +39,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 1;
 }
@@ -83,7 +83,7 @@
 {
     AppDelegate *delegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     info = [[KeychainItemWrapper alloc]initWithIdentifier:@"info" accessGroup:Bundle];
-    isbinding=[[KeychainItemWrapper alloc] initWithIdentifier:@"isbinding" accessGroup:Bundle];
+    isbindingstatus=[[KeychainItemWrapper alloc] initWithIdentifier:@"isbinding" accessGroup:Bundle];
     NSString *userid = [info objectForKey:(id)kSecAttrAccount];
     UISwitch *switchButton = (UISwitch*)sender;
     BOOL isButtonOn = [switchButton isOn];
@@ -92,21 +92,21 @@
         NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/devicebinding.aspx?usercode=%@&deviceToken=%@&DeviceType=iOS&isbinding=yes",userid,delegate.deviceToken];
         NSURL *get=[NSURL URLWithString:url];
         NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-        NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+        NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
         rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];
         delegate.isbinding =@"1";
-        [isbinding setObject: @"1" forKey:(id)kSecValueData];
+        [isbindingstatus setObject: @"1" forKey:(id)kSecValueData];
         //[status setObject:@"1" forKey:(id)kSecAttrAccount];
-        NSLog(rcc);
+        NSLog(rcc,nil);
     }else {
         NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/devicebinding.aspx?usercode=%@&deviceToken=%@&DeviceType=iOS&isbinding=no",userid,delegate.deviceToken];
         NSURL *get=[NSURL URLWithString:url];
         NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-        NSDate *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+        NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
         rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];
         delegate.isbinding =@"0";
-        [isbinding setObject: @"0" forKey:(id)kSecValueData];
-        NSLog(rcc);
+        [isbindingstatus setObject: @"0" forKey:(id)kSecValueData];
+        NSLog(rcc,nil);
     }
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"设备绑定" message:rcc delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
