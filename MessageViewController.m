@@ -194,6 +194,13 @@
 {
     [super viewDidLoad];
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.rowHeight = 65;
+    self.tableView.allowsSelection = NO; // We essentially implement our own selection
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0); // Makes the horizontal row seperator stretch the entire length of the table view
+
+    
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
@@ -262,24 +269,44 @@
 
 //通过代码自定义cell
 -(UITableViewCell *)customCellByXib0:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath{
-    static NSString *customXibCellIdentifier = @"MessageXibCellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
-    if(cell == nil){
-        //使用默认的UITableViewCell,但是不使用默认的image与text，改为添加自定义的控件
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customXibCellIdentifier];
+    
+    static NSString *cellIdentifier = @"Cell";
+    
+    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        
+        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        
+        cell.leftUtilityButtons = [self leftButtons];
+        cell.rightUtilityButtons = [self rightButtons];
+        cell.delegate = self;
+        
+
         
         //头像
         CGRect imageRect = CGRectMake(5, 5, 55, 55);
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
         imageView.tag = 4;
-        
-        //为图片添加边框
-        CALayer *layer = [imageView layer];
-        layer.cornerRadius = 8;
-        layer.borderColor = [[UIColor whiteColor]CGColor];
-        layer.borderWidth = 1;
-        layer.masksToBounds = YES;
         [cell.contentView addSubview:imageView];
+        
+        //未读标记
+        UILabel *isread = [[UILabel alloc]initWithFrame:CGRectMake(45, 5, 20, 20)];
+        isread.backgroundColor = [UIColor redColor];
+        isread.text =@"!";
+        [isread setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
+        isread.textAlignment = NSTextAlignmentCenter;
+        isread.textColor = [UIColor whiteColor];
+        isread.tag = 6;
+        
+        CALayer *layer = [isread layer];
+        layer.cornerRadius = 10;
+        layer.borderColor = [[UIColor whiteColor]CGColor];
+        layer.borderWidth = 0;
+        layer.masksToBounds = YES;
+        
+        [cell.contentView addSubview:isread];
+        
         
         //发送者
         CGPoint i =imageRect.origin;
@@ -318,7 +345,7 @@
         [cell.contentView addSubview:msgIDLabel];
 
         //cut
-        UILabel *cut = [[UILabel alloc]initWithFrame:CGRectMake(0,64,self.view.bounds.size.width,1)];
+        UILabel *cut = [[UILabel alloc]initWithFrame:CGRectMake(-200,64,self.view.bounds.size.width*3,1)];
         cut.backgroundColor = [UIColor grayColor];
         cut.text = @"";
         [cell.contentView addSubview:cut];
@@ -348,17 +375,56 @@
     ((UILabel *)[cell.contentView viewWithTag:3]).text = [dic objectAtIndex:2];
     //头像
     ((UIImageView *)[cell.contentView viewWithTag:4]).image = [UIImage imageNamed:@"Email.png"];
-    
+    //未读标记
+    if([[dic objectAtIndex:1]isEqualToString:@"1"])
+    {
+        [((UILabel *)[cell.contentView viewWithTag:6]) setHidden:YES];
+    }
     //办公室
     //((UILabel *)[cell.contentView viewWithTag:teaOfficeTag]).text = [dic objectForKey:@"office"];
     return cell;
 }
 
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+                                                title:@"标记未读"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"删除"];
+    
+    return rightUtilityButtons;
+}
+
+
+- (NSArray *)leftButtons
+{
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    /*
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"check.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"clock.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"cross.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.55f green:0.27f blue:0.07f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"list.png"]];
+    */
+    return leftUtilityButtons;
+}
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString *msgid = ((UILabel *)[cell viewWithTag:5]).text;
-    
+    [self getService:[NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/setmessstatus.aspx?messId=%@&messStatus=1",msgid]];
     MessageDetailViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"msgwebview"];
     asd.msgid  = msgid;
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
@@ -369,11 +435,80 @@
     
 }
 
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+{
+    NSString *msgid = ((UILabel *)[cell viewWithTag:5]).text;
+    switch (index) {
+        case 0:
+        {
+            //NSLog(@"More button was pressed");
+            [self getService:[NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/setmessstatus.aspx?messId=%@&messStatus=0",msgid]];
+            [((UILabel *)[cell.contentView viewWithTag:6]) setHidden:NO];
+            [cell hideUtilityButtonsAnimated:YES];
+            break;
+        }
+        case 1:
+        {
+
+            
+            // Delete button was pressed
+            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+            
+            //UITableViewCell *delcell = [self.tableView cellForRowAtIndexPath:cellIndexPath];
+            
+            
+            [self getService:[NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/messdelete.aspx?messId=%@",msgid]];
+            
+            [self.msgArray removeObjectAtIndex:cellIndexPath.row];
+            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+-(void)getService:(NSString *)URL
+{
+    NSURL *get=[NSURL URLWithString:URL];
+    NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
+    NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
+    NSString *rcc=[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding];
+    NSLog(rcc,nil);
+
+}
+
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell
+{
+    // allow just one cell's utility button to be open at once
+    return YES;
+}
+
+- (BOOL)swipeableTableViewCell:(SWTableViewCell *)cell canSwipeToState:(SWCellState)state
+{
+    switch (state) {
+        case 1:
+            // set to NO to disable all left utility buttons appearing
+            return YES;
+            break;
+        case 2:
+            // set to NO to disable all right utility buttons appearing
+            return YES;
+            break;
+        default:
+            break;
+    }
+    
+    return YES;
+}
+
+
 //修改行高度的位置
+/*
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 65;
 }
-
+*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

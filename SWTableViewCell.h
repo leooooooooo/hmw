@@ -8,40 +8,46 @@
 
 #import <UIKit/UIKit.h>
 #import <UIKit/UIGestureRecognizerSubclass.h>
+#import "SWCellScrollView.h"
+#import "SWLongPressGestureRecognizer.h"
+#import "SWUtilityButtonTapGestureRecognizer.h"
+#import "NSMutableArray+SWUtilityButtons.h"
 
 @class SWTableViewCell;
 
-typedef enum {
+typedef NS_ENUM(NSInteger, SWCellState)
+{
     kCellStateCenter,
     kCellStateLeft,
-    kCellStateRight
-} SWCellState;
+    kCellStateRight,
+};
 
 @protocol SWTableViewCellDelegate <NSObject>
 
 @optional
-- (void)swippableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index;
-- (void)swippableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index;
-- (void)swippableTableViewCell:(SWTableViewCell *)cell scrollingToState:(SWCellState)state;
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index;
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index;
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell scrollingToState:(SWCellState)state;
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell;
+- (BOOL)swipeableTableViewCell:(SWTableViewCell *)cell canSwipeToState:(SWCellState)state;
+- (void)swipeableTableViewCellDidEndScrolling:(SWTableViewCell *)cell;
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didScroll:(UIScrollView *)scrollView;
 
 @end
 
 @interface SWTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) NSArray *leftUtilityButtons;
-@property (nonatomic, strong) NSArray *rightUtilityButtons;
-@property (nonatomic) id <SWTableViewCellDelegate> delegate;
+@property (nonatomic, copy) NSArray *leftUtilityButtons;
+@property (nonatomic, copy) NSArray *rightUtilityButtons;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView leftUtilityButtons:(NSArray *)leftUtilityButtons rightUtilityButtons:(NSArray *)rightUtilityButtons;
+@property (nonatomic, weak) id <SWTableViewCellDelegate> delegate;
 
-- (void)setBackgroundColor:(UIColor *)backgroundColor;
+- (void)setRightUtilityButtons:(NSArray *)rightUtilityButtons WithButtonWidth:(CGFloat) width;
+- (void)setLeftUtilityButtons:(NSArray *)leftUtilityButtons WithButtonWidth:(CGFloat) width;
 - (void)hideUtilityButtonsAnimated:(BOOL)animated;
+- (void)showLeftUtilityButtonsAnimated:(BOOL)animated;
+- (void)showRightUtilityButtonsAnimated:(BOOL)animated;
 
-@end
-
-@interface NSMutableArray (SWUtilityButtons)
-
-- (void)addUtilityButtonWithColor:(UIColor *)color title:(NSString *)title;
-- (void)addUtilityButtonWithColor:(UIColor *)color icon:(UIImage *)icon;
+- (BOOL)isUtilityButtonsHidden;
 
 @end

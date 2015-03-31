@@ -229,7 +229,7 @@
     NSURL *get=[NSURL URLWithString:url];
     NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
     NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
-    NSString *rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];;
+    NSString *rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];
     NSString *pb;
     UIAlertView *alert;
     if([rcc isEqualToString:@"yes"]|[rcc isEqualToString:@"yes\r\n"])

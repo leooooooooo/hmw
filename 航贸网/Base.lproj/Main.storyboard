@@ -529,9 +529,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SUR-RR-6dh">
-                                <rect key="frame" x="47" y="341" width="227" height="104"/>
+                                <rect key="frame" x="47" y="341" width="103" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="cx_13.png">
+                                <state key="normal" image="iocn1.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -546,6 +546,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="sRD-kU-MQi" kind="push" id="HA0-5R-Pol"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wre-c5-spn">
+                                <rect key="frame" x="171" y="341" width="103" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon2.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Njc-bl-L84" kind="push" id="aBU-zH-oBH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -933,6 +943,33 @@
             </objects>
             <point key="canvasLocation" x="-284" y="292"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="FPz-mr-sSf">
+            <objects>
+                <tableViewController id="Njc-bl-L84" customClass="GGTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i7S-mZ-Y3s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yUd-R2-l81">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yUd-R2-l81" id="G0k-z7-mBp">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Njc-bl-L84" id="J5W-CL-9UE"/>
+                            <outlet property="delegate" destination="Njc-bl-L84" id="2oU-09-cwo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="78p-mR-U1I"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzO-bz-8Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4820" y="2253"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg.jpg" width="1080" height="1920"/>
@@ -940,7 +977,8 @@
         <image name="cx_05.png" width="237" height="236"/>
         <image name="cx_09.png" width="237" height="236"/>
         <image name="cx_10.png" width="237" height="236"/>
-        <image name="cx_13.png" width="515" height="236"/>
+        <image name="icon2.png" width="237" height="236"/>
+        <image name="iocn1.png" width="237" height="236"/>
         <image name="查询.png" width="30" height="30"/>
         <image name="消息.png" width="30" height="30"/>
         <image name="航贸网登录1.png" width="586" height="82"/>

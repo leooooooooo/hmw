@@ -14,7 +14,7 @@
 - (UILabel *)statusLabel
 {
     if (!_statusLabel) {
-        _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(135,15, 160, 14)];
+        _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width/2-40,15, 160, 14)];
         _statusLabel.backgroundColor = [UIColor clearColor];
         _statusLabel.font = [UIFont systemFontOfSize:14.f];
         _statusLabel.textColor = [UIColor blackColor];
@@ -41,7 +41,7 @@
     if (!_circleView) {
 //        _circleView = [[CLLRefreshCircleView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.frame) / 2.0 - CLLRefreshCircleViewHeight, CGRectGetMaxY(self.frame) + 14, CLLRefreshCircleViewHeight, CLLRefreshCircleViewHeight)];
 //        NSLog(@"CGRectGetMaxX(self.frame) : %f",CGRectGetMaxX(self.frame));
-        _circleView = [[CLLRefreshCircleView alloc] initWithFrame:CGRectMake(110,15,CLLRefreshCircleViewHeight,CLLRefreshCircleViewHeight)];
+        _circleView = [[CLLRefreshCircleView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2-70,15,CLLRefreshCircleViewHeight,CLLRefreshCircleViewHeight)];
     }
     return _circleView;
 }
