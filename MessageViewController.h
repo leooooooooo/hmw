@@ -11,8 +11,9 @@
 #import "soap.h"
 #import "parser.h"
 #import "Header.h"
+#import "SWTableViewCell.h"
 
-@interface MessageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,CLLRefreshHeadControllerDelegate,stringDelegate,parser,UITextFieldDelegate>
+@interface MessageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,CLLRefreshHeadControllerDelegate,stringDelegate,parser,UITextFieldDelegate,SWTableViewCellDelegate>
 {
     NSString *ServiceMobileApplication;
     NSString *soapmsg1,*soapmsg2;

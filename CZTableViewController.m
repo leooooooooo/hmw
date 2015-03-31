@@ -35,9 +35,9 @@
     
     NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"网上申报未导入车队车辆",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已导入车队车辆",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶查询",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶查询",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶查询",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
     
@@ -143,7 +143,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
     switch (indexPath.row) {
         case 0:
             [self VehicleDeclaration];
@@ -169,7 +176,7 @@
         default:
             break;
     }
-    
+    }
 }
 
 
@@ -197,7 +204,7 @@
 {
     EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"确报船舶查询";
+    asd.title = @"确报船舶";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/IndeedShip.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -206,7 +213,7 @@
 {
     EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"锚地船舶查询";
+    asd.title = @"锚地船舶";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/AnchorShip.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -215,7 +222,7 @@
 {
     EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"泊位船舶查询";
+    asd.title = @"泊位船舶";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/BerthShip.html";
     [self.navigationController pushViewController:asd animated:YES];
 }

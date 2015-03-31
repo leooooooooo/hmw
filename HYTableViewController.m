@@ -33,7 +33,7 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
-    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单查询",@"name",@"ico0_10.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单",@"name",@"ico0_10.png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"网上申报未导入车队车辆",@"name",@"ico0_10.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已导入车队车辆",@"name",@"ico0_10.png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"新陆桥公司作业计划",@"name",@"ico0_10.png",@"type", @"D011", @"office",nil]autorelease];
@@ -142,7 +142,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
     switch (indexPath.row) {
         case 0:
             [self VehicleBalance];
@@ -165,7 +172,7 @@
         default:
             break;
     }
-    
+    }
 }
 
 
@@ -174,7 +181,7 @@
 {
     CompanyOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"汽车衡量码单查询";
+    asd.title = @"汽车衡量码单";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleBalance.html";
     [self.navigationController pushViewController:asd animated:YES];
 }

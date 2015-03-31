@@ -9,7 +9,7 @@
 #import "MessageViewController.h"
 #import "AppDelegate.h"
 #import "MessageDetailViewController.h"
-
+#import "SWTableViewCell.h"
 
 #define WebService @"http://218.92.115.55/M_hmw/SERVICEHMW.ASMX"
 #define SendName login
@@ -63,7 +63,7 @@
 - (void)beginPullDownRefreshing {
     Max_Count = 100;
     loadCount = 0;
-    self.arr = [[NSMutableArray alloc]init];
+    //self.arr = [[NSMutableArray alloc]init];
     //self.msgArray = [[NSMutableArray alloc]init];
     soap *SendName=[[soap alloc]init];
     SendName.sendDelegate=self;
@@ -175,7 +175,7 @@
 
 //是显示更多
 - (BOOL)hasRefreshFooterView {
-    if (self.arr.count > 0 && loadCount < Max_Count) {
+    if (self.msgArray.count > 0 && loadCount < Max_Count) {
         return YES;
     }
     return NO;
@@ -202,7 +202,7 @@
     self.navigationController.navigationBar.titleTextAttributes=dict;
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     self.navigationItem.title = @"消息";
-    self.arr= [NSMutableArray array];
+    //self.arr= [NSMutableArray array];
     
     ServiceMobileApplication =WebService;
     soapmsg1 = @"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -221,7 +221,7 @@
 - (void)endRefresh {
     loadCount =1;
     
-    self.arr = self.msgArray;
+    //self.arr = self.msgArray;
     [self.tableView reloadData];
     
     [self.refreshControll endPullDownRefreshing];
@@ -240,7 +240,7 @@
 #pragma mark -UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.arr.count;
+    return self.msgArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -380,7 +380,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)dealloc {
-    self.arr = nil;
+    //self.arr = nil;
     self.tableView = nil;
     self.refreshControll = nil;
 }

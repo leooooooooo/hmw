@@ -31,7 +31,9 @@
     info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     userid = [info objectForKey:(id)kSecAttrAccount];
     
-    }
+
+
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {

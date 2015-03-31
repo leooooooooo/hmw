@@ -82,8 +82,8 @@
     
     
     //nav button
-    UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(Cygn:)];
-    
+    //UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(Cygn:)];
+    UIBarButtonItem *select = [[UIBarButtonItem alloc]initWithTitle:@"常用" style:UIBarButtonItemStyleDone target:self action:@selector(Cygn:)];
     //UIImage *redbutton =[UIImage imageNamed:@"redbutton.png"];
     
     //[select setBackgroundImage:redbutton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

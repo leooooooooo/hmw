@@ -130,6 +130,10 @@
 		18FE106A1AAD29FC004E339B /* CompanyOnlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE10691AAD29FC004E339B /* CompanyOnlyViewController.m */; };
 		18FE106D1AAE8832004E339B /* EmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE106C1AAE8832004E339B /* EmptyViewController.m */; };
 		18FE10701AB138FF004E339B /* InputOnlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE106F1AB138FF004E339B /* InputOnlyViewController.m */; };
+		B328B2A91ACA3C4C00554FAC /* DAContextMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B328B2A41ACA3C4C00554FAC /* DAContextMenuCell.m */; };
+		B328B2AA1ACA3C4C00554FAC /* DAContextMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B328B2A61ACA3C4C00554FAC /* DAContextMenuTableViewController.m */; };
+		B328B2AB1ACA3C4C00554FAC /* DAOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B328B2A81ACA3C4C00554FAC /* DAOverlayView.m */; };
+		B328B2AE1ACA622600554FAC /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B328B2AD1ACA622600554FAC /* SWTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,6 +311,16 @@
 		18FE106C1AAE8832004E339B /* EmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyViewController.m; sourceTree = "<group>"; };
 		18FE106E1AB138FF004E339B /* InputOnlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputOnlyViewController.h; sourceTree = "<group>"; };
 		18FE106F1AB138FF004E339B /* InputOnlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputOnlyViewController.m; sourceTree = "<group>"; };
+		B328B2A31ACA3C4C00554FAC /* DAContextMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContextMenuCell.h; sourceTree = "<group>"; };
+		B328B2A41ACA3C4C00554FAC /* DAContextMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContextMenuCell.m; sourceTree = "<group>"; };
+		B328B2A51ACA3C4C00554FAC /* DAContextMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContextMenuTableViewController.h; sourceTree = "<group>"; };
+		B328B2A61ACA3C4C00554FAC /* DAContextMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContextMenuTableViewController.m; sourceTree = "<group>"; };
+		B328B2A71ACA3C4C00554FAC /* DAOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOverlayView.h; sourceTree = "<group>"; };
+		B328B2A81ACA3C4C00554FAC /* DAOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOverlayView.m; sourceTree = "<group>"; };
+		B328B2AC1ACA622600554FAC /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		B328B2AD1ACA622600554FAC /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		B3B681B61AC8E7FD00E0BE53 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		B3B681B71AC8E7FD00E0BE53 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +338,7 @@
 		182CFC0D1A75D7F500999282 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				B328B2A21ACA3C4C00554FAC /* DAContextMenuTableViewController */,
 				187B27131ABFADCA0065EF9B /* SVProgressHUD */,
 				18FE105E1AA7F298004E339B /* dropDownList */,
 				18F321F21A7F1386002E7ACB /* RefreshHeadView */,
@@ -666,6 +681,8 @@
 		18BAE8CA1A7237D800D9EF66 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				B328B2AC1ACA622600554FAC /* SWTableViewCell.h */,
+				B328B2AD1ACA622600554FAC /* SWTableViewCell.m */,
 				18F322061A7F3CD4002E7ACB /* MessageViewController.h */,
 				18F322071A7F3CD4002E7ACB /* MessageViewController.m */,
 				18F7001E1A83089A00068FE3 /* MessageDetailViewController.h */,
@@ -724,6 +741,19 @@
 				18FE10621AA7F2A4004E339B /* DropDownChooseProtocol.h */,
 			);
 			name = dropDownList;
+			sourceTree = "<group>";
+		};
+		B328B2A21ACA3C4C00554FAC /* DAContextMenuTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B328B2A31ACA3C4C00554FAC /* DAContextMenuCell.h */,
+				B328B2A41ACA3C4C00554FAC /* DAContextMenuCell.m */,
+				B328B2A51ACA3C4C00554FAC /* DAContextMenuTableViewController.h */,
+				B328B2A61ACA3C4C00554FAC /* DAContextMenuTableViewController.m */,
+				B328B2A71ACA3C4C00554FAC /* DAOverlayView.h */,
+				B328B2A81ACA3C4C00554FAC /* DAOverlayView.m */,
+			);
+			path = DAContextMenuTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -873,6 +903,7 @@
 				18BAE9041A7356BA00D9EF66 /* CygnViewController.m in Sources */,
 				187FDD171AA04BDA004D1649 /* CompanySwitchViewController.m in Sources */,
 				187B27181ABFADE80065EF9B /* SVProgressHUD.m in Sources */,
+				B328B2AB1ACA3C4C00554FAC /* DAOverlayView.m in Sources */,
 				1876AD9C1A70B0630011750F /* MyBusinessViewController.m in Sources */,
 				18A5CACB1A5BC4CE008ED792 /* UIView+Ext.m in Sources */,
 				18A5CAC11A5BC389008ED792 /* SubView.m in Sources */,
@@ -894,6 +925,7 @@
 				1871C3641A0F498C00A9C265 /* AppDelegate.m in Sources */,
 				18BAE8DC1A73398700D9EF66 /* CustomURLCache.m in Sources */,
 				18BAE8D91A73398700D9EF66 /* MBProgressHUD.m in Sources */,
+				B328B2AE1ACA622600554FAC /* SWTableViewCell.m in Sources */,
 				18F321FE1A7F1386002E7ACB /* CLLRefreshHeadController.m in Sources */,
 				1877B95F1A5D04E6000A7131 /* AdDataModel.m in Sources */,
 				187FDD061AA011BC004D1649 /* HDTableViewController.m in Sources */,
@@ -908,12 +940,14 @@
 				18BAE8DB1A73398700D9EF66 /* Reachability.m in Sources */,
 				187FDD031AA011AE004D1649 /* CDTableViewController.m in Sources */,
 				18F460491A5A2C4500C78274 /* soap.m in Sources */,
+				B328B2AA1ACA3C4C00554FAC /* DAContextMenuTableViewController.m in Sources */,
 				1871C3671A0F498C00A9C265 /* ___.xcdatamodeld in Sources */,
 				1869CFF71A7A1B3F00766F67 /* updateViewController.m in Sources */,
 				18FE106A1AAD29FC004E339B /* CompanyOnlyViewController.m in Sources */,
 				187FDD0C1AA011CD004D1649 /* HYTableViewController.m in Sources */,
 				18BAE8DA1A73398700D9EF66 /* Util.m in Sources */,
 				18F460511A5A2EE100C78274 /* KeychainItemWrapper.m in Sources */,
+				B328B2A91ACA3C4C00554FAC /* DAContextMenuCell.m in Sources */,
 				182CFC1C1A7735B600999282 /* DeviceSender.m in Sources */,
 				18F460591A5A576400C78274 /* IndexViewController.m in Sources */,
 			);
@@ -926,6 +960,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1871C36C1A0F498C00A9C265 /* Base */,
+				B3B681B61AC8E7FD00E0BE53 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			path = "航贸网";
@@ -935,6 +970,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1871C3711A0F498C00A9C265 /* Base */,
+				B3B681B71AC8E7FD00E0BE53 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			path = "航贸网";
@@ -1032,13 +1068,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
 				INFOPLIST_FILE = "航贸网/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "航贸网";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "81e9fe06-bdcf-4043-9bfa-828223aa01c2";
 			};
 			name = Debug;
 		};
@@ -1047,13 +1083,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
 				INFOPLIST_FILE = "航贸网/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "航贸网";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "81e9fe06-bdcf-4043-9bfa-828223aa01c2";
 			};
 			name = Release;
 		};

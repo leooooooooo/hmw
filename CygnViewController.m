@@ -98,6 +98,11 @@
     //[urlCache removeAllCachedResponses];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self loadPage];
+}
+
 //加载网页
 - (void)loadPage {
     NSURL *url = [[NSURL alloc] initWithString:self.URL];

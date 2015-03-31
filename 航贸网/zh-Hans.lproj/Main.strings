@@ -1,0 +1,69 @@
+
+/* Class = "UILabel"; text = "                      Copyright (c) 2014                                   连云港港口集团通信信息工程公司"; ObjectID = "0PO-ew-wTg"; */
+"0PO-ew-wTg.text" = "                      Copyright (c) 2014                                   连云港港口集团通信信息工程公司";
+
+/* Class = "UITabBarItem"; title = "业务查询"; ObjectID = "2ol-Yf-KCG"; */
+"2ol-Yf-KCG.title" = "业务查询";
+
+/* Class = "UIButton"; normalTitle = "确认修改"; ObjectID = "4Av-Ll-L6i"; */
+"4Av-Ll-L6i.normalTitle" = "确认修改";
+
+/* Class = "UILabel"; text = "自动登录"; ObjectID = "4jy-nK-gF8"; */
+"4jy-nK-gF8.text" = "自动登录";
+
+/* Class = "UILabel"; text = "电话"; ObjectID = "9WP-u1-0vo"; */
+"9WP-u1-0vo.text" = "电话";
+
+/* Class = "UIButton"; normalTitle = "清空"; ObjectID = "9sC-pH-Qm0"; */
+"9sC-pH-Qm0.normalTitle" = "清空";
+
+/* Class = "UILabel"; text = "再次确认"; ObjectID = "DcG-4Y-Iez"; */
+"DcG-4Y-Iez.text" = "再次确认";
+
+/* Class = "UILabel"; text = "新密码"; ObjectID = "ICw-9l-hKj"; */
+"ICw-9l-hKj.text" = "新密码";
+
+/* Class = "UILabel"; text = "记住密码"; ObjectID = "LVA-ql-dBT"; */
+"LVA-ql-dBT.text" = "记住密码";
+
+/* Class = "UITabBarItem"; title = "首页"; ObjectID = "OwH-PU-oAo"; */
+"OwH-PU-oAo.title" = "首页";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "QBy-TD-Scu"; */
+"QBy-TD-Scu.normalTitle" = "登录";
+
+/* Class = "UILabel"; text = "原密码"; ObjectID = "QWT-Wi-orw"; */
+"QWT-Wi-orw.text" = "原密码";
+
+/* Class = "UIButton"; normalTitle = "清空"; ObjectID = "U3A-wy-LdE"; */
+"U3A-wy-LdE.normalTitle" = "清空";
+
+/* Class = "UITabBarItem"; title = "设置"; ObjectID = "Xzp-oi-o9h"; */
+"Xzp-oi-o9h.title" = "设置";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "aoH-Vl-8ZI"; */
+"aoH-Vl-8ZI.title" = "Root View Controller";
+
+/* Class = "UITabBarItem"; title = "消息"; ObjectID = "eTg-xA-3Nf"; */
+"eTg-xA-3Nf.title" = "消息";
+
+/* Class = "UILabel"; text = "手机"; ObjectID = "igA-03-VWE"; */
+"igA-03-VWE.text" = "手机";
+
+/* Class = "UIButton"; normalTitle = "确认修改"; ObjectID = "js6-Jd-K2c"; */
+"js6-Jd-K2c.normalTitle" = "确认修改";
+
+/* Class = "UILabel"; text = "设备绑定"; ObjectID = "k4i-4G-qQb"; */
+"k4i-4G-qQb.text" = "设备绑定";
+
+/* Class = "UINavigationItem"; title = "业务查询"; ObjectID = "kAn-ye-aqK"; */
+"kAn-ye-aqK.title" = "业务查询";
+
+/* Class = "UIButton"; normalTitle = "清空"; ObjectID = "mAm-jQ-dWY"; */
+"mAm-jQ-dWY.normalTitle" = "清空";
+
+/* Class = "UIButton"; normalTitle = "清空"; ObjectID = "mJ1-iC-dxU"; */
+"mJ1-iC-dxU.normalTitle" = "清空";
+
+/* Class = "UILabel"; text = "E-mali"; ObjectID = "xlY-Nj-Fuj"; */
+"xlY-Nj-Fuj.text" = "E-mali";

@@ -34,14 +34,14 @@
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
     NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"票货查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托有船作业查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托无船作业查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"作业委托查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"车辆运输查询",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物进港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物出港查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic9 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物港内结存查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托有船作业",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托无船作业",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"作业委托",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"车辆运输",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物进港",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物出港",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic9 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物港内结存",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
     
     self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7,tDic8,tDic9, nil]autorelease];
     [super viewDidLoad];
@@ -144,7 +144,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
+        
             switch (indexPath.row) {
                 case 0:
                     [self phcx];
@@ -176,7 +184,7 @@
                 default:
                     break;
             }
-
+    }
 }
 
 -(void)phcx
@@ -192,7 +200,7 @@
 {
     SwitchOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"SwitchOnly"];
     asd.userID = self.userID;
-    asd.title = @"业务大委托有船作业查询";
+    asd.title = @"业务大委托有船作业";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/ShipBusinessConsign.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -201,7 +209,7 @@
 {
     SwitchOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"SwitchOnly"];
     asd.userID = self.userID;
-    asd.title = @"业务大委托无船作业查询";
+    asd.title = @"业务大委托无船作业";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/NoShipBusinessConsign.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -210,7 +218,7 @@
 {
     CompanySwitchViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanySwitch"];
     asd.userID = self.userID;
-    asd.title = @"作业委托查询";
+    asd.title = @"作业委托";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/JobConsign.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -219,7 +227,7 @@
 {
     CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
     asd.userID = self.userID;
-    asd.title = @"车辆运输查询";
+    asd.title = @"车辆运输";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleTransport.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -228,7 +236,7 @@
 {
     CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
     asd.userID = self.userID;
-    asd.title = @"汽车衡量码单查询";
+    asd.title = @"汽车衡量码单";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleBalance.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -237,7 +245,7 @@
 {
     CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
     asd.userID = self.userID;
-    asd.title = @"货物进港查询";
+    asd.title = @"货物进港";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoIn.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -246,7 +254,7 @@
 {
     CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
     asd.userID = self.userID;
-    asd.title = @"货物出港查询";
+    asd.title = @"货物出港";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoOut.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -255,7 +263,7 @@
 {
     CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
     asd.userID = self.userID;
-    asd.title = @"货物港内结存查询";
+    asd.title = @"货物港内结存";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/CargoStock.html";
     [self.navigationController pushViewController:asd animated:YES];
 }

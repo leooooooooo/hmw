@@ -32,14 +32,14 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
-    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"预报船舶查询",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶查询",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶查询",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶查询",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"预报船舶",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"引航费用查询",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"高频费用查询",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"引航费用",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"高频费用",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
 
     
     self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7,tDic8, nil]autorelease];
@@ -142,7 +142,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
+    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
     switch (indexPath.row) {
         case 0:
             [self ybcbcx];
@@ -171,14 +178,14 @@
         default:
             break;
     }
-    
+    }
 }
 
 -(void)ybcbcx
 {
     EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"预报船舶查询";
+    asd.title = @"预报船舶";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/ForeShip.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -187,7 +194,7 @@
 {
     EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"确报船舶查询";
+    asd.title = @"确报船舶";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/IndeedShip.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -196,7 +203,7 @@
 {
     EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"锚地船舶查询";
+    asd.title = @"锚地船舶";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/AnchorShip.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -205,7 +212,7 @@
 {
     EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"泊位船舶查询";
+    asd.title = @"泊位船舶";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/BerthShip.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -232,7 +239,7 @@
 {
     EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"引航费用查询";
+    asd.title = @"引航费用";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/PilotageFee.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
@@ -241,7 +248,7 @@
 {
     EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
     asd.userID = self.userID;
-    asd.title = @"高频话费查询";
+    asd.title = @"高频话费";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/CommunicationFee.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
