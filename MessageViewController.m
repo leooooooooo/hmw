@@ -345,7 +345,7 @@
         [cell.contentView addSubview:msgIDLabel];
 
         //cut
-        UILabel *cut = [[UILabel alloc]initWithFrame:CGRectMake(-200,64,self.view.bounds.size.width*3,1)];
+        UILabel *cut = [[UILabel alloc]initWithFrame:CGRectMake(-200,64.5,self.view.bounds.size.width*3,0.5)];
         cut.backgroundColor = [UIColor grayColor];
         cut.text = @"";
         [cell.contentView addSubview:cut];

@@ -109,8 +109,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="S3k-wo-uzw"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ID" destination="pYt-jL-eXa" id="N0u-Wi-FKn"/>
                         <outlet property="PW" destination="4iZ-xh-fTl" id="kOa-Ir-EZY"/>
