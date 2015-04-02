@@ -27,7 +27,7 @@
                                     <action selector="keyboarddisapper:" destination="sQH-G8-1Sp" eventType="touchUpInside" id="Gw8-3Z-B3h"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                      Copyright (c) 2014                                   连云港港口集团通信信息工程公司" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0PO-ew-wTg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                      Copyright (c) 2015                                   连云港港口集团通信信息工程公司" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0PO-ew-wTg">
                                 <rect key="frame" x="28" y="489" width="261" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>

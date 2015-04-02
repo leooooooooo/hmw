@@ -32,14 +32,14 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
-    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"预报船舶",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"ico0_05.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"引航费用",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"高频费用",@"name",@"ico0_05.png",@"type", @"D011", @"office",nil]autorelease];
+    //NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"预报船舶",@"name",@"icon(1).png",@"type", @"C406", @"office",nil]autorelease];
+    //NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶",@"name",@"icon(1).png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"icon(1).png",@"type", @"C406", @"office",nil]autorelease];
+    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
+    //NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"引航费用",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
+    //NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"高频费用",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
     
     
     self.teaArray = [[[NSArray alloc]initWithObjects:tDic3,tDic4,tDic5,tDic6, nil]autorelease];

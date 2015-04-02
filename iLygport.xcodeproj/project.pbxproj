@@ -117,6 +117,7 @@
 		18FE106A1AAD29FC004E339B /* CompanyOnlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE10691AAD29FC004E339B /* CompanyOnlyViewController.m */; };
 		18FE106D1AAE8832004E339B /* EmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE106C1AAE8832004E339B /* EmptyViewController.m */; };
 		18FE10701AB138FF004E339B /* InputOnlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE106F1AB138FF004E339B /* InputOnlyViewController.m */; };
+		B322BFF71ACCE17900D3166C /* icon(1).png in Resources */ = {isa = PBXBuildFile; fileRef = B322BFF61ACCE17900D3166C /* icon(1).png */; };
 		B328B2EF1ACA733100554FAC /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = B328B2E41ACA733100554FAC /* NSMutableArray+SWUtilityButtons.m */; };
 		B328B2F01ACA733100554FAC /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B328B2E61ACA733100554FAC /* SWCellScrollView.m */; };
 		B328B2F11ACA733100554FAC /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B328B2E81ACA733100554FAC /* SWLongPressGestureRecognizer.m */; };
@@ -283,6 +284,7 @@
 		18FE106C1AAE8832004E339B /* EmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyViewController.m; sourceTree = "<group>"; };
 		18FE106E1AB138FF004E339B /* InputOnlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputOnlyViewController.h; sourceTree = "<group>"; };
 		18FE106F1AB138FF004E339B /* InputOnlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputOnlyViewController.m; sourceTree = "<group>"; };
+		B322BFF61ACCE17900D3166C /* icon(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon(1).png"; sourceTree = "<group>"; };
 		B328B2E31ACA733100554FAC /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		B328B2E41ACA733100554FAC /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
 		B328B2E51ACA733100554FAC /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 		1871C3911A10476B00A9C265 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				B322BFF61ACCE17900D3166C /* icon(1).png */,
 				B328B2F81ACA8EDE00554FAC /* icon2.png */,
 				B328B2F91ACA8EDE00554FAC /* iocn1.png */,
 				187B27191ABFE2C30065EF9B /* 设置_03.png */,
@@ -760,6 +763,7 @@
 				187B27201ABFE2C30065EF9B /* 设置_06.png in Resources */,
 				187B270E1ABFA49F0065EF9B /* 66-email.png in Resources */,
 				18A5F2311A132A9900004A76 /* 航贸网logo120x120.png in Resources */,
+				B322BFF71ACCE17900D3166C /* icon(1).png in Resources */,
 				1871C3881A0F63A200A9C265 /* 航贸网登录背景.jpg in Resources */,
 				182CFC271A78764400999282 /* 启动页2.png in Resources */,
 				1876AD901A7084A70011750F /* blackArrow.png in Resources */,

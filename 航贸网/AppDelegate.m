@@ -70,7 +70,7 @@
                                               cancelButtonTitle:@"点这个没用"
                                               otherButtonTitles:@"这个也没用",nil];
         alert.tag = alert_tag_push;
-        [alert show];
+       // [alert show];
     }
 }
 
