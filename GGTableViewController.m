@@ -25,11 +25,11 @@
     KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
     self.userID =[info objectForKey:(id)kSecAttrAccount];
     
-    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]autorelease];
     [self.navigationItem setBackBarButtonItem:backButton];
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
     //NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"预报船舶",@"name",@"icon(1).png",@"type", @"C406", @"office",nil]autorelease];

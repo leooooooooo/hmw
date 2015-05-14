@@ -9,6 +9,7 @@
 #import "CompanyOnlyViewController.h"
 #import "DropDownListView.h"
 #import "SVProgressHUD.h"
+#import "SecondViewController.h"
 
 @interface CompanyOnlyViewController (){
     NSMutableArray *chooseArray ;
@@ -63,6 +64,25 @@
     
     [self select:self];
     // Do any additional setup after loading the view.
+}
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if([[request.URL absoluteString]rangeOfString:@"Detail"].location!=NSNotFound)
+    {
+        SecondViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"secondwebview"];
+        asd.qqq = request;
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [self.navigationItem setBackBarButtonItem:backButton];
+        [asd.navigationItem setBackBarButtonItem:backButton];
+        //[backButton release];
+        //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"webview"]animated:YES];
+        [self.navigationController pushViewController:asd animated:YES];
+        
+        return NO;
+    }
+    return YES;
 }
 
 -(void)select:(id)sender

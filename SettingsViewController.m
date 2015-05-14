@@ -10,9 +10,10 @@
 #import "LoginViewController.h"
 #import "DeviceBindingTableViewController.h"
 #import "Header.h"
-#import "updateViewController.h"
 #import "changePasswordViewController.h"
 #import "changeInfoViewController.h"
+#import "AppDelegate.h"
+#define UpdateAlertViewTag 1
 
 
 @interface SettingsViewController ()
@@ -24,11 +25,11 @@
 
 - (void)viewDidLoad
 {
-    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
+    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]autorelease];
     [self.navigationItem setBackBarButtonItem:backButton];
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     
     NSDictionary *tDic11 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"个人信息维护",@"name",@"设置_03.png",@"type",nil]autorelease];
@@ -78,7 +79,7 @@
                     break;
 
                 case 3:
-                    [self checkupdate];
+                    [self CheckUpdate];
                     break;
                 default:
                     break;
@@ -253,7 +254,7 @@
 
 -(void)login
 {
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
     
     [backButton release];
@@ -298,7 +299,7 @@
         
         devicebinding.navigationItem.title = @"个人信息维护";
         [devicebinding.navigationController.navigationBar setBarTintColor:NavigationBarColor];
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
         devicebinding.navigationController.navigationBar.titleTextAttributes=dict;
         [self.navigationController pushViewController:devicebinding animated:YES];
     }
@@ -319,7 +320,7 @@
         
         devicebinding.navigationItem.title = @"修改密码";
         [devicebinding.navigationController.navigationBar setBarTintColor:NavigationBarColor];
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
         devicebinding.navigationController.navigationBar.titleTextAttributes=dict;
         [self.navigationController pushViewController:devicebinding animated:YES];
     }
@@ -339,46 +340,55 @@
     
     devicebinding.navigationItem.title = @"设备绑定";
     [devicebinding.navigationController.navigationBar setBarTintColor:NavigationBarColor];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
     devicebinding.navigationController.navigationBar.titleTextAttributes=dict;
     [self.navigationController pushViewController:devicebinding animated:YES];
     }
 }
--(void)checkupdate
-{
-    NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/HMWUPDATE.ASPX?deviceType=iOS&version=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
-    NSURL *get=[NSURL URLWithString:url];
-    NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-    NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
-    NSString *rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];
-    NSString *pb;
+
+- (void)CheckUpdate{
     UIAlertView *alert;
-    if([rcc isEqualToString:@"yes"]|[rcc isEqualToString:@"yes\r\n"])
-    {
-        pb = [NSString stringWithFormat:@"当前版本为%@，已经是最新版本",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
-        alert = [[UIAlertView alloc]initWithTitle:@"版本更新" message:pb delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+    if ([[(AppDelegate *)[[UIApplication sharedApplication]delegate]Update]isEqualToString:@"Yes"]) {
+        
+        alert = [[UIAlertView alloc]initWithTitle:@"更新" message:[NSString stringWithFormat:@"检测到新版本%@，请点击更新安装新版本",[(AppDelegate *)[[UIApplication sharedApplication]delegate]Version]] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"更新", nil];
     }
     else
     {
-        pb = [NSString stringWithFormat:@"检测到最新版本%@，请更新",rcc];
-        alert = [[UIAlertView alloc]initWithTitle:@"版本更新" message:pb delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/wlkgbsgsapp/install/install.html"];
-        updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
-        asd.url = url;
-        
-        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
-        [self.navigationItem setBackBarButtonItem:backButton];
-        [asd.navigationItem setBackBarButtonItem:backButton];
-        [self.navigationController pushViewController:asd animated:YES];
-
+        alert = [[UIAlertView alloc]initWithTitle:@"更新" message:@"当前已经是最新版本" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
     }
-    
+    alert.tag = UpdateAlertViewTag;
+    [alert show];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (alertView.tag)
+    {
+        case UpdateAlertViewTag:
+            switch (buttonIndex)
+        {
+            case 1:[self Update];break;
+            default:break;
+        }
+            break;
+            
+        default:break;
+    }
+}
+
+-(void)Update
+{
+    UIWebView *up = [[[UIWebView alloc]init]autorelease];
+    NSURL *url =[NSURL URLWithString:[(AppDelegate *)[[UIApplication sharedApplication]delegate]Url]];
+    NSURLRequest *request =[NSURLRequest requestWithURL:url];
+    [up loadRequest:request];
+    [self.view addSubview:up];
+    NSLog(@"开始更新",nil);
+    
+}
 -(void)viewDidAppear:(BOOL)animated{
     //[self hideTabBar];
+    [super viewDidAppear:animated];
     [self showTabBar];
 }
 

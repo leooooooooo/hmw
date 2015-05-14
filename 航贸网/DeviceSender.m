@@ -39,11 +39,12 @@
 
 -(void) sendDeviceToPushServer:(NSString*)deviceToken
 {
-    AppDelegate *delegate=[(AppDelegate *)[UIApplication sharedApplication]delegate];
-    delegate.deviceToken=[[deviceToken substringWithRange:NSMakeRange(1, deviceToken.length-2)]stringByReplacingOccurrencesOfString:@" " withString:@""];
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    appDelegate.deviceToken=[[deviceToken substringWithRange:NSMakeRange(1, deviceToken.length-2)]stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
-
+-(void)sendRequestByGet:(NSString *)urlString
+{}
 
 
 @end

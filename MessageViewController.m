@@ -201,11 +201,11 @@
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0); // Makes the horizontal row seperator stretch the entire length of the table view
 
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
     self.navigationItem.title = @"消息";
@@ -427,7 +427,7 @@
     [self getService:[NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/setmessstatus.aspx?messId=%@&messStatus=1",msgid]];
     MessageDetailViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"msgwebview"];
     asd.msgid  = msgid;
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
     [asd.navigationItem setBackBarButtonItem:backButton];
     //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"webview"]animated:YES];

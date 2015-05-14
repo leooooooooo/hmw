@@ -70,7 +70,7 @@
         SecondViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"secondwebview"];
         asd.qqq = request;
         
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationItem setBackBarButtonItem:backButton];
         [asd.navigationItem setBackBarButtonItem:backButton];
         
@@ -120,7 +120,7 @@
     [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.webView.scrollView];
     //self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.navigationItem.title=[webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     //[customLab release];
 

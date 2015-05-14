@@ -7,6 +7,7 @@
 //
 #define UISCREENHEIGHT  self.view.bounds.size.height
 #define UISCREENWIDTH  self.view.bounds.size.width
+#define UpdateAlertViewTag 1
 
 
 #import "IndexViewController.h"
@@ -15,7 +16,6 @@
 #import "CustomURLCache.h"
 #import "MBProgressHUD.h"
 #import "Header.h"
-#import "updateViewController.h"
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
 
@@ -30,20 +30,10 @@
 @implementation IndexViewController
 
 - (void)viewDidLoad{
-    
-    
-    
-/*   JSON TEST
-    NSURL *urljson=[NSURL URLWithString:@"http://gw.api.taobao.com/router/rest?sign=DB7B5CE419527C0ABD5C626D36C4426A&timestamp=2013-07-02+13:52:53&v=2.0&app_key=21553302&method=taobao.itemprops.get&partner_id=top-apitools&format=json&cid=50012379&fields=pid,name,must,multi,prop_values"];
-                    NSURLRequest *request=[NSURLRequest  requestWithURL:urljson];
-                    //发送同步请求
-                    NSData *data=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-                    NSError *error;
-                    NSDictionary *dicdata=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-    */
+
     
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
-    [self checkupdate];
+    [self GetUpdateInfo];
     /*
     CustomURLCache *urlCache = [[CustomURLCache alloc] initWithMemoryCapacity:0.1 * 1024 * 1024
                                                                  diskCapacity:0.1 * 1024 * 1024
@@ -110,7 +100,7 @@
         SecondViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"secondwebview"];
         asd.qqq = request;
         
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationItem setBackBarButtonItem:backButton];
         [asd.navigationItem setBackBarButtonItem:backButton];
         [backButton release];
@@ -156,7 +146,7 @@
     [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.webView.scrollView];
     //self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.navigationItem.title=[webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes=dict;
     //self.navigationItem.titleView.backgroundColor=[UIColor whiteColor];
     _qqq=nil;
@@ -209,12 +199,12 @@
     return [NSDate date]; // should return date data source was last changed
 }
 
-- (IBAction)Cygn:(id)sender {
+- (void)Cygn:(id)sender {
 
     CygnViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"cygnwebview"];
     info=[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     asd.userid  = [info objectForKey:(id)kSecAttrAccount];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
     [asd.navigationItem setBackBarButtonItem:backButton];
     [backButton release];
@@ -223,40 +213,109 @@
 
 }
 
--(void)checkupdate
+-(void)GetUpdateInfo
 {
-    NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/M_hmw/getservice/HMWUPDATE.ASPX?deviceType=iOS&version=%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
-    NSURL *get=[NSURL URLWithString:url];
-    NSMutableURLRequest *rq=[NSMutableURLRequest requestWithURL:get];
-    NSData *rc =[NSURLConnection sendSynchronousRequest:rq returningResponse:nil error:nil];
-    NSString *rcc=[[[NSString alloc]initWithData:rc encoding:NSUTF8StringEncoding]autorelease];
-    NSString *pb;
-    UIAlertView *alert;
-    if([rcc isEqualToString:@"yes"]|[rcc isEqualToString:@"yes\r\n"])
-    {
-        //pb = [NSString stringWithFormat:@"当前版本为%@，已经是最新版本",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
-        //alert = [[UIAlertView alloc]initWithTitle:@"版本更新" message:pb delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        //[alert show];
-    }
-    else
-    {
-        pb = [NSString stringWithFormat:@"检测到最新版本%@，请更新",rcc];
-        alert = [[[UIAlertView alloc]initWithTitle:@"版本更新" message:pb delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil]autorelease];
-        [alert show];
-        NSString *url = [NSString stringWithFormat:@"http://218.92.115.55/m_hmw/install/install.html"];
-        updateViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"updatewebview"];
-        asd.url = url;
+    //1确定地址NSURL
+    NSString *urlString = [NSString stringWithFormat:@"http://218.92.115.55/MobilePlatform/Update.aspx"];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    //2建立请求NSMutableURLRequest（post需要用这个）
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    //网络访问超时时间
+    [request setTimeoutInterval:20.0f];
+    //1)post请求方式,网络请求默认是get方法，所以如果我们用post请求，必须声明请求方式。
+    [request setHTTPMethod:@"POST"];
+    //2)post请求的数据体,post请求中数据体时，如果有中文，不需要转换。因为ataUsingEncoding方法已经实现了转码。
+    NSString *bodyStr = [NSString stringWithFormat:@"AppName=%@&DeviceType=iOS&Build=%@",AppName,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+    //将nstring转换成nsdata
+    NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+    //NSLog(@"body data %@", body);
+    [request setHTTPBody:body];
+    
+    //这里是非代理的异步请求，异步请求并不会阻止主线程的继续执行，不用等待网络请结束。
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError * error) {
+        //这段块代码只有在网络请求结束以后的后续处理。
+        UIAlertView *alert;
+        if (data != nil) {  //接受到数据，表示工作正常
+            //NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+            NSDictionary *Update = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+            delegate.Update = [Update objectForKey:@"Update"];
+            NSLog(@"%@", Update);
+            
+            if([[Update objectForKey:@"Update"]isEqualToString:@"Yes"])
+            {
+                delegate.Url = [Update objectForKey:@"Url"];
+                delegate.Version = [Update objectForKey:@"Version"];
+                alert = [[UIAlertView alloc]initWithTitle:@"更新" message:[NSString stringWithFormat:@"检测到新版本%@，请点击更新安装新版本",[Update objectForKey:@"Version"]] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"更新", nil];
+                alert.tag =UpdateAlertViewTag;
+                [alert show];
+                /*
+                //版本更新button
+                UIButton *newVersion = [[UIButton alloc]initWithFrame:CGRectMake(20, self.view.bounds.size.height-85, 200, 30)];
+                [newVersion setTitle:[NSString stringWithFormat:@"最新版本：%@",[(AppDelegate *)[[UIApplication sharedApplication]delegate]Version]] forState:UIControlStateNormal];
+                newVersion.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+                [newVersion setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+                newVersion.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+                [newVersion addTarget:self action:@selector(CheckUpdate) forControlEvents:UIControlEventTouchUpInside];
+                [self.view addSubview:newVersion];
+                 */
+                
+                
+            }
+            else
+            {
+                //alert = [[UIAlertView alloc]initWithTitle:@"更新" message:@"当前已经是最新版本" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+            }
+        }
+        else
+        {
+            if(data == nil && error == nil)    //没有接受到数据，但是error为nil。。表示接受到空数据。
+            {
+               // alert = [[UIAlertView alloc]initWithTitle:@"更新失败" message:@"更新失败，网络超时" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+            }
+            else
+            {
+                //alert = [[UIAlertView alloc]initWithTitle:@"更新失败" message:error.localizedDescription delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+                NSLog(@"%@", error.localizedDescription);  //请求出错。
+            }
+        }
         
-        UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil]autorelease];
-        [self.navigationItem setBackBarButtonItem:backButton];
-        [asd.navigationItem setBackBarButtonItem:backButton];
-        [self.navigationController pushViewController:asd animated:YES];
+        
+    }];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (alertView.tag)
+    {
+        case UpdateAlertViewTag:
+            switch (buttonIndex)
+        {
+            case 1:[self Update];break;
+            default:break;
+        }
+            break;
+            
+        default:break;
     }
+}
+
+-(void)Update
+{
+    UIWebView *up = [[[UIWebView alloc]init]autorelease];
+    NSURL *url =[NSURL URLWithString:[(AppDelegate *)[[UIApplication sharedApplication]delegate]Url]];
+    NSURLRequest *request =[NSURLRequest requestWithURL:url];
+    [up loadRequest:request];
+    [self.view addSubview:up];
+    NSLog(@"开始更新",nil);
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     //[self hideTabBar];
+    [super viewDidAppear:animated];
     [self showTabBar];
 }
 

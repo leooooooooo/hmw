@@ -18,7 +18,6 @@
         KeychainItemWrapper *info;
 }
 @property (retain,nonatomic)IBOutlet UIWebView *webView;
-- (IBAction)Cygn:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *SignInButton;
 
 

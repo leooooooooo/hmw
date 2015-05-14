@@ -14,7 +14,7 @@
 
 @end
 
-@interface soap : NSObject
+@interface soap : NSObject<NSXMLParserDelegate>
 {
     NSMutableString *soapResults;
     NSXMLParser *xmlParser;

@@ -34,7 +34,7 @@
 
     //self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.navigationItem.title=[webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:UITextAttributeTextColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes=dict;
 
 }

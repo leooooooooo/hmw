@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DeviceSender.h"
+
 #define alert_tag_push 10
 
 @interface AppDelegate ()
@@ -15,9 +15,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize deviceToken;
-@synthesize isbinding;
-@synthesize userid;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

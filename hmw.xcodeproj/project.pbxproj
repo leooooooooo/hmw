@@ -17,7 +17,6 @@
 		182CFC271A78764400999282 /* 启动页2.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CFC211A78764400999282 /* 启动页2.png */; };
 		182CFC2B1A787B7200999282 /* DeviceBindingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CFC2A1A787B7200999282 /* DeviceBindingTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		186982611A134DE40095FAD4 /* 航贸网登录新x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 186982601A134DE40095FAD4 /* 航贸网登录新x.jpg */; };
-		1869CFF71A7A1B3F00766F67 /* updateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1869CFF61A7A1B3F00766F67 /* updateViewController.m */; };
 		1869CFF91A7B1A0400766F67 /* 启动页3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1869CFF81A7B1A0400766F67 /* 启动页3.png */; };
 		1869CFFB1A7B297A00766F67 /* 查询.png in Resources */ = {isa = PBXBuildFile; fileRef = 1869CFFA1A7B297A00766F67 /* 查询.png */; };
 		1871C3611A0F498C00A9C265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1871C3601A0F498C00A9C265 /* main.m */; };
@@ -76,8 +75,6 @@
 		187FDD2B1AA1A727004D1649 /* ico0_09.png in Resources */ = {isa = PBXBuildFile; fileRef = 187FDD261AA1A727004D1649 /* ico0_09.png */; };
 		187FDD2C1AA1A727004D1649 /* ico0_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 187FDD271AA1A727004D1649 /* ico0_10.png */; };
 		187FDD2D1AA1A727004D1649 /* ico0_13.png in Resources */ = {isa = PBXBuildFile; fileRef = 187FDD281AA1A727004D1649 /* ico0_13.png */; };
-		18847BA01A81BBDA0051BE0E /* aps_development-4.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18847B9E1A81BBDA0051BE0E /* aps_development-4.cer */; };
-		18847BA11A81BBDA0051BE0E /* aps_production-5.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18847B9F1A81BBDA0051BE0E /* aps_production-5.cer */; };
 		18A5F22B1A132A9900004A76 /* 航贸网logo29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2221A132A9900004A76 /* 航贸网logo29x29.png */; };
 		18A5F22C1A132A9900004A76 /* 航贸网logo40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2231A132A9900004A76 /* 航贸网logo40x40.png */; };
 		18A5F22D1A132A9900004A76 /* 航贸网logo58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A5F2241A132A9900004A76 /* 航贸网logo58x58.png */; };
@@ -143,8 +140,6 @@
 		182CFC291A787B7200999282 /* DeviceBindingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceBindingTableViewController.h; sourceTree = "<group>"; };
 		182CFC2A1A787B7200999282 /* DeviceBindingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceBindingTableViewController.m; sourceTree = "<group>"; };
 		186982601A134DE40095FAD4 /* 航贸网登录新x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "航贸网登录新x.jpg"; sourceTree = "<group>"; };
-		1869CFF51A7A1B3F00766F67 /* updateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updateViewController.h; sourceTree = "<group>"; };
-		1869CFF61A7A1B3F00766F67 /* updateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = updateViewController.m; sourceTree = "<group>"; };
 		1869CFF81A7B1A0400766F67 /* 启动页3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页3.png"; sourceTree = "<group>"; };
 		1869CFFA1A7B297A00766F67 /* 查询.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "查询.png"; sourceTree = "<group>"; };
 		1871C35B1A0F498C00A9C265 /* 航贸网.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "航贸网.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,8 +212,6 @@
 		187FDD261AA1A727004D1649 /* ico0_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico0_09.png; sourceTree = "<group>"; };
 		187FDD271AA1A727004D1649 /* ico0_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico0_10.png; sourceTree = "<group>"; };
 		187FDD281AA1A727004D1649 /* ico0_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico0_13.png; sourceTree = "<group>"; };
-		18847B9E1A81BBDA0051BE0E /* aps_development-4.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "aps_development-4.cer"; sourceTree = "<group>"; };
-		18847B9F1A81BBDA0051BE0E /* aps_production-5.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "aps_production-5.cer"; sourceTree = "<group>"; };
 		18A5F2221A132A9900004A76 /* 航贸网logo29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo29x29.png"; sourceTree = "<group>"; };
 		18A5F2231A132A9900004A76 /* 航贸网logo40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo40x40.png"; sourceTree = "<group>"; };
 		18A5F2241A132A9900004A76 /* 航贸网logo58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "航贸网logo58x58.png"; sourceTree = "<group>"; };
@@ -353,7 +346,6 @@
 		1871C35D1A0F498C00A9C265 /* 航贸网 */ = {
 			isa = PBXGroup;
 			children = (
-				18847B9D1A81BBDA0051BE0E /* APNs */,
 				1877B96E1A5E2313000A7131 /* Main */,
 				182CFC0D1A75D7F500999282 /* resource */,
 				1871C35E1A0F498C00A9C265 /* Supporting Files */,
@@ -553,15 +545,6 @@
 			name = FunctionList;
 			sourceTree = "<group>";
 		};
-		18847B9D1A81BBDA0051BE0E /* APNs */ = {
-			isa = PBXGroup;
-			children = (
-				18847B9E1A81BBDA0051BE0E /* aps_development-4.cer */,
-				18847B9F1A81BBDA0051BE0E /* aps_production-5.cer */,
-			);
-			path = APNs;
-			sourceTree = SOURCE_ROOT;
-		};
 		18BAE8C71A72378800D9EF66 /* index */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,8 +567,6 @@
 				18F4604B1A5A2EB600C78274 /* LoginViewController.m */,
 				182CFC291A787B7200999282 /* DeviceBindingTableViewController.h */,
 				182CFC2A1A787B7200999282 /* DeviceBindingTableViewController.m */,
-				1869CFF51A7A1B3F00766F67 /* updateViewController.h */,
-				1869CFF61A7A1B3F00766F67 /* updateViewController.m */,
 				18D1F3BD1A8628BA00B6C05F /* changePasswordViewController.h */,
 				18D1F3BE1A8628BA00B6C05F /* changePasswordViewController.m */,
 				182735A41A899DF600908202 /* changeInfoViewController.h */,
@@ -691,9 +672,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1871C35A1A0F498C00A9C265 /* iLygport */ = {
+		1871C35A1A0F498C00A9C265 /* hmw */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1871C3811A0F498C00A9C265 /* Build configuration list for PBXNativeTarget "iLygport" */;
+			buildConfigurationList = 1871C3811A0F498C00A9C265 /* Build configuration list for PBXNativeTarget "hmw" */;
 			buildPhases = (
 				1871C3571A0F498C00A9C265 /* Sources */,
 				1871C3581A0F498C00A9C265 /* Frameworks */,
@@ -703,7 +684,7 @@
 			);
 			dependencies = (
 			);
-			name = iLygport;
+			name = hmw;
 			productName = "航贸网";
 			productReference = 1871C35B1A0F498C00A9C265 /* 航贸网.app */;
 			productType = "com.apple.product-type.application";
@@ -723,7 +704,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1871C3561A0F498C00A9C265 /* Build configuration list for PBXProject "iLygport" */;
+			buildConfigurationList = 1871C3561A0F498C00A9C265 /* Build configuration list for PBXProject "hmw" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -736,7 +717,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1871C35A1A0F498C00A9C265 /* iLygport */,
+				1871C35A1A0F498C00A9C265 /* hmw */,
 			);
 		};
 /* End PBXProject section */
@@ -775,13 +756,11 @@
 				1871C39B1A104DF600A9C265 /* 航贸网登录1.png in Resources */,
 				182CFC241A78764400999282 /* 设置.png in Resources */,
 				18A5F22D1A132A9900004A76 /* 航贸网logo58x58.png in Resources */,
-				18847BA11A81BBDA0051BE0E /* aps_production-5.cer in Resources */,
 				1869CFFB1A7B297A00766F67 /* 查询.png in Resources */,
 				1871C3901A10476900A9C265 /* 航贸网登录密码1.png in Resources */,
 				187FDD211AA1921B004D1649 /* cx_09.png in Resources */,
 				1871C3951A10480F00A9C265 /* 航贸网登录用户名(1).png in Resources */,
 				1876AD971A7084A70011750F /* whiteArrow@2x.png in Resources */,
-				18847BA01A81BBDA0051BE0E /* aps_development-4.cer in Resources */,
 				18A5F2331A132A9900004A76 /* 航贸网logo180x180.png in Resources */,
 				187FDD1F1AA1921B004D1649 /* cx_03.png in Resources */,
 				1876AD931A7084A70011750F /* blueArrow@2x.png in Resources */,
@@ -866,7 +845,6 @@
 				187FDD031AA011AE004D1649 /* CDTableViewController.m in Sources */,
 				18F460491A5A2C4500C78274 /* soap.m in Sources */,
 				1871C3671A0F498C00A9C265 /* ___.xcdatamodeld in Sources */,
-				1869CFF71A7A1B3F00766F67 /* updateViewController.m in Sources */,
 				18FE106A1AAD29FC004E339B /* CompanyOnlyViewController.m in Sources */,
 				B328B2EF1ACA733100554FAC /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				187FDD0C1AA011CD004D1649 /* HYTableViewController.m in Sources */,
@@ -942,7 +920,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = iLygport;
+				PRODUCT_NAME = hmw;
 				PROVISIONING_PROFILE = "a8704887-b128-4ef3-b6a2-8c8117983672";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -980,7 +958,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = iLygport;
+				PRODUCT_NAME = hmw;
 				PROVISIONING_PROFILE = "a8704887-b128-4ef3-b6a2-8c8117983672";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1021,7 +999,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1871C3561A0F498C00A9C265 /* Build configuration list for PBXProject "iLygport" */ = {
+		1871C3561A0F498C00A9C265 /* Build configuration list for PBXProject "hmw" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1871C37F1A0F498C00A9C265 /* Debug */,
@@ -1030,7 +1008,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1871C3811A0F498C00A9C265 /* Build configuration list for PBXNativeTarget "iLygport" */ = {
+		1871C3811A0F498C00A9C265 /* Build configuration list for PBXNativeTarget "hmw" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1871C3821A0F498C00A9C265 /* Debug */,
