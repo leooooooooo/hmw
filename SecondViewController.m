@@ -20,7 +20,7 @@
 
 @end
 
-#define URL @"http://218.92.115.55/M_hmw/index.html"
+//#define URL @"http://218.92.115.55/M_hmw/index.html"
 
 @implementation SecondViewController
 
@@ -58,7 +58,13 @@
     NSString *a = request.mainDocumentURL.absoluteString;
     NSString *b=self.webView.request.mainDocumentURL.absoluteString;
     
-    if([a isEqual:b]|[a isEqualToString:URL])
+    //
+    //NSLog(request.URL.absoluteString);
+    if([[request.URL absoluteString]rangeOfString:@"More"].location!=NSNotFound && [[request.URL absoluteString]rangeOfString:@"info"].location!=NSNotFound)
+    {
+        return YES;
+    }
+    if([a isEqual:b])
     {
         return YES;
     }
@@ -78,6 +84,8 @@
         [self.navigationController pushViewController:asd animated:YES];
         return NO;
     }
+    
+    
 }
 
 //-(CGFloat)getLastHeight
@@ -96,15 +104,15 @@
 
 //加载网页
 - (void)loadPage {
-    NSURL *url = [[NSURL alloc] initWithString:URL];
-    if (_qqq.mainDocumentURL) {
+    //NSURL *url = [[NSURL alloc] initWithString:URL];
+    //if (_qqq.mainDocumentURL) {
         [self.webView loadRequest:_qqq];
-    }
-    else
-    {
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-        [self.webView loadRequest:request];
-    }
+    //}
+    //else
+    //{
+    //    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    //    [self.webView loadRequest:request];
+    //}
 }
 
 #pragma mark - webview delegate

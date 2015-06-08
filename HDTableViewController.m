@@ -38,7 +38,7 @@
     NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"业务大委托无船作业",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"作业委托",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"车辆运输",@"name",@"ico0_03.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"汽车衡重码单",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"过磅委托查询",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物进港",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物出港",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic9 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"货物港内结存",@"name",@"ico0_03.png",@"type", @"D011", @"office",nil]autorelease];
@@ -236,7 +236,7 @@
 {
     CompanyOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"CompanyOnly"];
     asd.userID = self.userID;
-    asd.title = @"汽车衡量码单";
+    asd.title = @"过磅委托查询";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/VehicleBalance.html";
     [self.navigationController pushViewController:asd animated:YES];
 }

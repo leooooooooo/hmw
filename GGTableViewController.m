@@ -12,6 +12,7 @@
 #import "SwitchOnlyViewController.h"
 #import "CompanyOnlyViewController.h"
 #import "EmptyViewController.h"
+#import "InputOnlyViewController.h"
 
 @interface GGTableViewController ()
 
@@ -38,11 +39,11 @@
     NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"icon(1).png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
-    //NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"引航费用",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"磅单查询",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
     //NSDictionary *tDic8 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"高频费用",@"name",@"icon(1).png",@"type", @"D011", @"office",nil]autorelease];
     
     
-    self.teaArray = [[[NSArray alloc]initWithObjects:tDic3,tDic4,tDic5,tDic6, nil]autorelease];
+    self.teaArray = [[[NSArray alloc]initWithObjects:tDic3,tDic4,tDic5,tDic6,tDic7, nil]autorelease];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"公共应用";
@@ -164,6 +165,9 @@
             case 3:
                 [self xyybcbxxlb];
                 break;
+            case 4:
+                [self bdcx];
+                break;
             default:
                 break;
         }
@@ -239,6 +243,16 @@
     asd.userID = self.userID;
     asd.title = @"高频话费";
     asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/CommunicationFee.html";
+    [self.navigationController pushViewController:asd animated:YES];
+}
+
+-(void)bdcx
+{
+    InputOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"InputOnly"];
+    asd.userID = self.userID;
+    asd.title = @"磅单查询";
+    asd.inputLabelName = @"委托号";
+    asd.url =@"http://218.92.115.55/M_Hmw/Business/hdyy/WeightNote.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
 
