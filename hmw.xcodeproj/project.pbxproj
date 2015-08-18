@@ -126,6 +126,19 @@
 		B328B2FB1ACA8EDE00554FAC /* iocn1.png in Resources */ = {isa = PBXBuildFile; fileRef = B328B2F91ACA8EDE00554FAC /* iocn1.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B3B483D51B82CB360065CB3F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		180588651A885DC6001BB46B /* redbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbutton.png; sourceTree = "<group>"; };
 		182735A41A899DF600908202 /* changeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeInfoViewController.h; sourceTree = "<group>"; };
@@ -679,6 +692,7 @@
 				1871C3571A0F498C00A9C265 /* Sources */,
 				1871C3581A0F498C00A9C265 /* Frameworks */,
 				1871C3591A0F498C00A9C265 /* Resources */,
+				B3B483D51B82CB360065CB3F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -695,7 +709,7 @@
 		1871C3531A0F498C00A9C265 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = leo;
 				TargetAttributes = {
 					1871C35A1A0F498C00A9C265 = {
@@ -970,14 +984,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "航贸网/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/KeyChain-gvdolqpgiadvkzgfabcollikydlv/Build/Products/Release-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/KeyChain-gvdolqpgiadvkzgfabcollikydlv/Build/Products/Release-iphonesimulator",
+				);
 				PRODUCT_NAME = "航贸网";
 				PROVISIONING_PROFILE = "81e9fe06-bdcf-4043-9bfa-828223aa01c2";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 			};
 			name = Debug;
 		};
@@ -985,14 +1011,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lianyungang Port Group Communications and Information Engineering Company";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "航贸网/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/KeyChain-gvdolqpgiadvkzgfabcollikydlv/Build/Products/Release-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/KeyChain-gvdolqpgiadvkzgfabcollikydlv/Build/Products/Release-iphonesimulator",
+				);
 				PRODUCT_NAME = "航贸网";
 				PROVISIONING_PROFILE = "81e9fe06-bdcf-4043-9bfa-828223aa01c2";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 			};
 			name = Release;
 		};

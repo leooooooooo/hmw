@@ -30,8 +30,6 @@
 @implementation IndexViewController
 
 - (void)viewDidLoad{
-
-    
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self GetUpdateInfo];
     /*

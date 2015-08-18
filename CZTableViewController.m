@@ -45,7 +45,7 @@
     self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7, nil]autorelease];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.title = @"货运应用";
+    self.navigationItem.title = @"车主应用";
     
     
     // Uncomment the following line to preserve selection between presentations.

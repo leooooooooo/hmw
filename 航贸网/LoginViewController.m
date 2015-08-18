@@ -33,16 +33,6 @@
 
 @implementation LoginViewController
 
--(NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait; //UIInterfaceOrientationMaskAll
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
