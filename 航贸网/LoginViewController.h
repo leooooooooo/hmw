@@ -15,8 +15,7 @@
     NSString *ServiceMobileApplication;
     NSString *soapmsg1,*soapmsg2;
     NSMutableString *soapmsg;
-    KeychainItemWrapper *wrapper;
-    KeychainItemWrapper *status;
+    NSUserDefaults *KeyChain;
     KeychainItemWrapper *info;
     KeychainItemWrapper *isbinding;
 }

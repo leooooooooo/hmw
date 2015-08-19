@@ -30,15 +30,9 @@
 @implementation IndexViewController
 
 - (void)viewDidLoad{
+    
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self GetUpdateInfo];
-    /*
-    CustomURLCache *urlCache = [[CustomURLCache alloc] initWithMemoryCapacity:0.1 * 1024 * 1024
-                                                                 diskCapacity:0.1 * 1024 * 1024
-                                                                     diskPath:nil
-                                                                    cacheTime:0];
-    [CustomURLCache setSharedURLCache:urlCache];
-    */
 
     if (_refreshHeaderView == nil) {
         _refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, 0-self.webView.scrollView.bounds.size.height, self.webView.scrollView.frame.size.width, self.webView.scrollView.bounds.size.height)];

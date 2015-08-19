@@ -126,19 +126,6 @@
 		B328B2FB1ACA8EDE00554FAC /* iocn1.png in Resources */ = {isa = PBXBuildFile; fileRef = B328B2F91ACA8EDE00554FAC /* iocn1.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B3B483D51B82CB360065CB3F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		180588651A885DC6001BB46B /* redbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbutton.png; sourceTree = "<group>"; };
 		182735A41A899DF600908202 /* changeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeInfoViewController.h; sourceTree = "<group>"; };
@@ -692,7 +679,6 @@
 				1871C3571A0F498C00A9C265 /* Sources */,
 				1871C3581A0F498C00A9C265 /* Frameworks */,
 				1871C3591A0F498C00A9C265 /* Resources */,
-				B3B483D51B82CB360065CB3F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -991,6 +977,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/test-aiwmlfrssgkqalfbecphmuoohzxn/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/test-aiwmlfrssgkqalfbecphmuoohzxn/Build/Products/Release-iphoneos",
 				);
 				INFOPLIST_FILE = "航贸网/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -1018,6 +1006,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/test-aiwmlfrssgkqalfbecphmuoohzxn/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/test-aiwmlfrssgkqalfbecphmuoohzxn/Build/Products/Release-iphoneos",
 				);
 				INFOPLIST_FILE = "航贸网/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -1028,6 +1018,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/KeyChain-gvdolqpgiadvkzgfabcollikydlv/Build/Products/Release-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/KeyChain-gvdolqpgiadvkzgfabcollikydlv/Build/Products/Release-iphonesimulator",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "航贸网";
 				PROVISIONING_PROFILE = "81e9fe06-bdcf-4043-9bfa-828223aa01c2";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";

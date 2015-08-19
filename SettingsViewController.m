@@ -274,12 +274,8 @@
     }
     else
     {
-    status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
-    info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
-    userid = [info objectForKey:(id)kSecAttrAccount];
-    [status setObject:@"0" forKey:(id)kSecValueData];
-    [info setObject:@"0" forKey:(id)kSecAttrAccount];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"注销成功！" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [[NSUserDefaults standardUserDefaults] setBool:self.autologinswitch.isOn forKey:@"AutoLogin"];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"注销成功！" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
     [self performSegueWithIdentifier:@"logout" sender:self];
     }
