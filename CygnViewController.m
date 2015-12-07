@@ -13,7 +13,7 @@
 //#import "CustomURLCache.h"
 #import "MBProgressHUD.h"
 #import "Header.h"
-#import "SVProgressHUD.h"
+#import <Leo/Leo.h>
 
 
 @interface CygnViewController ()
@@ -122,7 +122,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     _reloading = YES;
-    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
+    [HUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
     
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -145,7 +145,7 @@
     //[customLab release];
 
     _qqq=nil;
-    [SVProgressHUD dismiss];
+    [HUD dismiss];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"load page error:%@", [error description]);

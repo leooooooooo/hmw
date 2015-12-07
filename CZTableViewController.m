@@ -13,9 +13,25 @@
 #import "CompanyOnlyViewController.h"
 #import "EmptyViewController.h"
 #import "InputOnlyViewController.h"
+#import "Code_2DViewController.h"
+#import "ListTableViewController.h"
+#import "OldListTableViewController.h"
+#import "PortCardFunctionListTableViewController.h"
+#import <Leo/Leo.h>
+@import Leo.Scan2DCodeViewController;
+@import Leo.Navigation;
+@import Leo.Web;
+@import Leo.Post;
+@import Leo.Table;
 
-@interface CZTableViewController ()
+//#import "Scan2DCodeViewController.h"
 
+@interface CZTableViewController ()<Scan2DCodeDelegate>
+@property (nonatomic,retain)Scan2DCodeViewController *Scan2DCode;
+@property(nonatomic,strong)NSString *CardNo;
+@property int whichScan;
+@property(nonatomic,strong)NSDictionary *CardInfo;
+@property (nonatomic,retain)UIBarButtonItem *Info;
 @end
 
 @implementation CZTableViewController
@@ -23,36 +39,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
-    self.userID =[info objectForKey:(id)kSecAttrAccount];
+    [Navigation NavigationConifigInitialize:self setNavigationBackArrowColor:NavigationBackArrowColor setNavigationBarColor:NavigationBarColor setNavigationTitleColor:NavigationTitleColor];
     
-    UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]autorelease];
-    [self.navigationItem setBackBarButtonItem:backButton];
-    [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
-    [self.navigationController.navigationBar setBarTintColor:NavigationBarColor];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:NavigationTitleColor forKey:NSForegroundColorAttributeName];
-    self.navigationController.navigationBar.titleTextAttributes=dict;
+
+    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"当前电子提送货单",@"name",@"ico0_10.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"历史电子提送货单",@"name",@"ico0_10.png",@"type", @"D011", @"office",nil]autorelease];
+
     
-    NSDictionary *tDic1 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"网上申报未导入车队车辆",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic2 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已导入车队车辆",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic3 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"确报船舶",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"锚地船舶",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"泊位船舶",@"name",@"ico0_13.png",@"type", @"C406", @"office",nil]autorelease];
-    NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已做计划船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
-    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"需要移泊船舶信息列表",@"name",@"ico0_13.png",@"type", @"D011", @"office",nil]autorelease];
-    
-    
-    self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7, nil]autorelease];
+    self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,nil]autorelease];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.title = @"车主应用";
+    self.navigationItem.title = @"司机应用";
     
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *scan = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"simple2D.png"] style:UIBarButtonItemStylePlain target:self action:@selector(scan)];
+    _Info = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(CardBaseInfo)];
+    NSArray *bar = [[NSArray alloc]initWithObjects:scan,_Info, nil];
+    [self.navigationItem setRightBarButtonItems:bar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,22 +74,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 7;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell =[self customCellByXib:tableView withIndexPath:indexPath];
-    
-    //通过nib自定义cell
-    //cell = [self customCellByXib:tableView withIndexPath:indexPath];
-    
-    
-    //default:assert(cell !=nil);
-    //break;
-    
-    
-    
-    return cell;
+    return self.teaArray.count;
 }
 
 
@@ -97,7 +85,8 @@
 }
 
 //通过nib文件自定义cell
--(UITableViewCell *)customCellByXib:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath{
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *customXibCellIdentifier = @"CustomXibCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customXibCellIdentifier];
     if(cell == nil){
@@ -143,111 +132,124 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
-    if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
-    {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }
-    else
-    {
     switch (indexPath.row) {
         case 0:
-            [self VehicleDeclaration];
+            [self DeliveryNoteList];
             break;
         case 1:
-            [self VehicleRegistration];
-            break;
-        case 2:
-            [self IndeedShip];
-            break;
-        case 3:
-            [self AnchorShip];
-            break;
-        case 4:
-            [self BerthShip];
-            break;
-        case 5:
-            [self PlanedShip];
-            break;
-        case 6:
-            [self MoveShip];
+            [self OldDeliveryNoteList];
             break;
         default:
             break;
+        }
+    
+}
+
+//当前电子提送货单
+-(void)DeliveryNoteList
+{
+    ListTableViewController *list = [[ListTableViewController alloc]init];
+    [self.navigationController pushViewController:list animated:YES];
+}
+
+//历史电子提送货单
+-(void)OldDeliveryNoteList
+{
+    OldListTableViewController *list = [[OldListTableViewController alloc]init];
+    [self.navigationController pushViewController:list animated:YES];
+}
+
+
+-(void)scan
+{
+    self.Scan2DCode = [[Scan2DCodeViewController alloc]init];
+    self.Scan2DCode.Scan2DCodeDelegate = self;
+    self.Scan2DCode.tip = @"请将摄像头对二维码扫描";
+    UIButton *back = [[UIButton alloc]initWithFrame:CGRectMake(10, 20, 50, 20)];
+    [back setTitle:@"取消" forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self.Scan2DCode.view addSubview:back];
+    [self presentViewController:self.Scan2DCode animated:YES completion:nil];
+}
+
+-(void)back
+{
+    [self.Scan2DCode dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)Paser2DCode:(NSString *)Paser
+{
+    NSLog(Paser,nil);
+    [self back];
+    
+    if([Paser rangeOfString:@"CardTask"].location!=NSNotFound)
+    {
+        NSArray *sp = [Paser componentsSeparatedByString:@"="];
+        _CardNo = [sp objectAtIndex:1];
+        NSLog(@"%@",_CardNo);
+        //[_Info setTitle:[NSString stringWithFormat:@"港通卡：%d",_CardNo]];
+        PortCardFunctionListTableViewController *port = [[PortCardFunctionListTableViewController alloc]initWithStyle:UITableViewStyleGrouped];
+        [self.navigationController pushViewController:port animated:YES];
+        
     }
+    else if([Paser rangeOfString:@"inGateNo"].location!=NSNotFound)
+    {
+        NSArray *sp = [Paser componentsSeparatedByString:@"inGateNo="];
+        
+        NSString *EncryptWord =[sp objectAtIndex:1];
+        
+        
+        NSURL *url = [NSURL URLWithString:@"http://boea.cn/MobilePlatform/Encryption/Des_Decrypt.aspx"];
+        //2建立请求NSMutableURLRequest（post需要用这个）
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        //网络访问超时时间
+        [request setTimeoutInterval:20.0f];
+        //1)post请求方式,网络请求默认是get方法，所以如果我们用post请求，必须声明请求方式。
+        [request setHTTPMethod:@"POST"];
+        //2)post请求的数据体,post请求中数据体时，如果有中文，不需要转换。因为ataUsingEncoding方法已经实现了转码。
+        //NSString *bodyStr = [NSString stringWithFormat:@"username=%@&password=%@", self.ID.text, self.PW.text];
+        //将nstring转换成nsdata
+        NSData *body = [[NSString stringWithFormat:@"Key=gljsy&Value=%@",EncryptWord] dataUsingEncoding:NSUTF8StringEncoding];
+        //NSLog(@"body data %@", body);
+        [request setHTTPBody:body];
+        
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
+        _CardNo =[[NSString alloc]initWithData:response encoding:NSUTF8StringEncoding];
+        
+        
+        //_CardNo = EncryptWord;
+        
+        NSLog(@"%@",_CardNo);
+        
+        _CardInfo = [Post getSynchronousRequestDataJSONSerializationWithURL:@"http://218.92.115.55/M_Hmw/business/hyyy/GetVehAttestByNGATENO.aspx" withHTTPBody:[NSString stringWithFormat:@"inGateNo=%@",_CardNo]];
+        
+        Code_2DViewController *vc = [[Code_2DViewController alloc]init];
+        vc.title = @"电子提送货单";
+        vc.data = _CardInfo;
+        vc.inGateNo =[NSString stringWithFormat:@"inGateNo=%@",_CardNo];
+        dispatch_async(dispatch_get_main_queue(), ^{
+                   [self.navigationController pushViewController:vc animated:YES];
+        });
+
+
     }
+    else
+    {
+        UIViewController *vc = [Web BaseWeb:Paser];
+        [self.navigationController pushViewController:vc animated:YES] ;
+    }
+    
 }
 
-
--(void)VehicleDeclaration
+-(void)CODE2D
 {
-    InputOnlyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"InputOnly"];
-    asd.userID = self.userID;
-    asd.inputLabelName=@"车牌号";
-    asd.title = @"网上申报未导入车队车辆";
-    asd.url =@"http://218.92.115.55/M_Hmw/Business/hyyy/VehicleDeclaration.html";
-    [self.navigationController pushViewController:asd animated:YES];
-}
 
--(void)VehicleRegistration
-{
-    InputOnlyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"InputOnly"];
-    asd.userID = self.userID;
-    asd.inputLabelName=@"车牌号";
-    asd.title = @"已导入车队车辆";
-    asd.url =@"http://218.92.115.55/M_Hmw/Business/hyyy/VehicleRegistration.html";
-    [self.navigationController pushViewController:asd animated:YES];
-}
-
--(void)IndeedShip
-{
-    EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
-    asd.userID = self.userID;
-    asd.title = @"确报船舶";
-    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/IndeedShip.html";
-    [self.navigationController pushViewController:asd animated:YES];
-}
-
--(void)AnchorShip
-{
-    EmptyViewController *asd =[self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
-    asd.userID = self.userID;
-    asd.title = @"锚地船舶";
-    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/AnchorShip.html";
-    [self.navigationController pushViewController:asd animated:YES];
-}
-
--(void)BerthShip
-{
-    EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
-    asd.userID = self.userID;
-    asd.title = @"泊位船舶";
-    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/BerthShip.html";
-    [self.navigationController pushViewController:asd animated:YES];
-}
-
--(void)PlanedShip
-{
-    EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
-    asd.userID = self.userID;
-    asd.title = @"已做计划船舶信息列表";
-    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/PlanedShip.html";
-    [self.navigationController pushViewController:asd animated:YES];
-}
-
--(void)MoveShip
-{
-    EmptyViewController *asd = [self.storyboard instantiateViewControllerWithIdentifier:@"Empty"];
-    asd.userID = self.userID;
-    asd.title = @"需要移泊船舶信息列表";
-    asd.url =@"http://218.92.115.55/M_Hmw/Business/cdyy/MoveShip.html";
-    [self.navigationController pushViewController:asd animated:YES];
 }
 
 
 
-
+#pragma 不用管的东西
 
 -(void)viewDidAppear:(BOOL)animated{
     [self hideTabBar];
@@ -288,59 +290,5 @@
     self.tabBarController.tabBar.hidden = NO;
     
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -13,9 +13,18 @@
 #import "CompanyOnlyViewController.h"
 #import "EmptyViewController.h"
 #import "InputOnlyViewController.h"
+#import "Code_2DViewController.h"
+#import <Leo/Leo.h>
+@import Leo.Scan2DCodeViewController;
+@import Leo.Navigation;
+@import Leo.Web;
+@import Leo.Post;
+@import Leo.Table;
 
-@interface HYTableViewController ()
-
+@interface HYTableViewController ()<Scan2DCodeDelegate>
+@property (nonatomic,retain)Scan2DCodeViewController *Scan2DCode;
+@property NSString *CardNo;
+@property int whichScan;
 @end
 
 @implementation HYTableViewController
@@ -39,10 +48,11 @@
     NSDictionary *tDic4 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"新陆桥公司作业计划",@"name",@"ico0_10.png",@"type", @"D011", @"office",nil]autorelease];
     NSDictionary *tDic5 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已放行运输列表",@"name",@"ico0_10.png",@"type", @"C406", @"office",nil]autorelease];
     NSDictionary *tDic6 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"已提交未放行运输列表",@"name",@"ico0_10.png",@"type", @"D011", @"office",nil]autorelease];
+    NSDictionary *tDic7 = [[[NSDictionary alloc]initWithObjectsAndKeys:@"电子提送货单",@"name",@"ico0_10.png",@"type", @"D011", @"office",nil]autorelease];
 
     
     
-    self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6, nil]autorelease];
+    self.teaArray = [[[NSArray alloc]initWithObjects:tDic1,tDic2,tDic3,tDic4,tDic5,tDic6,tDic7, nil]autorelease];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"货运应用";
@@ -71,7 +81,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 6;
+    return self.teaArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -145,6 +155,10 @@
     KeychainItemWrapper *info =[[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle]autorelease];
     if([[info objectForKey:(id)kSecAttrAccount] isEqualToString:@"0"]|[[info objectForKey:(id)kSecAttrAccount] isEqualToString:@""])
     {
+        if (indexPath.row==6) {
+            [self Code_2D];
+            return;
+        }
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"请先登录！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
@@ -168,6 +182,9 @@
             break;
         case 5:
             [self NoPassedTransportation];
+            break;
+        case 6:
+            [self Code_2D];
             break;
         default:
             break;
@@ -234,6 +251,103 @@
     asd.url =@"http://218.92.115.55/M_Hmw/Business/hyyy/NoPassedTransportation.html";
     [self.navigationController pushViewController:asd animated:YES];
 }
+
+-(void)Code_2D
+{
+    if (_CardNo) {
+        NSDictionary *CardInfo = [Post getSynchronousRequestDataJSONSerializationWithURL:@"http://218.92.115.55/M_Hmw/business/hyyy/GetVehAttestByNGATENO.aspx" withHTTPBody:[NSString stringWithFormat:@"inGateNo=%@",_CardNo]];
+        
+        Code_2DViewController *vc = [[Code_2DViewController alloc]init];
+        vc.title = @"基本信息";
+        vc.data = CardInfo;
+        vc.inGateNo =[NSString stringWithFormat:@"inGateNo=%@",_CardNo];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        _whichScan = 1;
+        [self scan];
+    }
+}
+
+-(void)ScanButton
+{
+    _whichScan = 0;
+    [self scan];
+}
+
+-(void)scan
+{
+    self.Scan2DCode = [[Scan2DCodeViewController alloc]init];
+    self.Scan2DCode.Scan2DCodeDelegate = self;
+    self.Scan2DCode.tip = @"请将摄像头对准港通卡上二维码扫描";
+    UIButton *back = [[UIButton alloc]initWithFrame:CGRectMake(10, 20, 50, 20)];
+    [back setTitle:@"取消" forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self.Scan2DCode.view addSubview:back];
+    [self presentViewController:self.Scan2DCode animated:YES completion:nil];
+}
+
+-(void)back
+{
+    [self.Scan2DCode dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)Paser2DCode:(NSString *)Paser
+{
+    NSLog(Paser,nil);
+    [self back];
+    
+    if([Paser rangeOfString:@"inGateNo"].location!=NSNotFound)
+    {
+        NSArray *sp = [Paser componentsSeparatedByString:@"inGateNo="];
+
+        NSString *EncryptWord =[sp objectAtIndex:1];
+
+        
+        NSURL *url = [NSURL URLWithString:@"http://boea.cn/MobilePlatform/Encryption/Des_Decrypt.aspx"];
+        //2建立请求NSMutableURLRequest（post需要用这个）
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        //网络访问超时时间
+        [request setTimeoutInterval:20.0f];
+        //1)post请求方式,网络请求默认是get方法，所以如果我们用post请求，必须声明请求方式。
+        [request setHTTPMethod:@"POST"];
+        //2)post请求的数据体,post请求中数据体时，如果有中文，不需要转换。因为ataUsingEncoding方法已经实现了转码。
+        //NSString *bodyStr = [NSString stringWithFormat:@"username=%@&password=%@", self.ID.text, self.PW.text];
+        //将nstring转换成nsdata
+        NSData *body = [[NSString stringWithFormat:@"Key=gljsy&Value=%@",EncryptWord] dataUsingEncoding:NSUTF8StringEncoding];
+        //NSLog(@"body data %@", body);
+        [request setHTTPBody:body];
+        
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
+        _CardNo =[[NSString alloc]initWithData:response encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"%@",_CardNo);
+        [self endScan];
+    }
+    else
+    {
+        UIViewController *vc = [Web BaseWeb:Paser];
+        [self.navigationController pushViewController:vc animated:YES] ;
+    }
+}
+
+
+-(void)endScan
+{
+    switch (_whichScan) {
+        case 1:
+            [self Code_2D];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+
 
 
 -(void)viewDidAppear:(BOOL)animated{

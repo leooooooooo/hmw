@@ -274,7 +274,7 @@
     }
     else
     {
-    [[NSUserDefaults standardUserDefaults] setBool:self.autologinswitch.isOn forKey:@"AutoLogin"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"AutoLogin"];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"注销成功！" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
     [self performSegueWithIdentifier:@"logout" sender:self];

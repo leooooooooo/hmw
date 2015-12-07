@@ -7,9 +7,8 @@
 //
 
 #import "SwitchOnlyViewController.h"
-#import "SVProgressHUD.h"
 #import "SecondViewController.h"
-
+#import <Leo/Leo.h>
 @interface SwitchOnlyViewController ()
 
 @end
@@ -106,10 +105,10 @@
 }
 #pragma mark - webview delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
+    [HUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [SVProgressHUD dismiss];
+    [HUD dismiss];
 }
 
 /*

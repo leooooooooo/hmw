@@ -7,7 +7,7 @@
 //
 
 #import "InputOnlyViewController.h"
-#import "SVProgressHUD.h"
+#import <Leo/Leo.h>
 #import <QuartzCore/QuartzCore.h>
 #import "SecondViewController.h"
 
@@ -111,10 +111,10 @@
 
 #pragma mark - webview delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
+    [HUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [SVProgressHUD dismiss];
+    [HUD dismiss];
 }
 
 /*

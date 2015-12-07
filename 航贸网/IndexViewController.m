@@ -17,7 +17,7 @@
 #import "MBProgressHUD.h"
 #import "Header.h"
 #import "AppDelegate.h"
-#import "SVProgressHUD.h"
+#import <Leo/Leo.h>
 
 @interface IndexViewController ()
 @property(retain,nonatomic)NSURLRequest *qqq;
@@ -30,6 +30,7 @@
 @implementation IndexViewController
 
 - (void)viewDidLoad{
+    
     
     [self.navigationController.navigationBar setTintColor:NavigationBackArrowColor];
     [self GetUpdateInfo];
@@ -130,7 +131,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     _reloading = YES;
-    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
+    [HUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeGradient];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -142,7 +143,7 @@
     self.navigationController.navigationBar.titleTextAttributes=dict;
     //self.navigationItem.titleView.backgroundColor=[UIColor whiteColor];
     _qqq=nil;
-    [SVProgressHUD dismiss];
+    [HUD dismiss];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"load page error:%@", [error description]);

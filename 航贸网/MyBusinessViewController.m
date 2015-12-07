@@ -9,6 +9,8 @@
 #import "MyBusinessViewController.h"
 #import "header.h"
 
+
+
 @interface MyBusinessViewController ()
 @end
 
@@ -31,9 +33,10 @@
     info =[[KeychainItemWrapper alloc] initWithIdentifier:@"info"accessGroup:Bundle];
     userid = [info objectForKey:(id)kSecAttrAccount];
     
-
-
 }
+
+
+
 
 -(void)viewDidAppear:(BOOL)animated
 {

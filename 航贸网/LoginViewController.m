@@ -55,9 +55,7 @@
     self.keepkeyswitch.on = NO;
     self.autologinswitch.on = NO;
     
-    wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Account Number"accessGroup:Bundle];
-    status =[[KeychainItemWrapper alloc] initWithIdentifier:@"status"accessGroup:Bundle];
-    
+        
 
     //从keychain里取出帐号密码状态
     KeyChain = [NSUserDefaults standardUserDefaults];
